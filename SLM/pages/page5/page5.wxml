@@ -1,2 +1,13 @@
 <!--pages/page5/page5.wxml-->
-<text>pages/page5/page5.wxml</text>
+<view class="search">
+  <view class="search_1">
+    <image></image>
+  <input type="text" placeholder="请输入食品名称"/>
+  </view>
+  
+</view>
+<view>
+  <view></view>
+  <view></view>
+</view>
+
