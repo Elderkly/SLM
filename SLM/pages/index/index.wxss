@@ -1,55 +1,8 @@
 /* pages/index/index.wxss */
-
-/* 最重要的 */
-/* #box {
-   display: flex;
-   border: 1px solid #000;
-   height: 500px;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-   flex-wrap: wrap;
-}
-.demo1{
-  width: 80px;
-  height: 50px;
-  background: #000;
-  margin: 10px;
-  text-align: center;
-  line-height: 50px;
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
-  border-radius: 5px;
-  position: relative;
-}
-.demo1 view{
-   width: 20px;
-   height: 15px;
-   background: red;
-   position: absolute;
-   right: 0;
-   top: 0;
-   font-size: 12px;
-   color: #fff;
-   line-height: 0;
-}
-view:first-child{
-  width: 100%;
-}
-image{
-  width: 200px;
-}
-.img2 {
-  width: 50px;
-} */
-
-#box{
-
-}
 .index-top{
   display: flex;
   padding: 15rpx;
+  align-items: center;
 }
 .index-top view:first-child{
   flex: 1;
@@ -57,51 +10,113 @@ image{
   align-items: center;
 }
 .index-top view:first-child text{
-  font-size: 36rpx;
+  font-size: 28rpx;
   font-weight: 500;
   color: #000;
 }
-.index-top view:first-child view{
-  width: 40rpx;
-  height: 40rpx;
-  background: red;
+.index-top view:first-child image{
+  width: 25rpx;
+  height: 25rpx;
   margin-left: 10rpx;
 }
-.index-top view:last-child{
-  width: 100rpx;
-  border: 1rpx solid #000;
+.index-top view:nth-child(2){
+  /* width: 80rpx; */
   text-align: center;
-  height: 50rpx;
-  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.index-top image:last-child{
+    width: 25rpx;
+    height: 25rpx;
+    margin-left: 5rpx;
 }
 .index-middle{
-  margin-top: 180rpx;
   display: flex;
   align-items: center;
   flex-direction: column;
+  background: #fff;
+  width: 90%;
+  margin: 150rpx auto 0;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  box-shadow: 0rpx 10rpx 6rpx rgba(188, 188, 188, 0.16);
+}
+.index-middle image{
+  width: 90%;
+  height: 500rpx;
+  border-radius: 8rpx;
 }
 .index-middle text{
-  margin-top: 50rpx;
-  font-size: 40rpx;
-  font-weight: bold;
+  margin-top: 20rpx;
+  font-size: 35rpx;
+  font-weight: 500;
+  /* margin-bottom: 10rpx; */
 }
 .index-botton{
   width: 80%;
-  height: 120rpx;
+  height: 100rpx;
   border-radius: 60rpx;
   background: #3d88f9;
   margin: auto;
-  margin-top: 80rpx;
   font-size: 40rpx;
   color: #fff;
   font-weight: bold;
   text-align: center;
-  line-height: 120rpx;
+  line-height: 100rpx;
+  position: absolute;
+  bottom: 80rpx;
+  left: 10%;
+  box-shadow: 0rpx 10rpx 6rpx rgba(188, 188, 188, 0.16);
 }
 .school{
   position: absolute;
-  border: 1rpx solid #000;
-  top: 80rpx;
-  left: 15rpx;
+  top: -200rpx;
+  transition: all .3s;
+  left: 0;
   background: #fff;
+  width: 320rpx;
+  padding: 15rpx;
+  box-shadow: 0rpx 10rpx 6rpx rgba(188, 188, 188, 0.16);
+  opacity: 0;
+}
+.school view{
+  font-size: 26rpx;
+  margin-bottom: 8rpx;
+}
+.showLog{
+  top: 60rpx;
+  opacity: 1;
+}
+.DiaLog{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgba(0,0,0,.5);
+  display: flex;
+}
+.DiaLogContent{
+  width: 100%;
+  height: 300rpx;
+  background: #fff;
+  padding: 15rpx;
+  box-sizing: border-box;
+}
+.DiaLogItems>text{
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.DiaLogItems>.scrolview{
+  margin-top: 10rpx;
+  height: 50rpx;
+  display: flex;
+  flex-direction: row;
+}
+.DiaLogItems>.scrolview view{
+  height: 40rpx;
+  width: 30rpx;
+  padding: 0 8rpx;
+  font-size: 20rpx;
+  background: #999;
 }

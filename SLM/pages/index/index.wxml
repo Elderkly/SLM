@@ -3,31 +3,40 @@
   <view class="index-top">
     <view bindtap="bindClick">
       <text>{{school}}</text>
-      <view></view>
+      <image src="../../assets/img/jiantou-b.png"/>
     </view>
     <view>筛选</view>
+    <image src="../../assets/img/shaixuan-b.png"/>
   </view>
   <view class="index-middle">
-    <image src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg"></image>
+    <image src="http://pic27.photophoto.cn/20130626/0042040252907940_b.jpg" mode="scaleToFill"></image>
     <text>麻辣香锅</text>
   </view>
   <view class="index-botton">
       开始
   </view>
-  <view class="school" wx:if="{{showLog}}">
+  <view class="school {{showLog ? 'showLog' : ''}}">
      <view 
         wx:for="{{baseData}}" 
         wx:for-index="index" 
         wx:for-item="item" 
+        wx:key="index"
         bindtap="changeSchool" 
         data-school="{{item.name}}"
      >
         {{item.name}}
     </view>
   </view>
-  <view
-    wx:for="{{baseData2}}"
-    wx:for-item="wxy"
-    wx:for-index='wxyIndex'
-  >{{wxyIndex}}</view>
+  <view class="DiaLog">
+      <view class="DiaLogContent">
+          <view class="DiaLogItems">
+             <text>饭堂</text>
+             <scroll-view scroll-x class="scrolview">
+                <view>一饭</view>
+                <view>二饭</view>
+                <view>广科南城校区</view>
+             </scroll-view>
+          </view>
+      </view>
+  </view>
 </view>
