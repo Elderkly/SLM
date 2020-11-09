@@ -1,27 +1,33 @@
 <!--pages/index/index.wxml-->
-
-<view>
-  <text>UserName</text>
-
+<view id="box">
+  <view class="index-top">
+    <view bindtap="bindClick">
+      <text>{{school}}</text>
+      <view></view>
+    </view>
+    <view>筛选</view>
+  </view>
+  <view class="index-middle">
+    <image src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg"></image>
+    <text>麻辣香锅</text>
+  </view>
+  <view class="index-botton">
+      开始
+  </view>
+  <view class="school" wx:if="{{showLog}}">
+     <view 
+        wx:for="{{baseData}}" 
+        wx:for-index="index" 
+        wx:for-item="item" 
+        bindtap="changeSchool" 
+        data-school="{{item.name}}"
+     >
+        {{item.name}}
+    </view>
+  </view>
+  <view
+    wx:for="{{baseData2}}"
+    wx:for-item="wxy"
+    wx:for-index='wxyIndex'
+  >{{wxyIndex}}</view>
 </view>
-
-<view>
-<text>我的记录</text>
-</view>
-<view>
-  <text>我的热量</text>
-
-</view>
-<view>
-  <text>我的计划</text>
-</view>
-<view>
-  <text>管理</text>
-</view>
-
-
-<view>
-  <text>文本标签</text>
-  <text>文本标签</text>
-</view>
-

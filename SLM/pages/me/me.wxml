@@ -1,2 +1,8 @@
 <!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<navigator url="/pages/page3/page3">Page3</navigator>
+<navigator url="/pages/page4/page4">Page4</navigator>
+<navigator url="/pages/page5/page5">Page5</navigator>
+<navigator url="/pages/page6/page6">Page6</navigator>
+<navigator url="/pages/page7/page7">Page7</navigator>
+<navigator url="/pages/page8/page8">Page8</navigator>
+<navigator url="/pages/page9/page9">Page9</navigator>

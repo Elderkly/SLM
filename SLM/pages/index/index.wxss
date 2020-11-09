@@ -1,1 +1,107 @@
 /* pages/index/index.wxss */
+
+/* 最重要的 */
+/* #box {
+   display: flex;
+   border: 1px solid #000;
+   height: 500px;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+}
+.demo1{
+  width: 80px;
+  height: 50px;
+  background: #000;
+  margin: 10px;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  position: relative;
+}
+.demo1 view{
+   width: 20px;
+   height: 15px;
+   background: red;
+   position: absolute;
+   right: 0;
+   top: 0;
+   font-size: 12px;
+   color: #fff;
+   line-height: 0;
+}
+view:first-child{
+  width: 100%;
+}
+image{
+  width: 200px;
+}
+.img2 {
+  width: 50px;
+} */
+
+#box{
+
+}
+.index-top{
+  display: flex;
+  padding: 15rpx;
+}
+.index-top view:first-child{
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.index-top view:first-child text{
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #000;
+}
+.index-top view:first-child view{
+  width: 40rpx;
+  height: 40rpx;
+  background: red;
+  margin-left: 10rpx;
+}
+.index-top view:last-child{
+  width: 100rpx;
+  border: 1rpx solid #000;
+  text-align: center;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.index-middle{
+  margin-top: 180rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.index-middle text{
+  margin-top: 50rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.index-botton{
+  width: 80%;
+  height: 120rpx;
+  border-radius: 60rpx;
+  background: #3d88f9;
+  margin: auto;
+  margin-top: 80rpx;
+  font-size: 40rpx;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  line-height: 120rpx;
+}
+.school{
+  position: absolute;
+  border: 1rpx solid #000;
+  top: 80rpx;
+  left: 15rpx;
+  background: #fff;
+}
