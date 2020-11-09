@@ -5,7 +5,62 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    baseData: [
+      {
+        name: '广科-松山湖校区',
+        ftNum:2,
+        foodNum:80,
+        time:"2020-11-07",
+        id: 1
+      },
+      {
+        name: '广科-南城校区',
+        ftNum:3,
+        foodNum:70,
+        time:"2020-11-07",
+        id: 2
+      },{
+        name: '广科-松山湖校区',
+        ftNum:2,
+        foodNum:80,
+        time:"2020-11-07",
+        id: 3
+      },{
+        name: '广科-松山湖校区',
+        ftNum:2,
+        foodNum:80,
+        time:"2020-11-07",
+        id: 4
+      },
+      {
+        name: '广科-松山湖校区',
+        ftNum:2,
+        foodNum:80,
+        time:"2020-11-07",
+        id: 4
+      },
+      {
+        name: '广科-松山湖校区',
+        ftNum:2,
+        foodNum:80,
+        time:"2020-11-07",
+        id: 4
+      },
+      {
+        name: '广科-松山湖校区',
+        ftNum:2,
+        foodNum:80,
+        time:"2020-11-07",
+        id: 4
+      },
+      {
+        name: '广科-松山湖校区',
+        ftNum:2,
+        foodNum:80,
+        time:"2020-11-07",
+        id: 4
+      },
+    ],
   },
 
   /**
