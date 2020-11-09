@@ -1,13 +1,22 @@
 <!--pages/page5/page5.wxml-->
 <view class="search">
   <view class="search_1">
-    <image></image>
-  <input type="text" placeholder="请输入食品名称"/>
+    <image src="../../assets/img/sousuo-b.png"></image>
+    <input type="text" placeholder="请输入食品名称"/>
   </view>
-  
 </view>
-<view>
-  <view></view>
-  <view></view>
+<view class="body">
+  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
+  <view class="body_1">五谷鱼粉-广科松山湖校区——2饭</view>
+  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
+  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
+  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
+  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
+  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
+  <view class="body_1">五谷鱼粉-广科松山湖校区——2饭</view>
+  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
+  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
+  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
+  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
 </view>
 
