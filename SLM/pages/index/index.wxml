@@ -1,2 +1,27 @@
 <!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+
+<view>
+  <text>UserName</text>
+
+</view>
+
+<view>
+<text>我的记录</text>
+</view>
+<view>
+  <text>我的热量</text>
+
+</view>
+<view>
+  <text>我的计划</text>
+</view>
+<view>
+  <text>管理</text>
+</view>
+
+
+<view>
+  <text>文本标签</text>
+  <text>文本标签</text>
+</view>
+
