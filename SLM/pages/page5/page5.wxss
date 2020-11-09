@@ -1,1 +1,46 @@
 /* pages/page5/page5.wxss */
+.search{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #cccccc;
+   height: 120rpx;
+
+}
+.search_1{
+   display: flex;
+   height: 55rpx;
+   width: 650rpx;
+   border: 1px solid #000;
+   background-color: #ffff;
+   border-radius: 10rpx;
+}
+
+.search image{
+   width:30rpx;
+   height: 30rpx;
+   margin:5px 10px 5px 10px;
+}
+
+.search input{
+    font-size: 25rpx;
+    height: 55rpx;
+    line-height: 55rpx;
+}
+
+.body{  
+  background-color: #ffff;
+    margin:20px 15px 0 15px;
+    background-color: #ffffff;
+}
+
+.body .body_1{
+   height: 100rpx;
+   border: 1px solid #000;
+   border-radius: 15rpx;
+   margin:15px 10px 0 10px;
+   line-height: 100rpx;
+   padding-left: 10px;
+}
+
+
