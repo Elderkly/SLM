@@ -93,30 +93,70 @@
   width: 100%;
   height: 100%;
   top: 0;
-  background: rgba(0,0,0,.5);
-  display: flex;
+  /* background: rgba(0,0,0,.5); */
+  z-index: -1;
+  opacity: 0;
 }
 .DiaLogContent{
   width: 100%;
-  height: 300rpx;
   background: #fff;
   padding: 15rpx;
   box-sizing: border-box;
+  padding-bottom: 20rpx;
+  margin-top: -500rpx;
+  transition: all .3s;
+  box-shadow: 0rpx 10rpx 6rpx rgba(188, 188, 188, 0.16);
 }
 .DiaLogItems>text{
   font-size: 32rpx;
   font-weight: 500;
 }
-.DiaLogItems>.scrolview{
-  margin-top: 10rpx;
-  height: 50rpx;
-  display: flex;
-  flex-direction: row;
+.DiaLogItems{
+  margin-bottom: 25rpx;
 }
-.DiaLogItems>.scrolview view{
+.scroll-view_H{
+  margin-top: 10rpx;
+  white-space: nowrap;
+}
+.scroll-view-item_H{
+  display: inline-block;
+  min-width: 50rpx;
   height: 40rpx;
-  width: 30rpx;
-  padding: 0 8rpx;
-  font-size: 20rpx;
-  background: #999;
+  padding: 0 15rpx;
+  font-size: 24rpx;
+  background-color: #eee;
+  border-radius: 8rpx;
+  text-align: center;
+  line-height: 40rpx;
+  margin-right: 15rpx;
+  transition: all .3s;
+}
+.action{
+  background-color: #3d88f9;
+  color: #fff;
+}
+.showDiaLogBox{
+  opacity: 1;
+  z-index: 10;
+}
+.showDiaLogContent{
+  margin-top: 0
+}
+.fixedView{
+  position: absolute;
+  right: 15rpx;
+  top: 15rpx;
+  display: flex;
+  align-items: center;
+}
+.fixedView view{
+  /* width: 80rpx; */
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+}
+.fixedView image{
+    width: 25rpx;
+    height: 25rpx;
+    margin-left: 5rpx;
 }
