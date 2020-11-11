@@ -9,7 +9,7 @@
     <image src="../../assets/img/shaixuan-b.png" />
   </view>
   <view class="index-middle">
-    <image src="http://pic27.photophoto.cn/20130626/0042040252907940_b.jpg" mode="scaleToFill"></image>
+    <image src='{{showImg}}' mode="scaleToFill"></image>
     <text>麻辣香锅</text>
   </view>
   <view class="index-botton">

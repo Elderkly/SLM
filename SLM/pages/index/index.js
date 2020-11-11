@@ -5,9 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+     // 显示学校选择框
      showLog: false,
+     // 显示大筛选框
      showDiaLog: false,
+     // 当前选择学校
      school: "广东科技学院-松山湖校区",
+     // 学校数据
      baseData: [
        {
          name: '广东科技学院-松山湖校区',
@@ -18,6 +22,7 @@ Page({
         id: 2
         },
      ],
+     // 筛选数据
      tagJson: [
         {
           title: '饭堂',
@@ -50,8 +55,13 @@ Page({
           ]
         }
      ],
+     // 筛选选中数据
      selectItems: [],
-     baseData2: [6,2,1,2,5,6,7,8]
+     // 菜品数据
+     MenuJson: [],
+     // 筛选index
+     selectIndex: -1,
+     showImg: null
   },
   bindClick: function() {
     this.setData({
@@ -84,8 +94,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      for(let i = 0; i < this.data.baseData2.length; i++) {
-        console.log(this.data.baseData2[i])
+      const menu = wx.$storage.getStorage("Menu")
+      // console.log(menu[0].img)
+      if (!!menu) {
+         this.setData({
+            menu,
+            showImg: menu[0].img
+         })
       }
   },
 
