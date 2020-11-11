@@ -1,2 +1,57 @@
 <!--pages/page9/page9.wxml-->
-<text>pages/page9/page9.wxml</text>
+<view id="box1">
+  <view class="index-top">
+    <view class="index-top1" wx:key="index" wx:for="{{baseData1}}" wx:for-index="index" wx:for-item="item">
+      <view>
+        <image class="top1-photo"
+          src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg">
+        </image>
+      </view>
+      <view>
+        <view class="top1-school">{{item.name}}</view>
+        <view class="top1-fantan">饭堂数量：{{item.ftNum}}</view>
+        <view class="top1-text">
+          <view class="top1-food">菜品：{{item.foodNum}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view id="box2">
+  <view class="top2-text1">
+    <view class="top2-fantan">一饭</view>
+    <view class="top2-dele">删除</view>
+  </view>
+  <view class="items" wx:key="index2" wx:for="{{baseData2}}" wx:for-index="index" wx:for-item="item">
+
+    <view class="top2-text2">
+      <image class="top2-photo"
+        src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg">
+      </image>
+      <view class="top2-text3">
+        <view class="top2-food">菜品名称：{{item.name}}</view>
+        <view class="top2-reLiang">卡路里：{{item.rlNum}}千卡</view>
+        <view class="top2-eat">
+          <label class="weui-cells weui-cells_after-title">
+            <checkbox value="cb" />早餐</label>
+          <label class="weui-cells weui-cells_after-title">
+            <checkbox value="cb" />午餐</label>
+          <label class="weui-cells weui-cells_after-title">
+            <checkbox value="cb" />晚餐</label>
+        </view>
+      </view>
+    </view>
+    <image src="../../assets/img/guanbi-b.png" />
+  </view>
+  <view class="index-botton2">
+            添加菜品
+      </view>
+</view>
+<view class="chose">
+  <view class="index-botton1">
+    添加饭堂
+  </view>
+  <view class="index-botton3">
+    删除院校
+  </view>
+</view>
