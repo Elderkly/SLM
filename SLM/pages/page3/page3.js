@@ -5,7 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    baseData:[
+            {
+              name: '麻辣烫',
+              reLiang:200,
+              time:"2020-11-07",
+              id: 1
+            },
+            {
+              name: '麻辣烫',
+              reLiang:200,
+              time:"2020-11-07",
+             id: 2
+             },
+             
+            {
+              name: '炒粉',
+              reLiang:300,
+              time:"2020-12-07",
+             id: 3
+             }
+             ,
+            {
+              name: '麻辣烫',
+              reLiang:200,
+              time:"2020-11-07",
+             id: 4
+             }
+          ],
   },
 
   /**

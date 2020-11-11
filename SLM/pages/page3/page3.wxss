@@ -1,1 +1,80 @@
 /* pages/page3/page3.wxss */
+/* .view_1{
+  border: 1rpx solid #000000;
+  height: 150rpx;
+  width:650rpx;
+  align-items: center;
+  position: relative;
+  border-radius: 5px;
+  margin: 10rpx;
+  margin-left: 50rpx;
+}
+.text_1 {
+  text-align: center;
+  left: 160rpx;
+   top: 40rpx;
+   display: flex;
+   font-size: 25px;
+   line-height: 0;
+   position: absolute;
+}
+.text_2 {
+  text-align: center;
+  left: 160rpx;
+   top: 110rpx;
+   display: flex;
+   font-size: 15px;
+   line-height: 0;
+   position: absolute;
+}
+.text_3 {
+  text-align: center;
+  right: 35rpx;
+   top: 120rpx;
+   display: flex;
+   font-size: 12px;
+   line-height: 0;
+   position: absolute;
+}
+.view_1 image{
+  width: 120rpx;
+  height: 110rpx;
+  padding: 20rpx;
+} */
+.view_1{
+  border: 1rpx solid #000000;
+  height: 150rpx;
+  width:150rpx;
+  align-items: center;
+  position: relative;
+  border-radius: 5px;
+  margin: 0 auto 10rpx;
+  display: flex;
+  padding: 0 15rpx;
+  box-sizing: border-box;
+  margin-top: rpx;
+}
+.view_1 image{
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+}
+.view_1>view{
+  flex: 1;
+}
+.text_1 {
+
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 15rpx;
+
+}
+.view_1>view>view{
+  display: flex;
+}
+.text_2 {
+  flex: 1;
+}
+.text_3 {
+
+}

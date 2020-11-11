@@ -1,2 +1,21 @@
 <!--pages/page4/page4.wxml-->
-<text>pages/page4/page4.wxml</text>
+
+  <view class='top' wx:for="{{baseData}}" wx:for-index="index" wx:for-item="item">
+    <text class='top_t'>食物信息</text>
+    <image
+    src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg">
+  </image>  
+      <view class='text'>
+        <text class='a'>食物名称:  {{item.name}}</text>
+        <text class='b'>卡路里:  {{item.reLiang}}</text>
+        <text class='c'>时间：        {{item.time}}</text>
+        <text class='d'>地点：广东科技学院-松山湖校区</text>
+       </view>
+    
+  </view>
+  <view class='btn_butt'>
+    <view class='btn'><text>修改</text></view>
+    <view class='btn'><text>删除</text></view>
+</view>
+
+  
