@@ -6,7 +6,7 @@
       <image src="../../assets/img/jiantou-b.png" />
     </view>
     <view bindtap="changeDiaLog">筛选</view>
-    <image src="../../assets/img/shaixuan-b.png" />
+    <image src="../../assets/img/shaixuan-b.png" bindtap="changeDiaLog"/>
   </view>
   <view class="index-middle">
     <image src='{{showImg}}' mode="scaleToFill"></image>
