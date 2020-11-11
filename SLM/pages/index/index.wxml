@@ -3,31 +3,49 @@
   <view class="index-top">
     <view bindtap="bindClick">
       <text>{{school}}</text>
-      <view></view>
+      <image src="../../assets/img/jiantou-b.png" />
     </view>
-    <view>筛选</view>
+    <view bindtap="changeDiaLog">筛选</view>
+    <image src="../../assets/img/shaixuan-b.png" />
   </view>
   <view class="index-middle">
-    <image src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg"></image>
+    <image src="http://pic27.photophoto.cn/20130626/0042040252907940_b.jpg" mode="scaleToFill"></image>
     <text>麻辣香锅</text>
   </view>
   <view class="index-botton">
-      开始
+    开始
   </view>
-  <view class="school" wx:if="{{showLog}}">
-     <view 
-        wx:for="{{baseData}}" 
-        wx:for-index="index" 
-        wx:for-item="item" 
-        bindtap="changeSchool" 
-        data-school="{{item.name}}"
-     >
-        {{item.name}}
+  <view class="school {{showLog ? 'showLog' : ''}}">
+    <view wx:for="{{baseData}}" wx:for-index="index" wx:for-item="item" wx:key="index" bindtap="changeSchool"
+      data-school="{{item.name}}">
+      {{item.name}}
     </view>
   </view>
-  <view
-    wx:for="{{baseData2}}"
-    wx:for-item="wxy"
-    wx:for-index='wxyIndex'
-  >{{wxyIndex}}</view>
+  <view class="DiaLog {{showDiaLog ? 'showDiaLogBox' : ''}}" bindtap="changeDiaLog">
+    <view class="DiaLogContent {{showDiaLog ? 'showDiaLogContent' : ''}}" catchtap="null">
+      <view 
+        class="DiaLogItems" 
+        wx:for="{{tagJson}}"
+        wx:for-item="items"
+        wx:for-index="itemsIndex"
+        wx:key="index"
+      >
+        <text>{{items.title}}</text>
+        <scroll-view class="scroll-view_H" scroll-x="true"style="width: 100%">
+          <view class="scroll-view-item_H {{listItems.name === selectItems[itemsIndex] ? 'action' : ''}}"
+            wx:for="{{items.list}}"
+            wx:for-item="listItems"
+            wx:key="index"
+            catchtap="taptag"
+            data-name="{{listItems.name}}"
+            data-box-index="{{itemsIndex}}"
+          >{{listItems.name}}</view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="fixedView" catchtap="changeDiaLog">
+      <view>筛选</view>
+      <image src="../../assets/img/shaixuan-b.png" />
+    </view>
+  </view>
 </view>

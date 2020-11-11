@@ -6,6 +6,7 @@ Page({
    */
   data: {
      showLog: false,
+     showDiaLog: false,
      school: "广东科技学院-松山湖校区",
      baseData: [
        {
@@ -17,6 +18,39 @@ Page({
         id: 2
         },
      ],
+     tagJson: [
+        {
+          title: '饭堂',
+          list: [
+            {name:'一饭',id: 1},
+            {name:'二饭',id: 2},
+            {name:'广科南城校区',id: 3},
+          ]
+        },
+        {
+          title: '种类',
+          list: [
+            {name:'面食',id: 1},
+            {name:'扒饭',id: 2},
+            {name:'汉堡薯条',id: 3},
+            {name:'甜品',id: 3},
+            {name:'香锅麻辣烫',id: 3},
+            {name:'快餐',id: 3},
+            {name:'快餐1',id: 3},
+            {name:'快餐2',id: 3},
+            {name:'快餐3',id: 3},
+            {name:'快餐4',id: 3},
+          ]
+        },
+        {
+          title: '热量',
+          list: [
+            {name:'低热量',id: 1},
+            {name:'高热量',id: 2},
+          ]
+        }
+     ],
+     selectItems: [],
      baseData2: [6,2,1,2,5,6,7,8]
   },
   bindClick: function() {
@@ -30,6 +64,21 @@ Page({
         school: event.currentTarget.dataset.school,
         showLog: false
       })
+  },
+  taptag: function(event) {
+    console.log(event.currentTarget.dataset)
+    const {boxIndex, name} = event.currentTarget.dataset
+    const {selectItems} = this.data
+    selectItems[boxIndex] = name
+    console.log(selectItems)
+    this.setData({
+        selectItems
+    })
+  },
+  changeDiaLog: function() {
+    this.setData({
+      showDiaLog: !this.data.showDiaLog
+    })
   },
   /**
    * 生命周期函数--监听页面加载
