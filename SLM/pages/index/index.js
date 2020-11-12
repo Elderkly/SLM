@@ -60,8 +60,11 @@ Page({
      // 菜品数据
      MenuJson: [],
      // 筛选index
-     selectIndex: -1,
-     showImg: null
+     selectIndex: 0,
+     // 开始抽
+     start: false,
+     // 步骤
+     status: 1
   },
   bindClick: function() {
     this.setData({
@@ -90,6 +93,43 @@ Page({
       showDiaLog: !this.data.showDiaLog
     })
   },
+  startRandom: function() {
+     const {start} = this.data
+     if (!start) {
+      this.setData({status: 1})
+        this.interVal = setInterval(() => {
+          const index = this.data.selectIndex + 1 === this.data.MenuJson.length ? 0 : this.data.selectIndex + 1
+          this.setData({
+            selectIndex: index
+          })
+          wx.vibrateShort({
+            type: 'heavy'
+          })
+          console.log(this.data.MenuJson[this.data.selectIndex])
+        },60)
+     } else {
+        clearInterval(this.interVal)
+        this.setData({status: 2})
+     }
+     this.setData({
+      start: !start
+     })
+  },
+  save: function() {
+    const Record = !!wx.$storage.getStorage('Record') ? wx.$storage.getStorage('Record') : []
+    const foodData = this.data.MenuJson[this.data.selectIndex]
+    foodData.time = new Date().getTime()
+    foodData.scroll = this.data.school
+    Record.unshift(foodData)
+    wx.$storage.setStorage('Record', JSON.stringify(Record))
+    console.log(wx.$storage.getStorage('Record'))
+    wx.showToast({
+      title: '保存成功'
+    })
+    this.setData({
+      status: 3
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -98,8 +138,7 @@ Page({
       // console.log(menu[0].img)
       if (!!menu) {
          this.setData({
-            menu,
-            showImg: menu[0].img
+            MenuJson: menu,
          })
       }
   },
@@ -122,7 +161,10 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    if (this.data.start) {
+      clearInterval(this.interVal)
+      this.setData({start: false, status: 2})
+    }
   },
 
   /**

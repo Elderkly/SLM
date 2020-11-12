@@ -67,7 +67,43 @@
   position: absolute;
   bottom: 80rpx;
   left: 10%;
+  transition: all .3s;
   box-shadow: 0rpx 10rpx 6rpx rgba(188, 188, 188, 0.16);
+}
+.success-button-box,.reset-button-box{
+  width: 80%;
+  height: 100rpx;
+  margin: auto;
+  position: absolute;
+  bottom: 80rpx;
+  left: 10%;
+  transition: all .3s;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+}
+.success-button-box view,.reset-button-box view{
+  flex: 1;
+  text-align: center;
+  line-height: 100rpx;
+  height: 100rpx;
+  border-radius: 60rpx;
+  font-size: 36rpx;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0rpx 10rpx 6rpx rgba(188, 188, 188, 0.16);
+}
+.reset-button-box view{
+  margin-right: 0;
+  background: #b49bff;
+}
+.success-button-box view:first-child{
+  background: #3d88f9;
+  margin-right: 20rpx;
+}
+.success-button-box view:last-child{
+  background: #999;
 }
 .school{
   position: absolute;
@@ -96,6 +132,7 @@
   /* background: rgba(0,0,0,.5); */
   z-index: -1;
   opacity: 0;
+  pointer-events:none
 }
 .DiaLogContent{
   width: 100%;
@@ -138,6 +175,7 @@
 .showDiaLogBox{
   opacity: 1;
   z-index: 10;
+  pointer-events:auto
 }
 .showDiaLogContent{
   margin-top: 0
@@ -159,4 +197,15 @@
     width: 25rpx;
     height: 25rpx;
     margin-left: 5rpx;
+}
+.pause-button{
+  background: #999;
+}
+.hiddenButton{
+  pointer-events: none;
+  opacity: 0;
+}
+.showButton{
+  pointer-events: auto;
+  opacity: 1;
 }

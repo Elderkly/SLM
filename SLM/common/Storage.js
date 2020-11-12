@@ -1,6 +1,12 @@
 import defaultData from "../assets/json/defaultData";
 /**
  *  公用缓存写入类
+ *  各缓存对应的key
+ *  CalInfo     用户卡路里
+ *  CanTeen     饭堂信息
+ *  Menu        菜品
+ *  SchoolJson  学校
+ *  Record      用户随机抽取食物记录
 */
 export default class Storage {
     /**
@@ -13,7 +19,7 @@ export default class Storage {
         try {
             const CalInfo = wx.getStorageSync('CalInfo')
             if (CalInfo) {
-                console.log('已经存在缓存',CalInfo)
+                // console.log('已经存在缓存',CalInfo)
             } else {
                 console.log('初始化')
                 const {calInfo,canteen,menu,schoolJson} = defaultData
