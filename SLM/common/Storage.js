@@ -1,12 +1,12 @@
 import defaultData from "../assets/json/defaultData";
 /**
  *  公用缓存写入类
- *  各缓存对应的key
- *  CalInfo     用户卡路里
- *  CanTeen     饭堂信息
- *  Menu        菜品
- *  SchoolJson  学校
- *  Record      用户随机抽取食物记录
+ *  各缓存对应的key:
+ *      CalInfo     用户卡路里
+ *      CanTeen     饭堂信息
+ *      Menu        菜品
+ *      SchoolJson  学校
+ *      Record      用户随机抽取食物记录
 */
 export default class Storage {
     /**
@@ -57,7 +57,6 @@ export default class Storage {
     */
    setStorage(key, value) {
        try{ 
-           console.log(key, value)
             wx.setStorageSync(key, value)
        } catch(e) {
            console.error('SetStorageError',key,value,e)
