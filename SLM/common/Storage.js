@@ -11,7 +11,7 @@ import defaultData from "../assets/json/defaultData";
 export default class Storage {
     /**
      * 缓存初始化
-     * 判断是否存在缓存 如果不存在缓存的话就将defaultData内的数据写入缓存
+     * 判断是否存在缓存 如果不存在缓存的话就将defaultData内的数据写入缓存   
      * @param null
      * @returns null
     */
