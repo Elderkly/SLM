@@ -1,0 +1,14 @@
+/* pages/page10/page10.wxss */
+.items{
+    width: 200rpx;
+    min-height: 200rpx;
+    border: 1rpx solid #000;
+}
+.items>text{
+    font-weight: bold;
+}
+.items > view{
+    width: 100rpx;
+    height: 50rpx;
+    background: #999;
+}

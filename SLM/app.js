@@ -1,4 +1,6 @@
 //app.js
+import Storage from "common/Storage.js";
+
 App({
   onLaunch: function () {
     //    
@@ -14,7 +16,8 @@ App({
     //     traceUser: true,
     //   })
     // }
-
+    wx.$storage = new Storage()
+    wx.$storage.init()
     this.globalData = {}
   }
 })

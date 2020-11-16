@@ -1,1 +1,78 @@
 /* pages/page7/page7.wxss */
+.one{
+  border: 1px solid #000;
+  margin-top: 30rpx;
+  height: 35px
+}
+.two{
+  margin-top:15rpx;
+  border: 1px solid #000;
+  height: 35px
+}
+.tree{
+  margin-top: 15rpx;
+  border: 1px solid #000;
+  height: 35px
+
+}
+.A{
+  margin-top: 25rpx;
+  height: 15px
+}
+.B{
+  margin-top: 25rpx;
+  height: 15px
+}
+.c{
+  margin-top: 25rpx;
+  height: 15px
+}
+.box{
+  padding: 0 15rpx;
+}
+.D{
+  margin-top: 35px;
+  font-size: 30rpx;
+  font-weight:bold;
+
+}
+  .E{
+
+   
+      font-size:30rpx;
+      color:gray;
+  }
+  
+  .F{
+    font-size: 60rpx;
+    color:rgb(83, 81, 81);
+    font-weight:bold;
+}
+
+.box02{
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.G{
+  margin-top: 20rpx;
+  font-size:26rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.bottom{
+  font-size: 50rpx;
+  background-color: rgb(215, 215, 215);
+  
+  box-shadow: 6rpx    6rpx    6rpx    6rpx   rgb(123, 117, 129);
+  margin: 100rpx auto;
+  text-align: center;
+  line-height: 160rpx;
+  height: 160rpx;
+  width: 550rpx;
+  border-radius:60rpx
+  
+  
+}

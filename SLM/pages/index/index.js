@@ -5,8 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+     // 显示学校选择框
      showLog: false,
+     // 显示大筛选框
+     showDiaLog: false,
+     // 当前选择学校
      school: "广东科技学院-松山湖校区",
+     // 学校数据
      baseData: [
        {
          name: '广东科技学院-松山湖校区',
@@ -17,7 +22,49 @@ Page({
         id: 2
         },
      ],
-     baseData2: [6,2,1,2,5,6,7,8]
+     // 筛选数据
+     tagJson: [
+        {
+          title: '饭堂',
+          list: [
+            {name:'一饭',id: 1},
+            {name:'二饭',id: 2},
+            {name:'广科南城校区',id: 3},
+          ]
+        },
+        {
+          title: '种类',
+          list: [
+            {name:'面食',id: 1},
+            {name:'扒饭',id: 2},
+            {name:'汉堡薯条',id: 3},
+            {name:'甜品',id: 3},
+            {name:'香锅麻辣烫',id: 3},
+            {name:'快餐',id: 3},
+            {name:'快餐1',id: 3},
+            {name:'快餐2',id: 3},
+            {name:'快餐3',id: 3},
+            {name:'快餐4',id: 3},
+          ]
+        },
+        {
+          title: '热量',
+          list: [
+            {name:'低热量',id: 1},
+            {name:'高热量',id: 2},
+          ]
+        }
+     ],
+     // 筛选选中数据
+     selectItems: [],
+     // 菜品数据
+     MenuJson: [],
+     // 筛选index
+     selectIndex: 0,
+     // 开始抽
+     start: false,
+     // 步骤
+     status: 1
   },
   bindClick: function() {
     this.setData({
@@ -31,12 +78,68 @@ Page({
         showLog: false
       })
   },
+  taptag: function(event) {
+    console.log(event.currentTarget.dataset)
+    const {boxIndex, name} = event.currentTarget.dataset
+    const {selectItems} = this.data
+    selectItems[boxIndex] = name
+    console.log(selectItems)
+    this.setData({
+        selectItems
+    })
+  },
+  changeDiaLog: function() {
+    this.setData({
+      showDiaLog: !this.data.showDiaLog
+    })
+  },
+  startRandom: function() {
+     const {start} = this.data
+     if (!start) {
+      this.setData({status: 1})
+        this.interVal = setInterval(() => {
+          const index = this.data.selectIndex + 1 === this.data.MenuJson.length ? 0 : this.data.selectIndex + 1
+          this.setData({
+            selectIndex: index
+          })
+          wx.vibrateShort({
+            type: 'heavy'
+          })
+          console.log(this.data.MenuJson[this.data.selectIndex])
+        },60)
+     } else {
+        clearInterval(this.interVal)
+        this.setData({status: 2})
+     }
+     this.setData({
+      start: !start
+     })
+  },
+  save: function() {
+    const Record = !!wx.$storage.getStorage('Record') ? wx.$storage.getStorage('Record') : []
+    const foodData = this.data.MenuJson[this.data.selectIndex]
+    foodData.time = new Date().getTime()
+    foodData.scroll = this.data.school
+    Record.unshift(foodData)
+    wx.$storage.setStorage('Record', JSON.stringify(Record))
+    console.log(wx.$storage.getStorage('Record'))
+    wx.showToast({
+      title: '保存成功'
+    })
+    this.setData({
+      status: 3
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      for(let i = 0; i < this.data.baseData2.length; i++) {
-        console.log(this.data.baseData2[i])
+      const menu = wx.$storage.getStorage("Menu")
+      // console.log(menu[0].img)
+      if (!!menu) {
+         this.setData({
+            MenuJson: menu,
+         })
       }
   },
 
@@ -58,7 +161,10 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    if (this.data.start) {
+      clearInterval(this.interVal)
+      this.setData({start: false, status: 2})
+    }
   },
 
   /**
