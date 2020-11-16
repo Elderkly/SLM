@@ -12,12 +12,14 @@ export default {
         {
             "schoolName": "广东科技学院-松山湖校区",
             "schoolID": "sc001",
-            "id": 1
+            "id": 1,
+            "time": "2020-11-15",
         },
         {
             "schoolName": "广东科技学院-南城校区",
             "schoolID": "sc002",
-            "id": 2
+            "id": 2,
+            "time": "2020-11-15",
         }
     ],
     //  饭堂信息
@@ -47,6 +49,7 @@ export default {
             "canteenID": "c0001",
             "canteenName": "一饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "http://s2.boohee.cn/house/upload_food/2020/7/1/mid_photo_url_big_photo_url_384c8d0b21e67c08aca5b12d3b3dc5db.jpg"
         },
         {
@@ -57,6 +60,7 @@ export default {
             "canteenID": "c0002",
             "canteenName": "二饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "http://s2.boohee.cn/house/upload_food/2020/7/1/mid_photo_url_big_photo_url_384c8d0b21e67c08aca5b12d3b3dc5db.jpg"
         },
         {
@@ -67,6 +71,7 @@ export default {
             "canteenID": "c0002",
             "canteenName": "二饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "http://s2.boohee.cn/house/upload_food/2019/10/22/small_photo_url_d2c211aa1095413deb3c66e8c87b02e3.jpg"
         },
         {
@@ -77,6 +82,7 @@ export default {
             "canteenID": "c0001",
             "canteenName": "一饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "http://s2.boohee.cn/house/upload_food/2019/10/22/small_photo_url_d2c211aa1095413deb3c66e8c87b02e3.jpg"
         },
         {
@@ -87,6 +93,7 @@ export default {
             "canteenID": "c0001",
             "canteenName": "一饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "http://s2.boohee.cn/house/upload_food/2019/10/24/mid_photo_url_9f7d749dd4258702dcfd9c92e559cc2b.jpg"
         },
         {
@@ -97,6 +104,7 @@ export default {
             "canteenID": "c0002",
             "canteenName": "二饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "http://s2.boohee.cn/house/upload_food/2019/10/24/mid_photo_url_9f7d749dd4258702dcfd9c92e559cc2b.jpg"
         },
         {
@@ -107,6 +115,7 @@ export default {
             "canteenID": "c0002",
             "canteenName": "二饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "http://s2.boohee.cn/house/upload_food/2009/6/8/233779_1244417068.jpg"
         },
         {
@@ -117,6 +126,7 @@ export default {
             "canteenID": "c0002",
             "canteenName": "二饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2677880910,1493871802&fm=26&gp=0.jpg"
         },
         {
@@ -126,6 +136,7 @@ export default {
             "foodCal": 400,
             "canteenID": "c0002",
             "canteenName": "二饭",
+            "schoolID": "sc001",
             "foodType": ["午餐","晚餐"],
             "img": "https://dss2.bdstatic.com/8_V1bjqh_Q23odCf/pacific/1890680911.jpg"
         },
@@ -137,6 +148,7 @@ export default {
             "canteenID": "c0002",
             "canteenName": "二饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "https://dss1.baidu.com/6OZ1bjeh1BF3odCf/it/u=993060097,2988233591&fm=77&src=1002"
         },
         {
@@ -147,6 +159,7 @@ export default {
             "canteenID": "c0002",
             "canteenName": "二饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "http://s2.boohee.cn/house/upload_food/2020/6/18/mid_photo_url_big_photo_url_2acab521dd41bab14a88ca2b7d1456a3.jpg"
         },
         {
@@ -157,6 +170,7 @@ export default {
             "canteenID": "c0002",
             "canteenName": "二饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1823187537,2774119337&fm=26&gp=0.jpg"
         },
         {
@@ -167,6 +181,7 @@ export default {
             "canteenID": "c0001",
             "canteenName": "一饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1823187537,2774119337&fm=26&gp=0.jpg"
         },
         {
@@ -177,6 +192,7 @@ export default {
             "canteenID": "c0001",
             "canteenName": "一饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2020975917,2772806341&fm=26&gp=0.jpg"
         },
         {
@@ -187,6 +203,7 @@ export default {
             "canteenID": "c0001",
             "canteenName": "一饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2283213005,2383240891&fm=26&gp=0.jpg"
         },
         {
@@ -197,6 +214,7 @@ export default {
             "canteenID": "c0001",
             "canteenName": "一饭",
             "foodType": ["午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2961657401,1164883760&fm=26&gp=0.jpg"
         },
         {
@@ -207,6 +225,7 @@ export default {
             "canteenID": "c0001",
             "canteenName": "一饭",
             "foodType": ["早餐","午餐","晚餐"],
+            "schoolID": "sc001",
             "img": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2514257278,1983004782&fm=26&gp=0.jpg"
         },
         {
@@ -217,6 +236,7 @@ export default {
             "canteenID": "c0001",
             "canteenName": "一饭",
             "foodType": ["早餐"],
+            "schoolID": "sc001",
             "img": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3769494409,3733323280&fm=26&gp=0.jpg"
         },
         {
@@ -227,6 +247,7 @@ export default {
             "canteenID": "c0001",
             "canteenName": "一饭",
             "foodType": ["早餐"],
+            "schoolID": "sc001",
             "img": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=101133576,3711215589&fm=26&gp=0.jpg"
         },
         {
@@ -237,6 +258,7 @@ export default {
             "canteenID": "c0001",
             "canteenName": "一饭",
             "foodType": ["早餐"],
+            "schoolID": "sc001",
             "img": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2330134987,1353679590&fm=26&gp=0.jpg"
         }
     ]
