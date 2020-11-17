@@ -1,1 +1,5 @@
 /* pages/page6/page6.wxss */
+ec-canvas {
+  width: 100%;
+  height: 500rpx;
+}
