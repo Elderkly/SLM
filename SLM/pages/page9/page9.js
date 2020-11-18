@@ -34,8 +34,10 @@ Page({
     const newJson = []
     FT.map(e => {
       console.log(e)
-      if (e.schoolName === this.data.baseData1.name)
+      if (e.schoolName === this.data.baseData1.name){
+        e.list = []
         newJson.push(e)
+      }
     })
     this.setData({
       storgaeCanTeen: FT
@@ -72,7 +74,6 @@ Page({
     })
   },
   addMenu(e) {
-    console.log(e.currentTarget.dataset.index)
     const {baseData2,storageMenu} = this.data
     const base = {
       id: this.data.storageMenu.length + 1,
@@ -92,6 +93,7 @@ Page({
   },
   deleteMenu (e) {
     const {index,bindex,foodid} = e.currentTarget.dataset
+    console.log(e.currentTarget.dataset.index)
     const {baseData2,storageMenu} = this.data
     baseData2[bindex].list.splice(index, 1)
     const SIndex = storageMenu.findIndex(e => e.foodID === foodid)
@@ -157,7 +159,21 @@ Page({
       baseData2,
       storageMenu
     },this.updateStorage)
-  } ,
+  },
+  changeCanteenName(e) {
+    const {index, canteenid} = e.currentTarget.dataset
+    const {baseData2,storgaeCanTeen} = this.data
+    console.log(index, canteenid)
+    baseData2[index].canteenName = e.detail.value
+    const SIndex = storgaeCanTeen.findIndex(e => e.canteenID === canteenid)
+    if (SIndex !== -1) {
+      storgaeCanTeen[SIndex].canteenName = e.detail.value
+    }
+    this.setData({
+      baseData2,
+      storgaeCanTeen
+    },this.updateStorage)
+  },
   updateStorage() {
     console.log(this.data.storgaeCanTeen)
     wx.$storage.setStorage("Menu",JSON.stringify(this.data.storageMenu))
@@ -197,6 +213,12 @@ Page({
       storgaeCanTeen.splice(SIndex, 1)
     }
     this.setData({baseData2,storgaeCanTeen},this.updateStorage)
+  },
+  deleteSchool() {
+    var pages = getCurrentPages();
+    var beforePage = pages[pages.length - 2]; // 前一个页面
+    beforePage.deleteSchool(this.data.baseData1.schoolID)
+    wx.navigateBack()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

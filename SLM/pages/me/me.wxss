@@ -2,7 +2,7 @@
 .name{
   display: flex;
   align-items: center;
-  background-color: #D3D3D3;
+  background-color: #3d88f9;
 }
 .touxiang {
   overflow:hidden;
@@ -18,12 +18,14 @@
   
   
 }
+.userName{
+  color: #fff;
+}
 .middle view{
   margin: 20rpx;
-  background-color:	#D3D3D3;
+  background-color:	#eee;
   height: 100rpx;
- 
-  
+  border-radius: 8rpx;
 
 }
 .middle>view{

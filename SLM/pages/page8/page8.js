@@ -125,7 +125,7 @@ Page({
      })
      // 刷新页面
      // addIndex：指向最后一条数据 只有他的名字可以编辑
-     this.setData({json,addIndex: json.length})
+     this.setData({json,addIndex: json.length},this.updateStorage)
   },
   //  输入框失去焦点
   bindblur(event) {
@@ -135,23 +135,25 @@ Page({
     if (!text) {
       const {json} = this.data
       json.pop()
-      this.setData({json})
+      this.setData({json},this.updateStorage)
+    } else {
+      this.bindconfirm(null, text, event.currentTarget.dataset.index)
     }
   },
   //  输入框回车事件
-  bindconfirm(event) {
+  bindconfirm(event, value, index) {
     //  输入内容
-     const text = event.detail.value
+     const text = !!event ? event.detail.value : value
      // 原数据
      const {json} = this.data
      // 有内容
      if (!!text) {
         //  写入输入内容 主动禁用输入框
-        json[event.currentTarget.dataset.index].schoolName = text
+        json[!!event ? event.currentTarget.dataset.index : index].schoolName = text
         this.setData({
           json,
           addIndex: -1
-        })
+        },this.updateStorage)
         wx.showToast({
           title: '添加成功'
         })
@@ -164,8 +166,24 @@ Page({
           icon:'none'
         })
         json.pop()
-        this.setData({json})
+        this.setData({json},this.updateStorage)
      }
+  },
+  deleteSchool(id) {
+    console.log(id)
+    if (!!id) {
+      const {json} = this.data
+      const index = json.findIndex(e => e.schoolID === id) 
+      if (index !== -1) {
+        json.splice(index, 1)
+        this.setData({
+          json
+        },this.updateStorage)
+      }
+    }
+  },
+  updateStorage() {
+    wx.$storage.setStorage('SchoolJson',JSON.stringify(this.data.json))
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,5 +1,8 @@
 <!--pages/page6/page6.wxml-->
-<view class="container">
+<view wx:if="{{showChat === 'loading'}}" class="content">
+    loading...
+</view>
+<view wx:if="{{showChat === true}}" class="container">
     <view class="box">
         <text>热量统计</text>
         <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
@@ -8,4 +11,7 @@
         <text>食物统计</text>
         <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec2 }}"></ec-canvas>
     </view>
+</view>
+<view wx:if="{{!showChat}}"  class="content">
+    暂无数据
 </view>

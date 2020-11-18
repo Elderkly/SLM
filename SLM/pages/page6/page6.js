@@ -147,9 +147,17 @@ Page({
     },
     ec2: {
       onInit: initChart2
-    }
+    },
+    showChat: 'loading'
   },
 
+  onLoad() {
+    const storage = wx.$storage.getStorage("Record")
+    console.log(storage && storage.length > 0)
+    this.setData({
+      showChat: !!storage
+    })
+  },
   onReady() {
   }
 });

@@ -25,7 +25,7 @@
     wx:key="index"
   >
     <view class="top2-text1">
-    <view class="top2-fantan">{{item.canteenName}}</view>
+    <input class="top2-fantan" value="{{item.canteenName}}" bindinput="changeCanteenName" data-index="{{index}}" data-canteenID="{{item.canteenID}}"/>
     <view class="top2-dele" bindtap="deleteCanteen" data-index="{{index}}" data-canteenID="{{item.canteenID}}">删除</view>
   </view>
   <view class="items" wx:key="index2" wx:for="{{item.list}}" wx:for-index="xindex" wx:for-item="xitem" wx:key="xindex">

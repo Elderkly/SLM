@@ -248,7 +248,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.initStorage()
+    this.initType()
+    this.changeMenu()
   },
 
   /**
@@ -292,7 +294,7 @@ Page({
     console.log(this.data.status)
     const {status, MenuJson, selectIndex} = this.data
     const text = status === 1 || !MenuJson[selectIndex]? '今日食点咩' : `今日食${MenuJson[selectIndex].canteenName}-${MenuJson[selectIndex].foodName}`
-    const img = status === 1 || !MenuJson[selectIndex]? 'https://www.baidu.com/img/flexible/logo/pc/result.png' : MenuJson[selectIndex].img
+    const img = status === 1 || !MenuJson[selectIndex]? '../../assets/img/logo.jpeg' : MenuJson[selectIndex].img
     return {
       title: text,
       path: '/pages/index/index',

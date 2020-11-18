@@ -2,22 +2,22 @@
 <view class="name">
   <!-- //这是自动获取动态头像用户名   open-data方法微信自带 -->
   <view class="touxiang"><open-data type="userAvatarUrl"></open-data></view>
-  <view><open-data type="userNickName"></open-data></view>
+  <view><open-data type="userNickName" class="userName"></open-data></view>
 </view>
 <view class="middle">
-  <view class="middle1">
+  <view class="middle1" bindtap="jump" data-url="/pages/page3/page3">
     <image src="../../assets/img/lianluojilu-b.png"></image>
      <view class="btn" bindtap="updateBtn"><text>我的记录</text></view>
   </view>
-  <view class="middle2">
+  <view class="middle2" bindtap="jump" data-url="/pages/page6/page6">
     <image src="../../assets/img/qialuli-b.png"></image>
      <view class="btn" bindtap="updateBtn"><text>我的热量</text></view>
   </view>
-  <view class="middle3">
+  <view class="middle3" bindtap="jump" data-url="/pages/page7/page7">
     <image src="../../assets/img/jihua-b.png"></image>
      <view class="btn" bindtap="updateBtn"><text>我的计划</text></view>
   </view>
-  <view class="middle4">
+  <view class="middle4" bindtap="jump" data-url="/pages/page8/page8">
     <image src="../../assets/img/wode-b.png"></image>
      <view class="btn" bindtap="updateBtn"><text>管理</text></view>
   </view>
