@@ -33,8 +33,12 @@ Page({
 
   },   
   viewBtn :function(e){
+    wx.setStorage({
+      data: JSON.stringify(e.currentTarget.dataset.item),
+      key: 'page4Items',
+    })
     wx.navigateTo({
-    url:'../page4/page4?key1='+JSON.stringify(e.currentTarget.dataset.item)
+    url:'../page4/page4'
     })
     },  
   delete(id){

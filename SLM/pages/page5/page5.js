@@ -34,13 +34,14 @@ Page({
     
     console.log(this.data.selectJson[e.currentTarget.dataset.index])
     //  1.将当前点击的数据 写入到上一个页面中  https://blog.csdn.net/weixin_42569598/article/details/103733755
-    wx.navigateTo({
-      url: '../page4/page4?key1='+JSON.stringify(this.data.selectJson[e.currentTarget.dataset.index])
-    })
+    // wx.navigateTo({
+    //   url: '../page4/page4?key1='+JSON.stringify(this.data.selectJson[e.currentTarget.dataset.index])
+    // })
+    var pages = getCurrentPages();
+    var beforePage = pages[pages.length - 2]; // 前一个页面
+    beforePage.changeData(this.data.selectJson[e.currentTarget.dataset.index]); //调用上个页面的方法
     //  2.写入成功后 关闭当前页面
-    wx.navigateBack({
-      delta: 1
-    })
+    wx.navigateBack()
   },
   /**
    * 生命周期函数--监听页面加载
