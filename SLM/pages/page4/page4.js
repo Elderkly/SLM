@@ -6,32 +6,26 @@ Page({
    */
   data: {
    
-      baseData:[
-              {
-                name: '麻辣烫',
-                reLiang:200,
-                time:"2020-11-07",
-                id: 1
-              },
-              {
-                name: '炒粉',
-                reLiang:300,
-                time:"2020-11-08",
-               id: 2
-               },
+      school:{},
+     qq:{
 
-             
-               
-            
-            ],
-    
+     },
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  
+    if (!!JSON.parse(options.key1)) {
+      this.setData({
+        school:JSON.parse(options.key1)
+      })
+     
+    }
+    wx.setStorageSync('key1',options.key1 )
+      //  this.setData({
+      //   data=1
+      //  })
   },
 
   /**
@@ -75,7 +69,23 @@ Page({
   onReachBottom: function () {
 
   },
+deleteBtn: function(options){
+ wx.showModal({
+  title: '提示',
+  content: '这是一个模态弹窗',
+  success: (rees) => {
+  if (rees.confirm) {
+    var pages = getCurrentPages();
+    var beforePage = pages[pages.length - 2]; // 前一个页面
+    beforePage.delete(this.data.school.id); //调用上个页面的方法
+    wx.navigateBack()
+    // console.log(beforePage)
 
+  } else if (rees.cancel) {
+  console.log('用户点击取消')
+  }
+  }
+})},
   /**
    * 用户点击右上角分享
    */

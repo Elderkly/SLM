@@ -1,14 +1,14 @@
 <!--pages/page3/page3.wxml-->
 
-<view class='view_1' wx:for="{{baseData}}" wx:for-index="index" wx:for-item="item">
+<view bindtap="viewBtn" data-item="{{school}}" class='view_1' wx:for="{{school}}" wx:for-index="index" wx:for-item="school">
   <image
     src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg">
   </image>
   <view>
-    <text class='text_1'>{{item.name}}</text>
+    <text class='text_1'>{{school.foodName}}</text>
     <view>
-      <text class='text_2'>热量：{{item.reLiang}}</text>
-      <text class='text_3'>{{item.time}}</text>
+      <text class='text_2'>热量：{{school.foodCal}}</text>
+      <text class='text_3'>{{school.time}}</text>
     </view>
   </view>
 
