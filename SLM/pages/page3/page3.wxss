@@ -1,5 +1,5 @@
 /* pages/page3/page3.wxss */
-/* .view_1{
+.view_1{
   border: 1rpx solid #000000;
   height: 150rpx;
   width:650rpx;
@@ -40,20 +40,8 @@
   width: 120rpx;
   height: 110rpx;
   padding: 20rpx;
-} */
-.view_1{
-  border: 1rpx solid #000000;
-  height: 150rpx;
-  width:150rpx;
-  align-items: center;
-  position: relative;
-  border-radius: 5px;
-  margin: 0 auto 10rpx;
-  display: flex;
-  padding: 0 15rpx;
-  box-sizing: border-box;
-  margin-top: rpx;
 }
+
 .view_1 image{
   width: 120rpx;
   height: 120rpx;

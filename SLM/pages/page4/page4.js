@@ -6,24 +6,7 @@ Page({
    */
   data: {
    
-      baseData:[
-              {
-                name: '麻辣烫',
-                reLiang:200,
-                time:"2020-11-07",
-                id: 1
-              },
-              {
-                name: '炒粉',
-                reLiang:300,
-                time:"2020-11-08",
-               id: 2
-               },
-
-             
-               
-            
-            ],
+      school:{}
     
   },
 
@@ -31,7 +14,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(JSON.parse(options.key1))
+    if (!!JSON.parse(options.key1)) {
+      this.setData({
+        school:JSON.parse(options.key1)
+      })
+    }
+      //  this.setData({
+      //   data=1
+      //  })
   },
 
   /**

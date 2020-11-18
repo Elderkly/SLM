@@ -5,48 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    baseData:[
-            {
-              name: '麻辣烫',
-              reLiang:200,
-              time:"2020-11-07",
-              id: 1
-            },
-            {
-              name: '麻辣烫',
-              reLiang:200,
-              time:"2020-11-07",
-             id: 2
-             },
-             
-            {
-              name: '炒粉',
-              reLiang:300,
-              time:"2020-12-07",
-             id: 3
-             }
-             ,
-            {
-              name: '麻辣烫',
-              reLiang:200,
-              time:"2020-11-07",
-             id: 4
-             }
-          ],
+    school:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      school :JSON.parse(wx.getStorageSync("Record"))
+    })
+   
+    console.log(JSON.parse(wx.getStorageSync("Record")) )
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+        
   },
 
   /**
@@ -54,8 +31,13 @@ Page({
    */
   onShow: function () {
 
-  },
-
+  },   
+  viewBtn :function(e){
+    wx.navigateTo({
+    url:'../page4/page4?key1='+JSON.stringify(e.currentTarget.dataset.item)
+    })
+    console.log(e.currentTarget.dataset.item)
+    },  
   /**
    * 生命周期函数--监听页面隐藏
    */
