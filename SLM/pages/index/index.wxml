@@ -9,7 +9,7 @@
     <image src="../../assets/img/shaixuan-b.png" bindtap="changeDiaLog"/>
   </view>
   <view class="index-middle">
-    <image src='{{MenuJson[selectIndex].img ? MenuJson[selectIndex].img : ""}}' mode="scaleToFill"></image>
+    <image src='{{MenuJson[selectIndex].img ? MenuJson[selectIndex].img : null}}' mode="scaleToFill"></image>
     <text wx:if="{{!!MenuJson[selectIndex]}}">{{MenuJson[selectIndex].canteenName}}-{{MenuJson[selectIndex].foodName}}</text>
     <text wx:else>暂无数据</text>
   </view>
