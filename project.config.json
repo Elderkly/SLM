@@ -58,26 +58,9 @@
           "query": ""
         },
         {
-          "name": "pages/page10/page10",
-          "pathName": "pages/page10/page10",
+          "name": "pages/page4/page4",
+          "pathName": "pages/page4/page4",
           "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/page6/page6",
-          "pathName": "pages/page6/page6",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/page8/page8",
-          "pathName": "pages/page8/page8",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/page5/page5",
-          "pathName": "pages/page5/page5",
           "scene": null
         }
       ]

@@ -5,21 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    school:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      school :JSON.parse(wx.getStorageSync("Record"))
+    })
+   
+    console.log(JSON.parse(wx.getStorageSync("Record")) )
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+        
   },
 
   /**
@@ -27,8 +31,25 @@ Page({
    */
   onShow: function () {
 
+  },   
+  viewBtn :function(e){
+    wx.navigateTo({
+    url:'../page4/page4?key1='+JSON.stringify(e.currentTarget.dataset.item)
+    })
+    console.log(e.currentTarget.dataset.item)
+    },  
+  delete(id){
+    console.log('page3',id)
+    if(!!id) {
+      const index = this.data.school.findIndex(e => e.id === id)
+      if (index !== -1) {
+        console.log(index)
+        const {school} = this.data
+        school.splice(index, 1)
+        this.setData({school})
+      }
+    }
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */
