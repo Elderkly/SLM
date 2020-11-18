@@ -3,18 +3,29 @@
 <view class="index-top">
   <view 
   class="index-top1"
-  wx:for="{{baseData}}" 
+  wx:for="{{json}}" 
   wx:for-index="index" 
   wx:for-item="item" 
+  wx:key="index"
+  data-items="{{item}}"
+  bindtap="jump"
   >
     <view>
       <image  class="top1-photo" src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg"></image>
     </view>
     <view >
-      <view class="top1-school">{{item.name}}</view>
-      <view class="top1-fantan">饭堂数量：{{item.ftNum}}</view>
+      <input 
+      class="top1-school" 
+      value="{{item.schoolName}}" 
+      disabled="{{addIndex === (index + 1) ? false : true}}"
+      focus="addIndex === (index + 1)"
+      bindconfirm="bindconfirm"
+      data-index="{{index}}"
+      bindblur="bindblur"
+      ></input>
+      <view class="top1-fantan">饭堂数量：{{item.canteenNums ? item.canteenNums : 0}}</view>
       <view class="top1-text">
-        <view class="top1-food">菜品：{{item.foodNum}}</view>
+        <view class="top1-food">菜品：{{item.menuNums ? item.menuNums : 0}}</view>
         <view class="top1-time">{{item.time}}</view>
       </view>
     </view>
@@ -23,6 +34,6 @@
 
 
 </view>
-<view class="index-botton">
-      添加饭堂
+<view class="index-botton" bindtap="addSchool">
+      添加学校
   </view>

@@ -1,1 +1,59 @@
 /* pages/page4/page4.wxss */
+
+.top{
+  border: 1px solid #000000;
+  width:650rpx;
+  height: 350rpx;
+  position: absolute;
+  margin-left: 40rpx;
+  margin-top: 20rpx; 
+  border-radius: 5px;
+
+  position: relative;
+}
+.top_t{
+  margin-top: 25rpx;
+  margin-left: 25rpx;
+  position: absolute;
+  font-size: 18px;
+  font-weight: 600;
+}
+.text text{
+  margin-left:230rpx;
+  margin-bottom: 20rpx;
+ 
+  display:block;
+}
+.text{
+  margin-top: 90rpx;
+  font-size: 14px;
+}
+.top>image{
+  height: 190rpx;
+  flex: 1;
+  width: 190rpx;
+  margin-top: 100rpx;  
+  margin-left: 20rpx;
+  position:absolute;
+}
+.btn{
+  width: 300rpx;
+  height: 80rpx;
+  font-size: 40rpx;
+  color: antiquewhite;
+  margin-top: 20rpx;
+  background-color: #3d88f9;
+  border-radius: 30rpx;
+  display:inline-block;
+  margin-left: 50rpx;
+}
+.btn_butt{
+  margin-top: 60rpx;
+}
+.btn>text{
+ 
+    margin-left: 115rpx;
+    top: 20rpx;
+    margin-top: 30rpx;
+   
+}

@@ -1,34 +1,48 @@
 /* pages/me/me.wxss */
-.name image{
-  border-radius: 50%;
+.name{
+  display: flex;
+  align-items: center;
+  background-color: #D3D3D3;
+}
+.touxiang {
   overflow:hidden;
-  width: 210rpx;
-  height: 210rpx;
-  padding: 20rpx;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  border-radius: 50%;
 }
 .name text{
-    margin:10rpx;  
-    text-align: center;
-    
+  margin:10rpx;  
+  text-align: center;
+  font-size: 40rpx;
+  
+  
 }
 .middle view{
   margin: 20rpx;
-  background-color:red;
+  background-color:	#D3D3D3;
   height: 100rpx;
+ 
+  
+
 }
 .middle>view{
   display: flex;      
    align-items: center;/*侧轴居中 */
+   
+   
 }
-.middle text{
-  font-size: 28rpx;
-  margin-left: 20rpx;
-  
-}
+
 .middle image{
   width: 80rpx;
   height: 80rpx;
-  background-color: white;
  margin-left: 20rpx;
  margin-top: 10rpx;
+}
+.middle text{
+  font-size: 30rpx;
+ margin-top: 20rpx;
+display:block ;
+  height: 50rpx;
+  width: 200rpx;
 }

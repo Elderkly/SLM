@@ -58,8 +58,14 @@
                     "query": ""
                 },
                 {
-                    "name": "pages/page10/page10",
-                    "pathName": "pages/page10/page10",
+                    "name": "pages/page8/page8",
+                    "pathName": "pages/page8/page8",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/page6/page6",
+                    "pathName": "pages/page6/page6",
                     "query": "",
                     "scene": null
                 }

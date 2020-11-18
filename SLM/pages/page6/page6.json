@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "我的热量",
+  "backgroundColor": "#fff",
+  "navigationBarBackgroundColor":"#fff",
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  }
 }

@@ -21,6 +21,7 @@
   color: #000;
   margin-left: 30rpx;
   margin-top: 20rpx;
+  height: 30rpx;
 }
 .top1-fantan{
   font-size: 30rpx;
