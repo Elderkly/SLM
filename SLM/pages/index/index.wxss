@@ -198,7 +198,7 @@
     height: 25rpx;
     margin-left: 5rpx;
 }
-.pause-button{
+.pause-button,.nullData{
   background: #999;
 }
 .hiddenButton{
