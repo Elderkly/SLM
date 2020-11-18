@@ -9,11 +9,12 @@
     <image src="../../assets/img/shaixuan-b.png" bindtap="changeDiaLog"/>
   </view>
   <view class="index-middle">
-    <image src='{{MenuJson[selectIndex].img}}' mode="scaleToFill"></image>
-    <text>{{MenuJson[selectIndex].canteenName}}-{{MenuJson[selectIndex].foodName}}</text>
+    <image src='{{MenuJson[selectIndex].img ? MenuJson[selectIndex].img : ""}}' mode="scaleToFill"></image>
+    <text wx:if="{{!!MenuJson[selectIndex]}}">{{MenuJson[selectIndex].canteenName}}-{{MenuJson[selectIndex].foodName}}</text>
+    <text wx:else>暂无数据</text>
   </view>
-  <view class="index-botton {{start ? 'pause-button' : ''}} {{status !== 1 ? 'hiddenButton' : ''}}" bindtap="startRandom">
-    {{start ? '停止' : '开始'}}
+  <view class="index-botton {{start ? 'pause-button' : ''}} {{status !== 1 ? 'hiddenButton' : ''}} {{!MenuJson[selectIndex] ? 'nullData' : ''}}" bindtap="startRandom">
+    {{!!MenuJson[selectIndex] ? start ? '停止' : '开始' : '暂无数据'}}
   </view>
   <view class="success-button-box {{status === 2 ? 'showButton' : ''}}">
     <view bindtap="save">就这个了</view>
@@ -23,9 +24,11 @@
     <view bindtap="startRandom">我还要吃</view>
   </view>
   <view class="school {{showLog ? 'showLog' : ''}}">
-    <view wx:for="{{baseData}}" wx:for-index="index" wx:for-item="item" wx:key="index" bindtap="changeSchool"
-      data-school="{{item.name}}">
-      {{item.name}}
+    <view wx:for="{{schoolData}}" wx:for-index="index" wx:for-item="item" wx:key="index" bindtap="changeSchool"
+      data-school="{{item.schoolName}}"
+      data-schoolID="{{item.schoolID}}"
+      >
+      {{item.schoolName}}
     </view>
   </view>
   <view class="DiaLog {{showDiaLog ? 'showDiaLogBox' : ''}}" bindtap="changeDiaLog">
