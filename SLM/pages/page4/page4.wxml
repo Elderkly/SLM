@@ -1,2 +1,21 @@
 <!--pages/page4/page4.wxml-->
-<text>pages/page4/page4.wxml</text>
+
+  <view class='top'>
+    <text class='top_t'>食物信息</text>
+    <image
+    src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg">
+  </image>  
+      <view class='text'>
+        <view class='a'><text class='aText'>食物名称:  {{school.foodName}}</text>  </view>
+        <view class='a'><text class='b'>卡路里:  {{school.foodCal}}  </text> </view>
+        <view class='a'><text class='c'>时间：{{school.time}}  </text></view>
+          <view class='a'> <text class='d'>地点： {{school.schoolName}}</text></view>
+       </view>
+    
+  </view>
+  <view class='btn_butt'>
+    <view class='btn' bindtap="updateBtn"><text>修改</text></view>
+    <view class='btn' bindtap='deleteBtn'><text>删除</text></view>
+</view>
+
+  

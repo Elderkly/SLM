@@ -1,2 +1,27 @@
 <!--pages/page7/page7.wxml-->
-<text>pages/page7/page7.wxml</text>
+
+<view class="box">
+<view class="A">我的身高</view>
+<view class="one">
+    <input class="input" name="userName" placeholder="                                                                      CM"
+    bindinput="userNameInput"/>
+  </view>
+  <view class="B">我的体重</view>
+  <view class="two">
+    <input class="input" name="userName" placeholder="                                                                      KG"
+    bindinput="userNameInput"/>
+  </view>
+  <view class="C">我的年龄</view>
+  <view class="tree">
+    <input class="input" name="userName" placeholder="                                                                   YEAR"
+    bindinput="userNameInput"/>
+  </view>
+<view class="D">推荐每日摄入卡路里</view>
+<view class="box02">
+<text class='E'><text class="F">1990</text>　Kcal</text>
+</view>
+<view class="G">[665+3.6 X 体重 + 1.5 X 身高 + 4.7 X 年龄]+1.2=1580Kcal</view>
+<view class="bottom">
+<text>保存</text>
+</view>
+</view>

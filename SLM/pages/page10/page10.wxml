@@ -1,0 +1,17 @@
+<!--pages/page10/page10.wxml-->
+<text>身高：{{sg}}</text>
+<text>体重：{{tz}}</text>
+<text>年龄：</text>
+<input type="text" value="{{nl}}" bindinput="input"/>
+<button bindtap="save">保存</button>
+<view class="items" 
+    wx:for="{{json}}" 
+    wx:for-item="Bitems"
+    wx:for-index="Bindex"
+>
+    <text>{{Bitems.title}}</text>
+    <view
+        wx:for="{{Bitems.list}}" 
+        wx:for-item="XItems"
+    >{{XItems.name}}</view>
+</view>

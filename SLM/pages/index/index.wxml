@@ -3,31 +3,59 @@
   <view class="index-top">
     <view bindtap="bindClick">
       <text>{{school}}</text>
-      <view></view>
+      <image src="../../assets/img/jiantou-b.png" />
     </view>
-    <view>筛选</view>
+    <view bindtap="changeDiaLog">筛选</view>
+    <image src="../../assets/img/shaixuan-b.png" bindtap="changeDiaLog"/>
   </view>
   <view class="index-middle">
-    <image src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg"></image>
-    <text>麻辣香锅</text>
+    <image src='{{MenuJson[selectIndex].img ? MenuJson[selectIndex].img : null}}' mode="scaleToFill"></image>
+    <text wx:if="{{!!MenuJson[selectIndex]}}">{{MenuJson[selectIndex].canteenName}}-{{MenuJson[selectIndex].foodName}}</text>
+    <text wx:else>暂无数据</text>
   </view>
-  <view class="index-botton">
-      开始
+  <view class="index-botton {{start ? 'pause-button' : ''}} {{status !== 1 ? 'hiddenButton' : ''}} {{!MenuJson[selectIndex] ? 'nullData' : ''}}" bindtap="startRandom">
+    {{!!MenuJson[selectIndex] ? start ? '停止' : '开始' : '暂无数据'}}
   </view>
-  <view class="school" wx:if="{{showLog}}">
-     <view 
-        wx:for="{{baseData}}" 
-        wx:for-index="index" 
-        wx:for-item="item" 
-        bindtap="changeSchool" 
-        data-school="{{item.name}}"
-     >
-        {{item.name}}
+  <view class="success-button-box {{status === 2 ? 'showButton' : ''}}">
+    <view bindtap="save">就这个了</view>
+    <view bindtap="startRandom">再摇一次</view>
+  </view>
+  <view class="reset-button-box {{status === 3 ? 'showButton' : ''}}">
+    <view bindtap="startRandom">我还要吃</view>
+  </view>
+  <view class="school {{showLog ? 'showLog' : ''}}">
+    <view wx:for="{{schoolData}}" wx:for-index="index" wx:for-item="item" wx:key="index" bindtap="changeSchool"
+      data-school="{{item.schoolName}}"
+      data-schoolID="{{item.schoolID}}"
+      >
+      {{item.schoolName}}
     </view>
   </view>
-  <view
-    wx:for="{{baseData2}}"
-    wx:for-item="wxy"
-    wx:for-index='wxyIndex'
-  >{{wxyIndex}}</view>
+  <view class="DiaLog {{showDiaLog ? 'showDiaLogBox' : ''}}" bindtap="changeDiaLog">
+    <view class="DiaLogContent {{showDiaLog ? 'showDiaLogContent' : ''}}" catchtap="null">
+      <view 
+        class="DiaLogItems" 
+        wx:for="{{tagJson}}"
+        wx:for-item="items"
+        wx:for-index="itemsIndex"
+        wx:key="index"
+      >
+        <text>{{items.title}}</text>
+        <scroll-view class="scroll-view_H" scroll-x="true"style="width: 100%">
+          <view class="scroll-view-item_H {{listItems.name === selectItems[itemsIndex] ? 'action' : ''}}"
+            wx:for="{{items.list}}"
+            wx:for-item="listItems"
+            wx:key="index"
+            catchtap="taptag"
+            data-name="{{listItems.name}}"
+            data-box-index="{{itemsIndex}}"
+          >{{listItems.name}}</view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="fixedView" catchtap="changeDiaLog">
+      <view>筛选</view>
+      <image src="../../assets/img/shaixuan-b.png" />
+    </view>
+  </view>
 </view>

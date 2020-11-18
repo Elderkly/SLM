@@ -5,14 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
+   
+      school:{},
+     qq:{
 
+     },
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  //  console.log(options.key1)
+  //   if (!!JSON.parse(options.key1)) {
+  //     console.log(JSON.parse(options.key1).schoolName)
+  //     this.setData({
+  //       school:JSON.parse(options.key1)
+  //     })
+     
+  //   }
+  //   wx.setStorageSync('key1',optio  ns.key1 )
+    const page4Items = wx.getStorageSync('page4Items')
+    console.log(page4Items)
+    this.setData({
+      school:JSON.parse(page4Items)
+    })
+      //  this.setData({
+      //   data=1
+      //  })
   },
 
   /**
@@ -29,6 +48,14 @@ Page({
 
   },
 
+  changeData(data) {
+    console.log(data)
+    const {school} = this.data
+    school.schoolName = data.schoolName
+    school.foodCal = data.foodCal
+    school.foodName = data.foodName
+    this.setData({school})
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -56,7 +83,28 @@ Page({
   onReachBottom: function () {
 
   },
+  updateBtn: function(){
+     wx.navigateTo({
+       url:'../page5/page5'
+     })
+  },
+deleteBtn: function(options){
+ wx.showModal({
+  title: '提示',
+  content: '是否删除记录',
+  success: (rees) => {
+  if (rees.confirm) {
+    var pages = getCurrentPages();
+    var beforePage = pages[pages.length - 2]; // 前一个页面
+    beforePage.delete(this.data.school.id); //调用上个页面的方法
+    wx.navigateBack()
+    // console.log(beforePage)
 
+  } else if (rees.cancel) {
+  console.log('用户点击取消')
+  }
+  }
+})},
   /**
    * 用户点击右上角分享
    */
