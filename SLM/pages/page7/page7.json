@@ -1,8 +1,10 @@
 {
-  "navigationBarBackgroundColor": "#3d88f9",
-  "navigationBarTitleText": "我的计划",
-  "navigationBarTextStyle": "white",
-  "enablePullDownRefresh":true,
-  "backgroundTextStyle":"dark"
+  "navigationBarBackgroundColor": "#3d88f9",        
+  "navigationBarTitleText": "我的计划",             
+  "navigationBarTextStyle": "white",               
+  "enablePullDownRefresh":true,                     
+  "backgroundTextStyle":"dark"                      
   
 }
+
+
