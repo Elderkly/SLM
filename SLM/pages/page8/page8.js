@@ -76,10 +76,17 @@ Page({
         wx.$storage.getStorage("Menu"),
         wx.$storage.getStorage("CanTeen"),
      ]
+     console.log(canTeen)
      // 将取出的缓存进行二次重组
      this.regroup(school,canTeen,menu)
   },
 
+  jump(e) {
+    wx.setStorageSync('page9Items', JSON.stringify(e.currentTarget.dataset.items))
+    wx.navigateTo({
+      url: '/pages/page9/page9',
+    })
+  },
   /**
    * 重组缓存数据
   */

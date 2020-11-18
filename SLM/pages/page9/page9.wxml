@@ -1,57 +1,70 @@
 <!--pages/page9/page9.wxml-->
 <view id="box1">
   <view class="index-top">
-    <view class="index-top1" wx:key="index" wx:for="{{baseData1}}" wx:for-index="index" wx:for-item="item">
+    <view class="index-top1">
       <view>
         <image class="top1-photo"
           src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg">
         </image>
       </view>
       <view>
-        <view class="top1-school">{{item.name}}</view>
-        <view class="top1-fantan">饭堂数量：{{item.ftNum}}</view>
+        <view class="top1-school">{{baseData1.name}}</view>
+        <view class="top1-fantan">饭堂数量：{{baseData1.ftNum ? baseData1.ftNum : 0}}</view>
         <view class="top1-text">
-          <view class="top1-food">菜品：{{item.foodNum}}</view>
+          <view class="top1-food">菜品：{{baseData1.foodNum ? baseData1.foodNum : 0}}</view>
         </view>
       </view>
     </view>
   </view>
 </view>
 <view id="box2">
-  <view class="top2-text1">
-    <view class="top2-fantan">一饭</view>
-    <view class="top2-dele">删除</view>
+  <view 
+    wx:for="{{baseData2}}"
+    wx:for-index="index" 
+    wx:for-item="item"
+    wx:key="index"
+  >
+    <view class="top2-text1">
+    <view class="top2-fantan">{{item.canteenName}}</view>
+    <view class="top2-dele" bindtap="deleteCanteen" data-index="{{index}}" data-canteenID="{{item.canteenID}}">删除</view>
   </view>
-  <view class="items" wx:key="index2" wx:for="{{baseData2}}" wx:for-index="index" wx:for-item="item">
+  <view class="items" wx:key="index2" wx:for="{{item.list}}" wx:for-index="xindex" wx:for-item="xitem" wx:key="xindex">
 
     <view class="top2-text2">
       <image class="top2-photo"
-        src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg">
+        src="{{xitem.img}}">
       </image>
       <view class="top2-text3">
-        <view class="top2-food">菜品名称：{{item.name}}</view>
-        <view class="top2-reLiang">卡路里：{{item.rlNum}}千卡</view>
+        <view class="itemBox">
+          <text>菜品名称：</text>
+          <input class="top2-food" value="{{xitem.foodName}}" bindinput="changeName" data-bIndex="{{index}}"  data-index="{{xindex}}" data-foodID="{{xitem.foodID}}"></input>
+        </view>
+        <view class="itemBox">
+          <text>卡路里：</text>
+          <input class="top2-reLiang" type="number" value="{{xitem.foodCal}}" bindinput="changeCal" data-bIndex="{{index}}"  data-index="{{xindex}}" data-foodID="{{xitem.foodID}}"></input>
+          <text>千卡</text>
+        </view>
+        <!-- <view class="top2-reLiang">卡路里：{{xitem.foodCal}}千卡</view> -->
         <view class="top2-eat">
-          <label class="weui-cells weui-cells_after-title">
-            <checkbox value="cb" />早餐</label>
-          <label class="weui-cells weui-cells_after-title">
-            <checkbox value="cb" />午餐</label>
-          <label class="weui-cells weui-cells_after-title">
-            <checkbox value="cb" />晚餐</label>
+          <checkbox-group bindchange="checkboxChange" data-bIndex="{{index}}"  data-index="{{xindex}}" data-foodID="{{xitem.foodID}}">
+            <label class="weui-cells weui-cells_after-title" wx:for="{{['早餐','午餐','晚餐']}}" wx:key="index" wx:for-item="item" >
+            <checkbox value="{{item}}" checked="{{xitem.foodType[index] ? true : false}}" />{{item}}</label>
+          </checkbox-group>
         </view>
       </view>
     </view>
-    <image src="../../assets/img/guanbi-b.png" />
+    <image src="../../assets/img/guanbi-b.png" bindtap="deleteMenu" data-foodID="{{xitem.foodID}}" data-bIndex="{{index}}" data-index="{{xindex}}"/>
   </view>
-  <view class="index-botton2">
+  <view class="index-botton2" bindtap="addMenu" data-index="{{index}}">
             添加菜品
-      </view>
+  </view>
+  </view>
 </view>
 <view class="chose">
-  <view class="index-botton1">
+  <view class="index-botton1" bindtap="addCanteen">
     添加饭堂
   </view>
-  <view class="index-botton3">
+  <view class="index-botton3" bindtap="deleteSchool">
     删除院校
   </view>
 </view>

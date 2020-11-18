@@ -7,6 +7,8 @@
   wx:for-index="index" 
   wx:for-item="item" 
   wx:key="index"
+  data-items="{{item}}"
+  bindtap="jump"
   >
     <view>
       <image  class="top1-photo" src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg"></image>
