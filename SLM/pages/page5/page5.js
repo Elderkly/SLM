@@ -5,14 +5,53 @@ Page({
    * 页面的初始数据
    */
   data: {
+      menu: [],
+      selectJson: []
+  },
+  TimeId:-1,
 
+  bindKeyInput:function(e){
+     if (!!e.detail.value) {
+        // console.log(this.data.menu,e.detail.value);
+        const newJson = []
+        this.data.menu.map(x => {
+          if (x.foodName.indexOf(e.detail.value) !== -1) {
+            newJson.push(x)
+          }
+        })
+        clearTimeout(this.TimeId);
+        this.TimeId = setTimeout(()=>{
+          this.qsearch(value);
+        },1000)
+        this.setData({
+          selectJson: newJson
+        })
+        console.log(newJson)
+     } else {
+       this.setData({
+         selectJson: []
+       })
+     }
   },
 
+  tap:function(e) {
+    console.log(e.currentTarget.dataset.index,this.data.selectJson[e.currentTarget.dataset.index])
+   
+    //  1.将当前点击的数据 写入到上一个页面中  https://blog.csdn.net/weixin_42569598/article/details/103733755
+    wx.navigateTo({
+      url: '../page3/page3?key1='+JSON.stringify(e.currentTarget.dataset.item)
+    })
+    
+    //  2.写入成功后 关闭当前页面
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const storage = wx.$storage.getStorage("Menu")
+    this.setData({
+      menu: storage
+    })
   },
 
   /**

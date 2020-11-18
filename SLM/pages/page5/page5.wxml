@@ -2,21 +2,10 @@
 <view class="search">
   <view class="search_1">
     <image src="../../assets/img/sousuo-b.png"></image>
-    <input type="text" placeholder="请输入食品名称"/>
+    <input type="text" placeholder="请输入食品名称"  bindinput="bindKeyInput"/>
   </view>
 </view>
 <view class="body">
-  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
-  <view class="body_1">五谷鱼粉-广科松山湖校区——2饭</view>
-  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
-  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
-  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
-  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
-  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
-  <view class="body_1">五谷鱼粉-广科松山湖校区——2饭</view>
-  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
-  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
-  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
-  <view class="body_1">麻辣香锅-广科松山湖校区——1饭</view>
+  <view class="body_1" bindtap="tap" data-index="{{index}}" wx:for="{{selectJson}}" wx:for-item="item">{{item.foodName}}——{{item.canteenName}}</view>
 </view>
 
