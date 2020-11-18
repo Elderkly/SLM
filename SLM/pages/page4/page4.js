@@ -15,14 +15,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   console.log(options.key1)
-    if (!!JSON.parse(options.key1)) {
-      this.setData({
-        school:JSON.parse(options.key1)
-      })
+  //  console.log(options.key1)
+  //   if (!!JSON.parse(options.key1)) {
+  //     console.log(JSON.parse(options.key1).schoolName)
+  //     this.setData({
+  //       school:JSON.parse(options.key1)
+  //     })
      
-    }
-    wx.setStorageSync('key1',options.key1 )
+  //   }
+  //   wx.setStorageSync('key1',optio  ns.key1 )
+    const page4Items = wx.getStorageSync('page4Items')
+    console.log(page4Items)
+    this.setData({
+      school:JSON.parse(page4Items)
+    })
       //  this.setData({
       //   data=1
       //  })
@@ -42,6 +48,14 @@ Page({
 
   },
 
+  changeData(data) {
+    console.log(data)
+    const {school} = this.data
+    school.schoolName = data.schoolName
+    school.foodCal = data.foodCal
+    school.foodName = data.foodName
+    this.setData({school})
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

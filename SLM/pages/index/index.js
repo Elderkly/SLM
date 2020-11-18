@@ -101,7 +101,7 @@ Page({
     const Record = !!wx.$storage.getStorage('Record') ? wx.$storage.getStorage('Record') : []
     const foodData = this.data.MenuJson[this.data.selectIndex]
     foodData.time = new Date().getTime()
-    foodData.scroll = this.data.school
+    foodData.schoolName = this.data.school
     Record.unshift(foodData)
     wx.$storage.setStorage('Record', JSON.stringify(Record))
     console.log(wx.$storage.getStorage('Record'))
