@@ -62,17 +62,6 @@
           "pathName": "pages/page4/page4",
           "query": "",
           "scene": null
-        },
-        {
-          "name": "pages/page3/page3",
-          "pathName": "pages/page3/page3",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/page8/page8",
-          "pathName": "pages/page8/page8",
-          "scene": null
         }
       ]
     }
