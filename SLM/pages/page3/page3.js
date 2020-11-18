@@ -36,7 +36,6 @@ Page({
     wx.navigateTo({
     url:'../page4/page4?key1='+JSON.stringify(e.currentTarget.dataset.item)
     })
-    console.log(e.currentTarget.dataset.item)
     },  
   delete(id){
     console.log('page3',id)

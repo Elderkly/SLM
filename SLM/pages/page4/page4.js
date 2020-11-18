@@ -15,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+   console.log(options.key1)
     if (!!JSON.parse(options.key1)) {
       this.setData({
         school:JSON.parse(options.key1)
@@ -69,10 +69,15 @@ Page({
   onReachBottom: function () {
 
   },
+  updateBtn: function(){
+     wx.navigateTo({
+       url:'../page5/page5'
+     })
+  },
 deleteBtn: function(options){
  wx.showModal({
   title: '提示',
-  content: '这是一个模态弹窗',
+  content: '是否删除记录',
   success: (rees) => {
   if (rees.confirm) {
     var pages = getCurrentPages();

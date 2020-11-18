@@ -19,10 +19,6 @@ Page({
             newJson.push(x)
           }
         })
-        clearTimeout(this.TimeId);
-        this.TimeId = setTimeout(()=>{
-          this.qsearch(value);
-        },1000)
         this.setData({
           selectJson: newJson
         })
@@ -33,16 +29,18 @@ Page({
        })
      }
   },
-
+  
   tap:function(e) {
-    console.log(e.currentTarget.dataset.index,this.data.selectJson[e.currentTarget.dataset.index])
-   
+    
+    console.log(this.data.selectJson[e.currentTarget.dataset.index])
     //  1.将当前点击的数据 写入到上一个页面中  https://blog.csdn.net/weixin_42569598/article/details/103733755
     wx.navigateTo({
-      url: '../page3/page3?key1='+JSON.stringify(e.currentTarget.dataset.item)
+      url: '../page4/page4?key1='+JSON.stringify(this.data.selectJson[e.currentTarget.dataset.index])
     })
-    
     //  2.写入成功后 关闭当前页面
+    wx.navigateBack({
+      delta: 1
+    })
   },
   /**
    * 生命周期函数--监听页面加载
