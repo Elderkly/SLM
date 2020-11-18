@@ -26,7 +26,6 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-<<<<<<< HEAD
     "enableEngineNative": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
@@ -63,50 +62,17 @@
           "pathName": "pages/page4/page4",
           "query": "",
           "scene": null
-=======
-    "appid": "wx54f56cefaeec3a35",
-    "projectname": "%E9%A3%9F%E4%BA%86%E4%B9%88",
-    "libVersion": "2.8.1",
-    "simulatorType": "wechat",
-    "simulatorPluginLibVersion": {},
-    "condition": {
-        "plugin": {
-            "list": []
         },
-        "game": {
-            "list": []
+        {
+          "name": "pages/page3/page3",
+          "pathName": "pages/page3/page3",
+          "query": "",
+          "scene": null
         },
-        "gamePlugin": {
-            "list": []
-        },
-        "miniprogram": {
-            "list": [
-                {
-                    "id": -1,
-                    "name": "db guide",
-                    "pathName": "pages/databaseGuide/databaseGuide",
-                    "query": ""
-                },
-                {
-                    "name": "pages/page10/page10",
-                    "pathName": "pages/page10/page10",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/page6/page6",
-                    "pathName": "pages/page6/page6",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/page8/page8",
-                    "pathName": "pages/page8/page8",
-                    "query": "",
-                    "scene": null
-                }
-            ]
->>>>>>> 269ac041df3bcb32bbe9ff5fc6ec7a7edb2419e6
+        {
+          "name": "pages/page8/page8",
+          "pathName": "pages/page8/page8",
+          "scene": null
         }
       ]
     }

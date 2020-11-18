@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    school:{}
+    school:[]
   },
 
   /**
@@ -38,6 +38,18 @@ Page({
     })
     console.log(e.currentTarget.dataset.item)
     },  
+  delete(id){
+    console.log('page3',id)
+    if(!!id) {
+      const index = this.data.school.findIndex(e => e.id === id)
+      if (index !== -1) {
+        console.log(index)
+        const {school} = this.data
+        school.splice(index, 1)
+        this.setData({school})
+      }
+    }
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
