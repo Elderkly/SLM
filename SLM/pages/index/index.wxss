@@ -46,6 +46,7 @@
   width: 90%;
   height: 500rpx;
   border-radius: 8rpx;
+  background: #eee;
 }
 .index-middle text{
   margin-top: 20rpx;

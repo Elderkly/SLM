@@ -39,7 +39,8 @@ Page({
     this.setData({
       school: event.currentTarget.dataset.school,
       showLog: false,
-      schoolID: event.currentTarget.dataset.schoolid
+      schoolID: event.currentTarget.dataset.schoolid,
+      status: 1
     },this.changeMenu)
   },
   taptag: function (event) {
@@ -288,6 +289,14 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    console.log(this.data.status)
+    const {status, MenuJson, selectIndex} = this.data
+    const text = status === 1 || !MenuJson[selectIndex]? '今日食点咩' : `今日食${MenuJson[selectIndex].canteenName}-${MenuJson[selectIndex].foodName}`
+    const img = status === 1 || !MenuJson[selectIndex]? 'https://www.baidu.com/img/flexible/logo/pc/result.png' : MenuJson[selectIndex].img
+    return {
+      title: text,
+      path: '/pages/index/index',
+      imageUrl: img
+    }
   }
 })

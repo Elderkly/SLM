@@ -106,7 +106,8 @@ function initChart2(canvas, width, height, dpr) {
         }
       },
       type: 'pie',
-      center: ['50%', '50%'],
+      // center: ['50%', '50%'],
+      radius: '60%',
       // radius: ['65%', '35%'],
       data: newJson,
       itemStyle: {
