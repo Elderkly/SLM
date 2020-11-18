@@ -5,8 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id:'id',
+    imgesrc:'https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg'
+
 
   },
+  updateBtn: function(){
+         wx.navigateTo({
+           url:'../page3/page3.wxss'
+         })
+      },
 
   /**
    * 生命周期函数--监听页面加载

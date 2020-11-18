@@ -1,27 +1,27 @@
 <!--pages/me/me.wxml-->
 <view class="name">
-  <image src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg"></image>
-  <text>UserName</text>
+  <!-- //这是自动获取动态头像用户名   open-data方法微信自带 -->
+  <view class="touxiang"><open-data type="userAvatarUrl"></open-data></view>
+  <view><open-data type="userNickName"></open-data></view>
 </view>
 <view class="middle">
   <view class="middle1">
-    <image></image>
-    <text>我的记录</text>
+    <image src="../../assets/img/lianluojilu-b.png"></image>
+     <view class="btn" bindtap="updateBtn"><text>我的记录</text></view>
   </view>
   <view class="middle2">
-    <image></image>
-    <text>我的热量</text>
+    <image src="../../assets/img/qialuli-b.png"></image>
+     <view class="btn" bindtap="updateBtn"><text>我的热量</text></view>
   </view>
   <view class="middle3">
-    <image></image>
-    <text>我的计划</text>
+    <image src="../../assets/img/jihua-b.png"></image>
+     <view class="btn" bindtap="updateBtn"><text>我的计划</text></view>
   </view>
   <view class="middle4">
-    <image></image>
-    <text>管理</text>
+    <image src="../../assets/img/wode-b.png"></image>
+     <view class="btn" bindtap="updateBtn"><text>管理</text></view>
   </view>
+  
+
 </view>
-<view class="botten">
-  <text>文本标签</text>
-  <text>文本标签</text>
-</view>
+
