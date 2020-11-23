@@ -1,6 +1,6 @@
 // pages/index/index.js
+import {formatData} from '../../common/Utils'
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -27,10 +27,18 @@ Page({
     start: false,
     // 步骤
     status: 1,
-    changeTag: false
+    changeTag: false,
+    showFixedView: false,
+    FixedViewText: null
   },
   bindClick: function () {
-    if (this.data.start || this.data.status === 2) return
+    if (this.data.start || this.data.status === 2) {
+      wx.showToast({
+        icon: 'none',
+        title: '抽取完毕后才可变更筛选条件哦',
+      })
+      return
+    }
     this.setData({
       showLog: !this.data.showLog
     })
@@ -59,7 +67,13 @@ Page({
     })
   },
   changeDiaLog: function () {
-    if (this.data.start || this.data.status === 2) return
+    if (this.data.start || this.data.status === 2) {
+      wx.showToast({
+        icon: 'none',
+        title: '抽取完毕后才可变更筛选条件哦',
+      })
+      return
+    }
     if(this.data.showDiaLog && this.data.changeTag) {
       this.changeMenu()
     }
@@ -114,6 +128,7 @@ Page({
     this.setData({
       status: 3
     })
+    this.initFixedView()
   },
   /**
    * 生命周期函数--监听页面加载
@@ -122,8 +137,50 @@ Page({
     this.initStorage()
     this.initType()
     this.changeMenu()
+    this.initFixedView()
   },
 
+  initFixedView() {
+    const Record = wx.$storage.getStorage("Record")
+    const UserCal = wx.$storage.getStorage("CalInfo")
+    const Time = formatData(new Date().getTime())
+    let sumCal = 0
+    let text = null
+    // console.log(Time,Record)
+    Record.map(e => Time === formatData(e.time) ? sumCal += e.foodCal : null)
+    console.log(`卡路里临界值${UserCal.cal},当天摄入卡路里${sumCal}`)
+    if (UserCal.cal * 0.8 < sumCal && UserCal.cal > sumCal) {
+      text = '当天摄入卡路里即将大于临界值 推荐选择低热量食物'
+    } else if (UserCal.cal * 0.98 < sumCal && UserCal.cal >= sumCal){
+      text = '当天摄入卡路里已达到临界值'
+    } else if (UserCal.cal * 1.2 < sumCal){
+      text = '当天摄入卡路里已达到临界值的1.2倍 求求你别吃了'
+    } else if (UserCal.cal * 1.5 <= sumCal){
+      text = '不会吧不会吧 不会真的有人这么能吃吧'
+    }
+    if (text) {
+      this.setData({
+        FixedViewText: text
+      }, this.changeFixedStatus(true))
+    }
+  },
+
+  hiddenFixedView() {
+    this.changeFixedStatus(false)
+  },
+
+  changeFixedStatus(show) {
+    this.timeOut && clearTimeout(this.timeOut)
+    if(show) {
+      this.setData({
+        showFixedView: true
+      },() => this.timeOut = setTimeout(() => this.changeFixedStatus(false),8000))
+    } else {
+      this.setData({
+        hiddenFixedView: true
+      },() => this.timeOut = setTimeout(() => this.setData({showFixedView: false}),300))
+    }
+  },
   initStorage() {
     const menu = wx.$storage.getStorage("Menu")
     const school = wx.$storage.getStorage("SchoolJson")
@@ -195,8 +252,8 @@ Page({
   },
   initType() {
     const Hours = new Date().getHours()
-    const type = Hours > 5 && Hours < 11 ? '早餐' :
-      Hours > 11 && Hours < 15 ? '午餐' : '晚餐'
+    const type = Hours >= 5 && Hours < 11 ? '早餐' :
+      Hours >= 11 && Hours < 15 ? '午餐' : '晚餐'
     console.log(Hours,'时',type)
     this.setData({
        ['selectItems[1]']: type
@@ -248,9 +305,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.initStorage()
-    this.initType()
-    this.changeMenu()
+    if (this.hidden) {
+      this.initStorage()
+      this.initType()
+      this.changeMenu()
+      this.hidden = false
+    }
   },
 
   /**
@@ -264,6 +324,7 @@ Page({
         status: 2
       })
     }
+    this.hidden = true
   },
 
   /**

@@ -2,10 +2,10 @@
 <view id="box">
   <view class="index-top">
     <view bindtap="bindClick">
-      <text>{{school}}</text>
+      <text class="{{start || status === 2 ? 'startText' : ''}}">{{school}}</text>
       <image src="../../assets/img/jiantou-b.png" />
     </view>
-    <view bindtap="changeDiaLog">筛选</view>
+    <view bindtap="changeDiaLog" class="{{start || status === 2 ? 'startText' : ''}}">筛选</view>
     <image src="../../assets/img/shaixuan-b.png" bindtap="changeDiaLog"/>
   </view>
   <view class="index-middle">
@@ -22,6 +22,9 @@
   </view>
   <view class="reset-button-box {{status === 3 ? 'showButton' : ''}}">
     <view bindtap="startRandom">我还要吃</view>
+  </view>
+  <view class="fixedView {{showFixedView ? 'showFixedView' : ''}} {{hiddenFixedView ? 'hiddenFixedView' : ''}}">
+    <view bindtap="hiddenFixedView">{{FixedViewText}}</view>
   </view>
   <view class="school {{showLog ? 'showLog' : ''}}">
     <view wx:for="{{schoolData}}" wx:for-index="index" wx:for-item="item" wx:key="index" bindtap="changeSchool"
