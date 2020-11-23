@@ -158,6 +158,7 @@ Page({
     } else if (UserCal.cal * 1.5 <= sumCal){
       text = '不会吧不会吧 不会真的有人这么能吃吧'
     }
+    
     if (text) {
       if (this.data.showFixedView) {
         this.changeFixedStatus(false)
