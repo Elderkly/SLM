@@ -1,4 +1,7 @@
 /* pages/index/index.wxss */
+/* #box{
+  position: relative;
+} */
 .index-top{
   display: flex;
   padding: 15rpx;
@@ -209,4 +212,41 @@
 .showButton{
   pointer-events: auto;
   opacity: 1;
+}
+.startText{
+  color: #c4c4c4!important;
+}
+.fixedView{
+  position: fixed;
+  height: 90rpx;
+  /* background: rgba(0,0,0,.8); */
+  left: -100%;
+  top: 80%;
+  width: 100%;
+  transition: all .6s;
+  opacity: 1;
+  pointer-events: none;
+}
+.fixedView view{
+  /* min-width: 200rpx; */
+  text-align: left;
+  line-height: 90rpx;
+  padding: 0 15rpx;
+  font-size: 24rpx;
+  background-color: #b15bff;
+  color: #fff;
+  border-top-right-radius: 45rpx;
+  border-bottom-right-radius: 45rpx;
+  white-space: nowrap;
+}
+
+.showFixedView{
+   left: 0;
+   top: 70%;
+   pointer-events: auto;
+}
+.hiddenFixedView{
+  opacity: 0;
+  left: -100%;
+  pointer-events: none;
 }

@@ -17,16 +17,19 @@ export default class Storage {
     */
     init(){
         try {
-            const CalInfo = wx.getStorageSync('CalInfo')
+            const CalInfo = this.getStorage('CalInfo')
             if (CalInfo) {
                 // console.log('已经存在缓存',CalInfo)
             } else {
                 console.log('初始化')
                 const {calInfo,canteen,menu,schoolJson} = defaultData
-                wx.setStorageSync('CalInfo', JSON.stringify(calInfo))
-                wx.setStorageSync('CanTeen', JSON.stringify(canteen))
-                wx.setStorageSync('Menu', JSON.stringify(menu))
-                wx.setStorageSync('SchoolJson', JSON.stringify(schoolJson))
+                const Storage = [
+                    { name: 'CalInfo',storage: calInfo},
+                    { name: 'CanTeen',storage: canteen},
+                    { name: 'Menu',storage: menu},
+                    { name: 'SchoolJson',storage: schoolJson},
+                ]
+                Storage.map(e => this.setStorage(e.name, JSON.stringify(e.storage)))
             }
         } catch (e) {
             console.error('initStorageError',e)
@@ -40,7 +43,7 @@ export default class Storage {
     getStorage(key) {
         try{
             const _Storage = wx.getStorageSync(key)
-            if (!!_Storage && JSON.parse(_Storage)) {
+            if (!!_Storage) {
                 return JSON.parse(_Storage)
             } else {
                 return null
