@@ -1,5 +1,5 @@
 <!--pages/page4/page4.wxml-->
-
+<wxs module="filter" src="../page3/page3.wxs"></wxs>
   <view class='top'>
     <text class='top_t'>食物信息</text>
     <image
@@ -8,7 +8,7 @@
       <view class='text'>
         <view class='a'><text class='aText'>食物名称:  {{school.foodName}}</text>  </view>
         <view class='a'><text class='b'>卡路里:  {{school.foodCal}}  </text> </view>
-        <view class='a'><text class='c'>时间：{{school.time}}  </text></view>
+        <view class='a'><text class='c'>时间：{{filter.toDate(school.time)}}  </text></view>
           <view class='a'> <text class='d'>地点： {{school.schoolName}}</text></view>
        </view>
     

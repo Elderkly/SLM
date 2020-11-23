@@ -15,8 +15,7 @@ Page({
     this.setData({
       school :JSON.parse(wx.getStorageSync("Record"))
     })
-   
-    console.log(JSON.parse(wx.getStorageSync("Record")) )
+ 
   },
 
   /**
@@ -30,7 +29,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      school :JSON.parse(wx.getStorageSync("Record"))
+    }) 
   },   
   viewBtn :function(e){
     wx.setStorage({
@@ -49,10 +50,13 @@ Page({
         console.log(index)
         const {school} = this.data
         school.splice(index, 1)
-        this.setData({school})
+        wx.$storage.setStorage('Record', JSON.stringify(school))
+    
       }
-    }
+    } 
   },
+
+
   /**
    * 生命周期函数--监听页面隐藏
    */

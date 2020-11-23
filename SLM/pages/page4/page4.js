@@ -25,10 +25,11 @@ Page({
   //   }
   //   wx.setStorageSync('key1',optio  ns.key1 )
     const page4Items = wx.getStorageSync('page4Items')
-    console.log(page4Items)
-    this.setData({
+
+    this.setData ({
       school:JSON.parse(page4Items)
     })
+  
       //  this.setData({
       //   data=1
       //  })
@@ -44,8 +45,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function (data) {
+ 
+ 
   },
 
   changeData(data) {
@@ -55,7 +57,13 @@ Page({
     school.foodCal = data.foodCal
     school.foodName = data.foodName
     this.setData({school})
+    this.setData({
+      qq:JSON.parse(wx.getStorageSync("Record"))
+    })
+    this.data.qq.splice(this.data.qq.findIndex((qq)=>(qq.foodID ==school.foodID)),1,school)
+    wx.$storage.setStorage('Record', JSON.stringify(this.data.qq))
   },
+ 
   /**
    * 生命周期函数--监听页面隐藏
    */
