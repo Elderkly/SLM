@@ -147,18 +147,27 @@ Page({
     let sumCal = 0
     let text = null
     // console.log(Time,Record)
-    Record.map(e => Time === formatData(e.time) ? sumCal += e.foodCal : null)
+    !!Record && Record.map(e => Time === formatData(e.time) ? sumCal += e.foodCal : null)
     console.log(`卡路里临界值${UserCal.cal},当天摄入卡路里${sumCal}`)
     if (UserCal.cal * 0.8 < sumCal && UserCal.cal > sumCal) {
       text = '当天摄入卡路里即将大于临界值 推荐选择低热量食物'
     } else if (UserCal.cal * 0.98 < sumCal && UserCal.cal >= sumCal){
       text = '当天摄入卡路里已达到临界值'
-    } else if (UserCal.cal * 1.2 < sumCal){
+    } else if (UserCal.cal * 1.2 < sumCal && UserCal.cal * 1.5 > sumCal){
       text = '当天摄入卡路里已达到临界值的1.2倍 求求你别吃了'
     } else if (UserCal.cal * 1.5 <= sumCal){
       text = '不会吧不会吧 不会真的有人这么能吃吧'
     }
     if (text) {
+      if (this.data.showFixedView) {
+        this.changeFixedStatus(false)
+        setTimeout(() => {
+          this.setData({
+            FixedViewText: text
+          }, this.changeFixedStatus(true))
+        },600) 
+        return 
+      }
       this.setData({
         FixedViewText: text
       }, this.changeFixedStatus(true))
@@ -173,8 +182,9 @@ Page({
     this.timeOut && clearTimeout(this.timeOut)
     if(show) {
       this.setData({
+        hiddenFixedView: false,
         showFixedView: true
-      },() => this.timeOut = setTimeout(() => this.changeFixedStatus(false),8000))
+      },() => this.timeOut = setTimeout(() => this.changeFixedStatus(false),6000))
     } else {
       this.setData({
         hiddenFixedView: true

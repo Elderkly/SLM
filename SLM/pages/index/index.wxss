@@ -231,7 +231,7 @@
   /* min-width: 200rpx; */
   text-align: left;
   line-height: 90rpx;
-  padding: 0 25rpx;
+  padding: 0 15rpx;
   font-size: 24rpx;
   background-color: #b15bff;
   color: #fff;
