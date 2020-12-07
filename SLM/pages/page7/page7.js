@@ -21,10 +21,14 @@ Page({
     })
     const {CM,KG,YEAR} = this.data                                                   /*CM,KG,YEAR 对应 this.data里的CM,KG,YEAR*/
     const Kcal = (665 + 3.6 * KG + 1.5 * CM + 4.7 * YEAR) * 1.2                      /*计算 Kcal 的公式*/
-    console.log(this.data,Kcal)                                                      /*打印this.data,Kcal里的数据*/
+    
+    console.log(this.setdata,Kcal.toFixed(2))                                        /*打印this.data,Kcal里的数据*/
     this.setData({
-      Kcal
+      Kcal: Kcal.toFixed(2)                                                          /*结果保留两位小数*/
+      
     })                                                                               /*改变Kcal的值*/
+    
+    
    
   },
   /**
