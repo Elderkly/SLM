@@ -70,17 +70,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //  从缓存池内取出学校、食堂、菜品缓存 
-     const [school,menu,canTeen] = [
-        wx.$storage.getStorage("SchoolJson"),
-        wx.$storage.getStorage("Menu"),
-        wx.$storage.getStorage("CanTeen"),
-     ]
-     console.log(canTeen)
-     // 将取出的缓存进行二次重组
-     this.regroup(school,canTeen,menu)
+      this.init()
   },
-
+//初始化
+  init() {
+    //  从缓存池内取出学校、食堂、菜品缓存 
+    const [school,menu,canTeen] = [
+      wx.$storage.getStorage("SchoolJson"),
+      wx.$storage.getStorage("Menu"),
+      wx.$storage.getStorage("CanTeen"),
+   ]
+   console.log(canTeen)
+   // 将取出的缓存进行二次重组
+   this.regroup(school,canTeen,menu)
+  },
+  //页面跳转到page9
   jump(e) {
     wx.setStorageSync('page9Items', JSON.stringify(e.currentTarget.dataset.items))
     wx.navigateTo({
@@ -154,10 +158,11 @@ Page({
           json,
           addIndex: -1
         },this.updateStorage)
+        //弹框弹出 添加成功
         wx.showToast({
           title: '添加成功'
         })
-        //  写入缓存
+        //  写入缓存，JSON.stringify(json))把json变成字符串
         wx.$storage.setStorage("SchoolJson",JSON.stringify(json))
      } else {
         //  没有输入内容 删除最后一条空数据
@@ -175,10 +180,10 @@ Page({
       const {json} = this.data
       const index = json.findIndex(e => e.schoolID === id) 
       if (index !== -1) {
-        json.splice(index, 1)
+        json.splice(index, 1)   
         this.setData({
           json
-        },this.updateStorage)
+        },this.updateStorage) //回调函数写入缓存
       }
     }
   },
@@ -195,8 +200,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
+  //重新初始化页面，将page9更新的饭堂菜品数量显示出来
   onShow: function () {
-
+    this.init()
   },
 
   /**

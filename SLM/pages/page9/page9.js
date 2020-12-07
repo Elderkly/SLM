@@ -16,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //根据page8跳转写入的缓存
     const storage = JSON.parse(wx.getStorageSync('page9Items'))
     this.setData({
       baseData1: {
@@ -26,9 +27,17 @@ Page({
         schoolID: storage.schoolID
       },
     })
-    this.initFT()
+    this.initFT() 
   },
-
+/*
+初始化饭堂
+1.先拿饭堂的缓存，创建一个newjson数组
+2.用map方法遍历缓存里的饭堂，判断缓存内学校是否与当前学校是否一致
+3.如果一致，为每一个饭堂添加list字段，push进去
+4.最后将其重新写入缓存
+5.如果当前饭堂长度大于0，那就可以初始化菜单，
+否则给个空数组，从原始缓存中读取数据Menu
+*/
   initFT() {
     const FT = wx.$storage.getStorage("CanTeen")
     const newJson = []
@@ -53,7 +62,16 @@ Page({
       })
     }
   },
-
+/*
+初始化菜单
+1.先从缓冲中拿取Menu数据
+2.将初始化饭堂FT定义为newjson
+3.用map方法遍历Menu，并且用findIndex方法查找newjson的饭堂id存在于缓存中饭堂id就返回下标
+如果查不到，则为-1
+4. 有下标的话，如果该下标的list存在并且长度大于0，则把e就是Menu的每一项遍历push给list
+若无就初始化将e就是Menu的每一项遍历赋值给list
+5.重新写入缓存和当前数据
+*/
   initMenu(FT) {
     const Menu = wx.$storage.getStorage("Menu")
     const newJson = FT
@@ -73,6 +91,11 @@ Page({
       storageMenu: Menu
     })
   },
+  /*
+添加菜品
+
+
+  */
   addMenu(e) {
     const {baseData2,storageMenu} = this.data
     const base = {
@@ -93,7 +116,7 @@ Page({
   },
   deleteMenu (e) {
     const {index,bindex,foodid} = e.currentTarget.dataset
-    console.log(e.currentTarget.dataset.index)
+    // console.log(e.currentTarget.dataset.index)
     const {baseData2,storageMenu} = this.data
     baseData2[bindex].list.splice(index, 1)
     const SIndex = storageMenu.findIndex(e => e.foodID === foodid)
@@ -174,10 +197,26 @@ Page({
       storgaeCanTeen
     },this.updateStorage)
   },
+  /*
+  更新缓存
+1.将Menu、CanTeen，并且转换为字符串写入缓存
+2. 饭堂数量、菜品数量更新
+  */
   updateStorage() {
     console.log(this.data.storgaeCanTeen)
     wx.$storage.setStorage("Menu",JSON.stringify(this.data.storageMenu))
     wx.$storage.setStorage("CanTeen",JSON.stringify(this.data.storgaeCanTeen))
+    //饭堂数量、菜品数量更新
+    const {baseData1} = this.data                   //获取整个页面的数据  
+    baseData1.ftNum = this.data.baseData2.length;   //饭堂数量就是baseData2数组每一项都是一个饭堂
+    console.log(nthis.data.baseData2);
+    var num = 0;      //统计菜品数量
+    for(var i = 0;i<baseData1.ftNum;i++){           //遍历饭堂下的每一个list数组，该数组存储的是菜品
+       num += this.data.baseData2[i].list.length;
+    }
+    console.log(num);
+    baseData1.foodNum =num  ;
+    this.setData({baseData1})     //更新数据
   },
   addCanteen() {
     const {baseData1,baseData2,storgaeCanTeen} = this.data
