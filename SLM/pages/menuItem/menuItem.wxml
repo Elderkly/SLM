@@ -1,0 +1,31 @@
+<!--pages/menuItem/menuItem.wxml-->
+<view class="menu-box">
+  <view 
+    class="menu-item" 
+    >
+      <image src="{{item.img}}"></image>
+      <view class="menu-details">
+        <view class="menu-name">
+          菜品名称：<input type="text" value="{{item.menuName}}" bindinput="bindKeyInput"/>
+        </view>
+        <view class="menu-calorie">
+          卡路里：<input type="number" value="{{item.calorie}}" bindinput="bindKeyInput2"/>
+        </view>
+        <view class="menu-menuType">
+          用餐时段：
+        </view>  
+        <checkbox-group bindchange="checkboxChange">
+            <label class="weui-cells weui-cells_after-title" wx:for="{{['早餐','午餐','晚餐']}}" wx:key="index" wx:for-item="item">
+            <checkbox value="{{index}}" checked="{{foodType[index] ? true : false}}" />{{item}}</label>
+          </checkbox-group>
+      </view>
+  </view>
+  <view class="btn-box">
+    <view bindtap="change">
+      修改
+    </view>
+    <view bindtap="delete">
+      删除
+    </view>
+  </view>
+</view>

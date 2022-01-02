@@ -17,7 +17,7 @@
     <image src="../../assets/img/jihua-b.png"></image>
      <view class="btn"><text>我的计划</text></view>
   </view>
-  <view class="middle4" bindtap="jump" data-url="/pages/page8/page8">
+  <view class="middle4" bindtap="jump" data-url="/pages/admin/admin">
     <image src="../../assets/img/wode-b.png"></image>
      <view class="btn"><text>管理</text></view>
   </view>

@@ -1,0 +1,15 @@
+<!--pages/admin/admin.wxml-->
+<view class="admin_box">
+  <view class="admin_btn" bindtap="jump" data-url="/pages/admin/settingMenu/settingMenu">
+    <image src="../../assets/img/lianluojilu-b.png" alt=""/>
+    <text>菜品管理</text>
+  </view>
+  <view class="admin_btn">
+    <image src="../../assets/img/lianluojilu-b.png" alt=""/>
+    <text>菜品管理</text>
+  </view>
+  <view class="admin_btn">
+    <image src="../../assets/img/lianluojilu-b.png" alt=""/>
+    <text>菜品管理</text>
+  </view>
+</view>

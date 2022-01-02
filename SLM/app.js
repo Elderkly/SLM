@@ -1,6 +1,6 @@
 //app.js
 import Storage from "common/Storage.js";
-
+import Fetch from "common/Fetch.js";
 App({
   onLaunch: function () {
     //    
@@ -18,6 +18,7 @@ App({
     // }
     wx.$storage = new Storage()
     wx.$storage.init()
+    wx.$fetch = Fetch;
     this.globalData = {}
   }
 })

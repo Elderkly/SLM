@@ -1,0 +1,30 @@
+/* pages/admin/admin.wxss */
+.admin_box{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+.admin_btn{
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  width: 95%;
+  padding: 15rpx;
+  border-radius: 5rpx;
+  box-sizing: border-box;
+  align-items: center;
+  margin: 10rpx 0rpx;
+  height: 150rpx;
+}
+.admin_btn image{
+  width: 70rpx;
+  height: 70rpx;
+  margin-left: 10rpx;
+}
+.admin_btn text{
+  flex: 1;
+  display: block;
+  margin-left: 30rpx;
+  font-size: 38rpx;
+}

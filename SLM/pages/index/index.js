@@ -138,6 +138,21 @@ Page({
     this.initType()
     this.changeMenu()
     this.initFixedView()
+
+
+    wx.request({
+      url: 'http://127.0.0.1:8080/SSLM/menu/allMenu', //仅为示例，并非真实的接口地址
+      // data: {
+      //   x: '',
+      //   y: ''
+      // },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success (res) {
+        console.log(res.data)
+      }
+    })
   },
 
   initFixedView() {
