@@ -6,7 +6,8 @@ Page({
    */
   data: {
     item:{},
-    foodType:[0,0,0]
+    foodType:[0,0,0],
+    isNew:false
   },
 
   /**
@@ -14,6 +15,10 @@ Page({
    */
   onLoad: function (options) {
     const storage = JSON.parse(wx.getStorageSync('settingMenuItem'))
+    if (!storage.menuID) {
+      console.log('新增')
+      this.setData({isNew:true})
+    }
     const foodType = this.data.foodType
     const type = ['早餐','午餐','晚餐']
     for (let i = 0; i < type.length; i++) {
@@ -63,6 +68,35 @@ Page({
     console.log(string)
   },
 
+  add() {
+    wx.$fetch({
+      url:'/menu/addMenu',
+      method:"POST",
+      data:JSON.stringify(this.data.item),
+      loading:true
+    }).then(res => {
+      // console.log(res)
+      if (res === 1) {
+        wx.showToast({
+          title: '新增成功',
+          icon: 'success',
+          duration: 1000,
+          complete: () => {
+            setTimeout(() => {
+              wx.navigateBack()
+            },1300)
+          }
+        })
+      } else {
+        wx.showToast({
+          title: '新增失败',
+          icon: 'error',
+          duration: 1000
+        })
+      }
+    })
+  },
+
   change() {
     wx.$fetch({
       url:'/menu/updateMenu',
@@ -93,7 +127,28 @@ Page({
   },
 
   delete() {
-    console.log('456')
+    console.log(this.data.item.menuID)
+    wx.$fetch({url:`/menu/deleteMenu/${this.data.item.menuID}`,loading:true})
+    .then(res => {
+      if (res === 1) {
+        wx.showToast({
+          title: '删除成功',
+          icon: 'success',
+          duration: 1000,
+          complete: () => {
+            setTimeout(() => {
+              wx.navigateBack()
+            },1300)
+          }
+        })
+      } else {
+        wx.showToast({
+          title: '删除失败',
+          icon: 'error',
+          duration: 1000
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

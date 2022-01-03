@@ -19,6 +19,7 @@
   width: 250rpx;
   height: 250rpx;
   margin-right: 15rpx;
+  background-color: #eee;
 }
 .menu-details{
   flex: 1;
@@ -58,4 +59,11 @@
 .btn-box view:last-child{
   color: #fff;
   background-color: #ce5b57;
+}
+
+
+.new view{
+  background: #5186f1!important;
+  width: 500rpx!important;
+  margin: 0!important;
 }

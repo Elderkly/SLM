@@ -22,5 +22,5 @@
         </view>  
       </view>
   </view>
-  <view class="addBtn">新增菜品</view>
+  <view class="addBtn" bindtap="add">新增菜品</view>
 </view>

@@ -32,10 +32,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    const self = this
-    wx.$fetch({url:'/menu/allMenu'}).then(res => {
-      console.log(res)
-      self.setData({list:res})
+    setTimeout(() => {
+      const self = this
+      wx.$fetch({url:'/menu/allMenu',loading:true}).then(res => {
+        console.log(res)
+        self.setData({list:res})
+      })
+    },300)
+  },
+
+  add: () => {
+    wx.setStorageSync('settingMenuItem', JSON.stringify({
+      calorie: 0,
+      img: "",
+      menuName: "",
+      menuType: ""
+    }))
+    wx.navigateTo({
+      url: '/pages/menuItem/menuItem',
     })
   },
 
