@@ -92,3 +92,33 @@
   margin-top: 15rpx;
   color: rgb(180, 180, 180);
 }
+
+
+.menu-item2{
+  border-radius: 5rpx;
+  margin-bottom: 15rpx;
+  display: flex;
+  justify-content: center;
+  width: 95%;
+  align-items: center;
+}
+.menu-item2 image{
+  width: 200rpx;
+  height: 200rpx;
+  margin-right: 15rpx;
+  background-color: #eee;
+}
+.menu-details2{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.menu-details2 view{
+  margin-bottom: 15rpx;
+  font-size: 30rpx;
+  display: flex
+}
+.menu-details2 view input{
+  flex:1;
+  /* border-bottom: 1rpx solid #eee; */
+}

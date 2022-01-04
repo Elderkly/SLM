@@ -4,7 +4,7 @@
     <image src="../../assets/img/lianluojilu-b.png" alt=""/>
     <text>菜品管理</text>
   </view>
-  <view class="admin_btn" bindtap="jump" data-url="/pages/admin/settingScholl/settingScholl">
+  <view class="admin_btn" bindtap="jump" data-url="/pages/admin/settingSchool/settingSchool">
     <image src="../../assets/img/lianluojilu-b.png" alt=""/>
     <text>学校管理</text>
   </view>

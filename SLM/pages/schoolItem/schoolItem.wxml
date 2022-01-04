@@ -26,7 +26,28 @@
       <image src="../../assets/img/guanbi-b.png" bindtap="deleteCanteen" data-index="{{index}}"/>
     </view>
     <view class="canteenContent">
-      <view class="addMenu">+ 添加菜品</view>
+      <view 
+        class="menu-item2" 
+        wx:for="{{menu[index]}}"
+        wx:for-index="mindex" 
+        wx:for-item="mitem" 
+        wx:key="mindex"
+        data-items="{{mitem}}"
+        >
+          <image src="{{mitem.img}}"></image>
+          <view class="menu-details2">
+            <view class="menu-name">
+              菜品名称：<input type="text" value="{{mitem.menuName}}" disabled="true"/>
+            </view>
+            <view class="menu-calorie">
+              卡路里：<input type="number" value="{{mitem.calorie}}" disabled="true"/>
+            </view>
+            <view class="menu-menuType">
+              用餐时段：<input type="number" value="{{mitem.menuType}}" disabled="true"/>
+            </view>  
+          </view>
+      </view>
+      <view class="addMenu" bindtap="addMenu" data-index="{{index}}">+ 添加菜品</view>
     </view>
   </view>
   <view class="btn-box" wx:if="{{!isNew}}">
