@@ -1,0 +1,11 @@
+<!--pages/page5/page5.wxml-->
+<view class="search">
+  <view class="search_1">
+    <image src="../../assets/img/sousuo-b.png"></image>
+    <input type="text" placeholder="请输入菜品名称"  bindinput="bindKeyInput"/>
+  </view>
+</view>
+<view class="body">
+  <view class="body_1" bindtap="tap" data-index="{{index}}" wx:for="{{selectJson}}" wx:for-item="item" wx:key="index">{{item.menuName}}——{{item.menuType}}</view>
+</view>
+

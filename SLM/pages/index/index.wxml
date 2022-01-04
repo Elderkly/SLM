@@ -10,7 +10,7 @@
   </view>
   <view class="index-middle">
     <image src='{{MenuJson[selectIndex].img ? MenuJson[selectIndex].img : null}}' mode="scaleToFill"></image>
-    <text wx:if="{{!!MenuJson[selectIndex]}}">{{MenuJson[selectIndex].canteenName}}-{{MenuJson[selectIndex].foodName}}</text>
+    <text wx:if="{{!!MenuJson[selectIndex]}}">{{MenuJson[selectIndex].canteenName}}-{{MenuJson[selectIndex].menuName}}</text>
     <text wx:else>暂无数据</text>
   </view>
   <view class="index-botton {{start ? 'pause-button' : ''}} {{status !== 1 ? 'hiddenButton' : ''}} {{!MenuJson[selectIndex] ? 'nullData' : ''}}" bindtap="startRandom">

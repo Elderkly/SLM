@@ -49,7 +49,7 @@ Page({
       showLog: false,
       schoolID: event.currentTarget.dataset.schoolid,
       status: 1
-    },this.changeMenu)
+    },this.changeData)
   },
   taptag: function (event) {
     const {
@@ -136,23 +136,8 @@ Page({
   onLoad: function (options) {
     this.initStorage()
     this.initType()
-    this.changeMenu()
+    // this.changeMenu()
     this.initFixedView()
-
-
-    wx.request({
-      url: 'http://127.0.0.1:8080/SSLM/menu/allMenu', //仅为示例，并非真实的接口地址
-      // data: {
-      //   x: '',
-      //   y: ''
-      // },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success (res) {
-        console.log(res.data)
-      }
-    })
   },
 
   initFixedView() {
@@ -207,42 +192,97 @@ Page({
       },() => this.timeOut = setTimeout(() => this.setData({showFixedView: false}),300))
     }
   },
-  initStorage() {
-    const menu = wx.$storage.getStorage("Menu")
-    const school = wx.$storage.getStorage("SchoolJson")
-    if (!!menu) {
-      this.setData({
-        // MenuJson: menu,
-        BaseMenuJson: menu,
-        schoolData: school,
-        school: school[0].schoolName,
-        schoolID: school[0].schoolID
-      })
-    }
-    this.initTag()
+  async initStorage() {
+    // const menu = wx.$storage.getStorage("Menu")
+    // const school = wx.$storage.getStorage("SchoolJson")
+    // if (!!menu) {
+    //   this.setData({
+    //     // MenuJson: menu,
+    //     BaseMenuJson: menu,
+    //     schoolData: school,
+    //     school: school[0].schoolName,
+    //     schoolID: school[0].schoolID
+    //   })
+    // }
+    // this.initTag()
+    await this.initSchoolData()
+    await this.changeData()
   },
-  initTag() {
-    const canTeen = wx.$storage.getStorage("CanTeen")
-    console.log(canTeen)
+
+  async changeData() {
+    await this.initCanteenData()
+    await this.initBasisData()
+  },
+
+  async initSchoolData() {
+    await wx.$fetch({url:`/school/allSchool`})
+    .then(res => {
+      console.log('学校',res)
+      if (res.length > 0) {
+        this.setData({
+          schoolData: res,
+          school: res[0].schoolName,
+          schoolID: res[0].schoolID
+        })
+      }
+    })
+  },
+
+  async initCanteenData() {
+    await wx.$fetch({url:`/canteen/queryCanteenBySchoolID/${this.data.schoolID}`})
+    .then(res => {
+      console.log('饭堂',res)
+      this.initTag(res)
+      // if (res.length > 0) {
+      //   this.setData({
+      //     schoolData: res,
+      //     school: res[0].schoolName,
+      //     schoolID: res[0].schoolID
+      //   })
+      // }
+    })
+  },
+
+  async initBasisData() {
+    const {tagJson,selectItems} = this.data
+    if (tagJson.findIndex(e => e.title === '饭堂') === -1) {
+      this.setData({MenuJson:[]})
+      return
+    }
+    const index = tagJson[0].list.findIndex(e => e.name === selectItems[0])
+    console.log(index)
+    const canteenID = tagJson[0].list[index].id
+    wx.$fetch({url:`/canteen/getCanteenMenuRecord/${canteenID}`})
+    .then(res => {
+      console.log('菜品',res)
+      if (res.length >= 0) {
+        this.setData({MenuJson:res})
+      }
+    })
+  },
+
+  initTag(res) {
+    // const canTeen = wx.$storage.getStorage("CanTeen")
+    // console.log(canTeen)
+    const {selectItems} = this.data
     const newJson = []
-    canTeen.map(e => {
-      if (e.schoolName === this.data.school) {
+    res.map(e => {
         if (newJson[0]) {
           newJson[0].list.push({
             name: e.canteenName,
-            id: e.id
+            id: e.canteenID
           })
         } else {
           newJson.push({
             title: '饭堂',
             list: [{
               name: e.canteenName,
-              id: e.id
+              id: e.canteenID
             }, ]
           })
         }
-      }
     })
+    selectItems[0] = newJson[0] ? newJson[0].list[0].name : null
     newJson.push({
       title: '类型',
       list: [{
@@ -272,9 +312,10 @@ Page({
       ]
     })
     this.setData({
-      tagJson: newJson
+      tagJson: newJson,
+      selectItems
     })
-    console.log(newJson)
+    console.log(newJson,selectItems)
   },
   initType() {
     const Hours = new Date().getHours()
@@ -286,6 +327,9 @@ Page({
     })
   },
   changeMenu() {
+    console.log(123)
+    this.initBasisData()
+    return
     const {BaseMenuJson,school,selectItems,schoolID} = this.data
     const newJson = []
     BaseMenuJson.map((e,index) => {
@@ -332,9 +376,9 @@ Page({
    */
   onShow: function () {
     if (this.hidden) {
-      this.initStorage()
-      this.initType()
-      this.changeMenu()
+      // this.initStorage()
+      // this.initType()
+      // this.changeMenu()
       this.hidden = false
     }
   },
