@@ -12,7 +12,9 @@
     "pages/page10/page10",
     "pages/admin/admin",
     "pages/admin/settingMenu/settingMenu",
-    "pages/menuItem/menuItem"
+    "pages/menuItem/menuItem",
+    "pages/admin/settingSchool/settingSchool",
+    "pages/schoolItem/schoolItem"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

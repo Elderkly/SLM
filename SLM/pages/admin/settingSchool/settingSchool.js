@@ -16,9 +16,9 @@ Page({
   },
 
   jump(e) {
-    wx.setStorageSync('settingMenuItem', JSON.stringify(e.currentTarget.dataset.items))
+    wx.setStorageSync('settingSchoolItem', JSON.stringify(e.currentTarget.dataset.items))
     wx.navigateTo({
-      url: '/pages/menuItem/menuItem',
+      url: '/pages/schoolItem/schoolItem',
     })
   },
   /**
@@ -34,7 +34,7 @@ Page({
   onShow: function () {
     setTimeout(() => {
       const self = this
-      wx.$fetch({url:'/menu/allMenu',loading:false}).then(res => {
+      wx.$fetch({url:'/school/allSchool',loading:false}).then(res => {
         console.log(res)
         self.setData({list:res})
       })
@@ -42,14 +42,13 @@ Page({
   },
 
   add: () => {
-    wx.setStorageSync('settingMenuItem', JSON.stringify({
-      calorie: 0,
-      img: "",
-      menuName: "",
-      menuType: ""
+    wx.setStorageSync('settingSchoolItem', JSON.stringify({
+      img: "https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg",
+      schoolName: "",
+      canteenCount: 0
     }))
     wx.navigateTo({
-      url: '/pages/menuItem/menuItem',
+      url: '/pages/schoolItem/schoolItem',
     })
   },
 

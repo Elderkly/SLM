@@ -1,0 +1,23 @@
+<!--pages/admin/settingMenu/settingMenu.wxml-->
+<view class="menu-box">
+  <view 
+    class="menu-item" 
+    wx:for="{{list}}"
+    wx:for-index="index" 
+    wx:for-item="item" 
+    wx:key="index"
+    data-items="{{item}}"
+    bindtap="jump"
+    >
+      <image src="{{item.img}}"></image>
+      <view class="menu-details">
+        <view class="menu-name">
+          学校名称：{{item.schoolName}}
+        </view>
+        <view class="menu-calorie">
+          饭堂数量：{{item.canteenCount}}
+        </view>
+      </view>
+  </view>
+  <view class="addBtn" bindtap="add">新增学校</view>
+</view>

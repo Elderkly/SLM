@@ -1,0 +1,48 @@
+<!--pages/menuItem/menuItem.wxml-->
+<view class="menu-box">
+  <view 
+    class="menu-item" 
+    >
+      <image src="{{item.img}}"></image>
+      <view class="menu-details">
+        <view class="menu-name">
+          学校名称：<input type="text" value="{{item.schoolName}}" bindinput="bindKeyInput"/>
+        </view>
+        <view class="menu-calorie">
+          饭堂数量：<input type="number" value="{{item.canteenCount}}" disabled="true"/>
+        </view>
+      </view>
+  </view>
+  <view 
+  class="canteenItem" 
+    wx:for="{{canteen}}"
+    wx:for-index="index" 
+    wx:for-item="item" 
+    wx:key="index"
+    data-items="{{item}}"
+  >
+    <view class="canteenHeader">
+      <input placeholder="请输入饭堂名称" value="{{item.canteenName}}" data-index="{{index}}" bindinput="inputCanteen"/>
+      <image src="../../assets/img/guanbi-b.png" bindtap="deleteCanteen" data-index="{{index}}"/>
+    </view>
+    <view class="canteenContent">
+      <view class="addMenu">+ 添加菜品</view>
+    </view>
+  </view>
+  <view class="btn-box" wx:if="{{!isNew}}">
+    <view bindtap="change">
+      保存修改
+    </view>
+    <view bindtap="addCanteen">
+      添加饭堂
+    </view>
+    <view bindtap="delete">
+      删除学校
+    </view>
+  </view>
+  <view class="btn-box new" wx:else>
+    <view bindtap="add">
+      保存
+    </view>
+  </view>
+</view>

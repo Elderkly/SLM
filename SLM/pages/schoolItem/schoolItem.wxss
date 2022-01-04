@@ -1,0 +1,94 @@
+/* pages/admin/settingMenu/settingMenu.wxss */
+.menu-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  padding: 50rpx 15rpx;
+  box-sizing: border-box;
+}
+.menu-item{
+  border-radius: 5rpx;
+  margin-bottom: 15rpx;
+  display: flex;
+  justify-content: center;
+  width: 95%;
+  align-items: center;
+}
+.menu-item image{
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 15rpx;
+  background-color: #eee;
+}
+.menu-details{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.menu-details view{
+  margin-bottom: 15rpx;
+  font-size: 30rpx;
+  display: flex
+}
+.menu-details view:first-child input{
+  flex:1;
+  border-bottom: 1rpx solid #eee;
+}
+.weui-cells_after-title{
+  margin-right: 15rpx;
+}
+.btn-box{
+  display: flex;
+  margin-top: 80rpx;
+  align-items: center;
+}
+.btn-box view{
+  width: 180rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+.btn-box view:first-child,.btn-box view:nth-child(2){
+  color: #fff;
+  background-color: #5186f1;
+  margin-right: 30rpx;
+}
+.btn-box view:last-child{
+  color: #fff;
+  background-color: #ce5b57;
+}
+
+
+.new view{
+  background: #5186f1!important;
+  width: 500rpx!important;
+  margin: 0!important;
+}
+.canteenItem{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-top: 15rpx;
+}
+.canteenHeader{
+  display: flex;
+}
+.canteenHeader input {
+  flex:1;
+  margin-right: 20rpx;
+}
+.canteenHeader image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.canteenContent{
+
+
+}
+.addMenu{
+  margin-top: 15rpx;
+  color: rgb(180, 180, 180);
+}
