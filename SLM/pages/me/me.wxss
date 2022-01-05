@@ -10,6 +10,16 @@
   height: 160rpx;
   margin: 20rpx;
   border-radius: 50%;
+  background-color: #eee;
+}
+.noLogin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.noLogin image{
+  width: 100rpx;
+  height: 100rpx;
 }
 .name text{
   margin:10rpx;  
@@ -47,4 +57,17 @@
 display:block ;
   height: 50rpx;
   width: 200rpx;
+}
+.login{
+  width: 150rpx!important;
+  height: 70rpx!important;
+  background: #64a2ff!important;
+  border-radius: 8rpx!important;
+  text-align: center!important;
+  line-height: 78rpx!important;
+  font-size: 32rpx!important;
+  font-weight: 400!important;
+  margin: 0!important;
+  padding:0!important;
+  color: #fff;
 }

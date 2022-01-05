@@ -6,9 +6,8 @@ Page({
    */
   data: {
     id:'id',
-    imgesrc:'https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg'
-
-
+    imgesrc:'https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg',
+    islogin:false
   },
   updateBtn: function(){
          wx.navigateTo({
@@ -20,7 +19,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getInfo()
+  },
 
+  login() {
+    this.getInfo()
+  },
+
+  bindgetuserinfo(res) {
+    console.log(res)
+  },
+  async getInfo() {
+    const id = await wx.$utils.getUserID()
+    console.log('getUserID',id)
+    this.setData({
+      islogin: !!id
+    })
   },
   jump(e) {
     console.log(e.currentTarget.dataset.url)

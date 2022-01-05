@@ -256,9 +256,33 @@ Page({
     .then(res => {
       console.log('菜品',res)
       if (res.length >= 0) {
-        this.setData({MenuJson:res})
+        const data = this.selectData(res) 
+        this.setData({MenuJson:data})
       }
     })
+  },
+
+  selectData(res) {
+    const newJson = []
+    const {selectItems} = this.data
+    const [canteen,type,calorie] = selectItems
+    // console.log(res,type,calorie)
+    res.map(e => {
+      let _e = e
+      if (!!type && e.menuType.indexOf(type) === -1) {
+        _e = null
+      }
+      if (!!calorie) {
+        if (calorie === '低热量' && e.calorie >= 350) {
+          _e = null
+        } else if (calorie === '高热量' && e.calorie < 350){
+          _e = null
+        }
+      }
+      !!_e ? newJson.push(_e) : null
+    })
+    console.log(newJson)
+    return newJson
   },
 
   initTag(res) {

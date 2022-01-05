@@ -1,8 +1,12 @@
 <!--pages/me/me.wxml-->
-<view class="name">
+<view class="name" wx:if="{{islogin}}">
   <!-- //这是自动获取动态头像用户名   open-data方法微信自带 -->
   <view class="touxiang"><open-data type="userAvatarUrl"></open-data></view>
   <view><open-data type="userNickName" class="userName"></open-data></view>
+</view>
+<view class="name" wx:else bindtap="login">
+  <view class="touxiang noLogin"><image src="../../assets/img/wode-b.png"></image></view>
+  <button class="login" open-type="getUserInfo">登录</button>
 </view>
 <view class="middle">
   <view class="middle1" bindtap="jump" data-url="/pages/page3/page3">
@@ -21,7 +25,5 @@
     <image src="../../assets/img/wode-b.png"></image>
      <view class="btn"><text>管理</text></view>
   </view>
-  
-
 </view>
 
