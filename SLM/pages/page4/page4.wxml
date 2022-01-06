@@ -3,12 +3,12 @@
   <view class='top'>
     <text class='top_t'>食物信息</text>
     <image
-    src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg">
+    src="{{school.img}}">
   </image>  
       <view class='text'>
-        <view class='a'><text class='aText'>食物名称:  {{school.foodName}}</text>  </view>
-        <view class='a'><text class='b'>卡路里:  {{school.foodCal}}  </text> </view>
-        <view class='a'><text class='c'>时间：{{filter.toDate(school.time)}}  </text></view>
+        <view class='a'><text class='aText'>食物名称:  {{school.menuName}}</text>  </view>
+        <view class='a'><text class='b'>卡路里:  {{school.calorie}}  </text> </view>
+        <view class='a'><text class='c'>时间：{{filter.toDate(school.recordTime)}}  </text></view>
           <view class='a'> <text class='d'>地点： {{school.schoolName}}</text></view>
        </view>
     

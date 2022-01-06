@@ -46,6 +46,7 @@
   border-radius: 30rpx;
   display:inline-block;
   margin-left: 50rpx;
+  line-height: 80rpx;
 }
 .btn_butt{
   margin-top: 60rpx;

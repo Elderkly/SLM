@@ -1,8 +1,9 @@
 import * as echarts from '../../ec-canvas/echarts';
 import {formatData} from '../../common/Utils'
 const app = getApp();
+let list = []
 
-function initChart(canvas, width, height, dpr) {
+async function initChart(canvas, width, height, dpr) {
   const chart = echarts.init(canvas, null, {
     width: width,
     height: height,
@@ -10,25 +11,26 @@ function initChart(canvas, width, height, dpr) {
   });
   canvas.setChart(chart);
 
-  const storage = wx.$storage.getStorage("Record")
+  const storage = list
   const dateArr = []
   const valueArr = []
   const newArr = []
   storage.map((e,index) => {
-    const time = formatData(e.time)
+    const time = formatData(e.recordTime)
+    e.time = parseInt(e.recordTime)
     const xindex = newArr.findIndex(x => x.time === time)
     if (xindex === -1) {
       newArr.push({
         time: time,
-        foodCal: e.foodCal
+        calorie: e.calorie
       })
     } else {
-      newArr[xindex].foodCal += e.foodCal
+      newArr[xindex].calorie += e.calorie
     }
   })
   newArr.map(e => {
     dateArr.unshift(e.time)
-    valueArr.unshift(e.foodCal)
+    valueArr.unshift(e.calorie)
   })
   // console.log(newArr,dateArr,valueArr)
 
@@ -83,19 +85,20 @@ function initChart2(canvas, width, height, dpr) {
   });
   canvas.setChart(chart);
 
-  const storage = wx.$storage.getStorage("Record")
+  const storage = list
   const newJson = []
   storage.map(e => {
-    const index = newJson.findIndex(x => x.name === e.foodName)
+    const index = newJson.findIndex(x => x.name === e.menuName)
     if (index !== -1) {
       newJson[index].value += 1
     } else {
       newJson.push({
-        name: e.foodName,
+        name: e.menuName,
         value: 1
       })
     }
   })
+  console.log(newJson)
   var option = {
     backgroundColor: "#ffffff",
     color: ["#37A2DA", "#32C5E9", "#67E0E3", "#91F2DE", "#FFDB5C", "#FF9F7F"],
@@ -133,14 +136,6 @@ function initChart2(canvas, width, height, dpr) {
 }
 
 Page({
-  onShareAppMessage: function (res) {
-    return {
-      title: 'ECharts 可以在微信小程序中使用啦！',
-      path: '/pages/index/index',
-      success: function () { },
-      fail: function () { }
-    }
-  },
   data: {
     ec: {
       onInit: initChart
@@ -152,12 +147,32 @@ Page({
   },
 
   onLoad() {
-    const storage = wx.$storage.getStorage("Record")
-    console.log(storage && storage.length > 0)
+    // const storage = wx.$storage.getStorage("Record")
+    // console.log(storage && storage.length > 0)
+    // this.setData({
+    //   showChat: !!storage
+    // })
+    setTimeout(() => this.initData(),300)
+  },
+
+  async initData() {
+    const data = await this.getData()
+    console.log(data)
+    list = data
     this.setData({
-      showChat: !!storage
+      showChat: data.length > 0
     })
   },
-  onReady() {
-  }
+
+
+  async getData() {
+    const UserInfo = wx.$storage.getStorage('UserInfo')
+    console.log('getUserID（）获取用户信息',UserInfo)
+    if (!!UserInfo && !!UserInfo.id) {
+        const res = await wx.$fetch({url:`/randomRecord/getUserRandomRecord/${UserInfo.id}`})
+        console.log('用户数据',res)
+        return res
+    }
+    return []
+  },
 });

@@ -15,7 +15,7 @@ Page({
     // this.setData({
     //   school :JSON.parse(wx.getStorageSync("Record"))
     // })
-    this.getData()
+    
   },
 
   getData() {
@@ -44,9 +44,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // this.setData({
-    //   school :JSON.parse(wx.getStorageSync("Record"))
-    // }) 
+    this.getData()
   },   
   viewBtn :function(e){
     wx.setStorage({

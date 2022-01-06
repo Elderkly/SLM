@@ -75,10 +75,16 @@
 }
 .canteenHeader{
   display: flex;
+  background: #5197f3;
+  padding: 10rpx;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
 }
 .canteenHeader input {
   flex:1;
   margin-right: 20rpx;
+  text-indent: 20rpx;
+  color: #fff;
 }
 .canteenHeader image {
   width: 40rpx;

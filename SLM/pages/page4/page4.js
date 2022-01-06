@@ -25,7 +25,7 @@ Page({
   //   }
   //   wx.setStorageSync('key1',optio  ns.key1 )
     const page4Items = wx.getStorageSync('page4Items')
-
+    
     this.setData ({
       school:JSON.parse(page4Items)
     })
@@ -50,18 +50,37 @@ Page({
  
   },
 
-  changeData(data) {
-    console.log(data)
+  changeData(index,data) {
     const {school} = this.data
-    school.schoolName = data.schoolName
-    school.foodCal = data.foodCal
-    school.foodName = data.foodName
-    this.setData({school})
-    this.setData({
-      qq:JSON.parse(wx.getStorageSync("Record"))
+    const newJson = {...school,...data}
+    this.setData({school:newJson})
+    wx.$fetch({
+      url:`/randomRecord/changeRandomRecord`,
+      method:'POST',
+      data:JSON.stringify(newJson),
+      loading:true
+    }).then(res => {
+      if (res === 1) {
+        wx.showToast({
+          title: '修改成功',
+        })
+      } else {
+        wx.showToast({
+          title: '修改失败',
+          icon:'none'
+        })
+      }
     })
-    this.data.qq.splice(this.data.qq.findIndex((qq)=>(qq.foodID ==school.foodID)),1,school)
-    wx.$storage.setStorage('Record', JSON.stringify(this.data.qq))
+    console.log(school,newJson)
+    // school.schoolName = data.schoolName
+    // school.foodCal = data.foodCal
+    // school.foodName = data.foodName
+    // this.setData({school})
+    // this.setData({
+    //   qq:JSON.parse(wx.getStorageSync("Record"))
+    // })
+    // this.data.qq.splice(this.data.qq.findIndex((qq)=>(qq.foodID ==school.foodID)),1,school)
+    // wx.$storage.setStorage('Record', JSON.stringify(this.data.qq))
   },
  
   /**
@@ -93,19 +112,33 @@ Page({
   },
   updateBtn: function(){
      wx.navigateTo({
-       url:'../page5/page5'
+       url:'/pages/search/searchMenu'
      })
   },
+
 deleteBtn: function(options){
  wx.showModal({
   title: '提示',
   content: '是否删除记录',
   success: (rees) => {
   if (rees.confirm) {
-    var pages = getCurrentPages();
-    var beforePage = pages[pages.length - 2]; // 前一个页面
-    beforePage.delete(this.data.school.id); //调用上个页面的方法
-    wx.navigateBack()
+    wx.$fetch({url:`/randomRecord/deleteRecord/${this.data.school.id}`})
+    .then(e => {
+      if (e === 1) {
+        wx.showToast({
+          title: '删除成功',
+          success:() => {
+            setTimeout(() => wx.navigateBack(),1300)
+          }
+        })
+      } else {
+        wx.showToast({
+          title: '删除失败',
+          icon:'none'
+        })
+        console.log(e)
+      }
+    })
     // console.log(beforePage)
 
   } else if (rees.cancel) {
