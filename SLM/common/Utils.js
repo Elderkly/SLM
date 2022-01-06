@@ -66,7 +66,7 @@ async function getUserID() {
         return UserInfo.id
     } else {
         const userInfo = await login()
-        return userInfo && userInfo.id ? userInfo : false
+        return userInfo && userInfo.id ? userInfo.id : false
     }
 }
 

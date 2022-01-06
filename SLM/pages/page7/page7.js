@@ -19,27 +19,27 @@ Page({
     this.setData({
       [key]: value                                                                   /*将 key 对应的值改变成 value*/
     })
+    this.changeKcal()
+  },
+
+  changeKcal() {
     const {CM,KG,YEAR} = this.data                                                   /*CM,KG,YEAR 对应 this.data里的CM,KG,YEAR*/
     const Kcal = (665 + 3.6 * KG + 1.5 * CM + 4.7 * YEAR) * 1.2                      /*计算 Kcal 的公式*/
     
     console.log(this.setdata,Kcal.toFixed(2))                                        /*打印this.data,Kcal里的数据*/
     this.setData({
       Kcal: Kcal.toFixed(2)                                                          /*结果保留两位小数*/
-      
     })                                                                               /*改变Kcal的值*/
-    
-    
-   
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const kk = wx.$storage.getStorage('CalInfo')                                     /*定义 kk 获取 CalInfo的数据*/
+    const kk = wx.$storage.getStorage('UserInfo')                                     /*定义 kk 获取 CalInfo的数据*/
     
     console.log(kk)                                                                  /*打印 kk 里的数据*/
 
-    this.setData({CM:kk.height,KG:kk.weight,YEAR:kk.age,Kcal:kk.cal})                /*CM的数据等于kk.height，KG的数据等于kk.weight，YEAR的数据等于kk.age，Kcal的数据等于kk.cal*/
+    this.setData({CM:kk.height,KG:kk.weight,YEAR:kk.age},() => this.changeKcal())                /*CM的数据等于kk.height，KG的数据等于kk.weight，YEAR的数据等于kk.age，Kcal的数据等于kk.cal*/
   },
 
   save(){ /*定义保存事件*/
