@@ -2,13 +2,13 @@
 <wxs module="filter" src="../page3/page3.wxs"></wxs>
 <view bindtap="viewBtn" data-item="{{school}}" class='view_1' wx:for="{{school}}" wx:for-index="index" wx:for-item="school">
   <image
-    src="https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a1ec08fa513d2697445f3b255afbb2fb4316d83d.jpg">
+    src="{{school.img}}">
   </image>
   <view>
-    <text class='text_1'>{{school.foodName}}</text>
+    <text class='text_1'>{{school.menuName}}</text>
     <view>
-      <text class='text_2'>热量：{{school.foodCal}}</text>
-      <text class='text_3'>{{filter.toDate(school.time)}}</text>
+      <text class='text_2'>热量：{{school.calorie}}</text>
+      <text class='text_3'>{{filter.toDate(school.recordTime)}}</text>
     </view>
   </view>
 

@@ -29,7 +29,8 @@ Page({
     status: 1,
     changeTag: false,
     showFixedView: false,
-    FixedViewText: null
+    FixedViewText: null,
+    userID: null
   },
   bindClick: function () {
     if (this.data.start || this.data.status === 2) {
@@ -51,6 +52,23 @@ Page({
       status: 1
     },this.changeData)
   },
+
+  async login() {
+    const id = await wx.$utils.getUserID()
+    console.log('getUserID',id)
+    this.setData({
+      userID: id
+    })
+    if (!!id) {
+      this.startRandom()
+    }
+  },
+  
+  bindgetuserinfo(res) {
+    console.log('bindgetuserinfo',res)
+    console.log(123)
+  },
+  
   taptag: function (event) {
     const {
       boxIndex,
@@ -112,28 +130,48 @@ Page({
     })
   },
   save: function () {
-    const Record = !!wx.$storage.getStorage('Record') ? wx.$storage.getStorage('Record') : []
+    // const Record = !!wx.$storage.getStorage('Record') ? wx.$storage.getStorage('Record') : []
+    // const foodData = this.data.MenuJson[this.data.selectIndex]
+    // foodData.time = new Date().getTime()
+    // foodData.schoolName = this.data.school
+    // Record.unshift(foodData)
+    // wx.$storage.setStorage('Record', JSON.stringify(Record))
+    // console.log(wx.$storage.getStorage('Record'))
     const foodData = this.data.MenuJson[this.data.selectIndex]
-    foodData.time = new Date().getTime()
+    foodData.recordTime = new Date().getTime().toString()
     foodData.schoolName = this.data.school
-    Record.unshift(foodData)
-    wx.$storage.setStorage('Record', JSON.stringify(Record))
-    console.log(wx.$storage.getStorage('Record'))
-    wx.vibrateShort({
-      type: 'heavy'
-    })
-    wx.showToast({
-      title: '保存成功'
-    })
-    this.setData({
-      status: 3
-    })
-    this.initFixedView()
+    foodData.schoolID = this.data.schoolID
+    foodData.userID = this.data.userID
+    delete foodData.recordId
+    console.log(foodData)
+    wx.$fetch({url:`/randomRecord/addRandomRecord`,method:'POST',loading:true,data:JSON.stringify(foodData)})
+    .then(res => {
+      console.log('插入',res)
+      if (res === 1) {
+        wx.vibrateShort({
+          type: 'heavy'
+        })
+        wx.showToast({
+          title: '保存成功'
+        })
+        this.setData({
+          status: 3
+        })
+        this.initFixedView()
+      } else {
+        wx.showToast({
+          title: '保存失败',
+          icon:"none"
+        })
+      }
+    }) 
+
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.login()
     this.initStorage()
     this.initType()
     // this.changeMenu()
@@ -246,7 +284,7 @@ Page({
   async initBasisData() {
     const {tagJson,selectItems} = this.data
     if (tagJson.findIndex(e => e.title === '饭堂') === -1) {
-      this.setData({MenuJson:[]})
+      this.setData({MenuJson:[],status:1})
       return
     }
     const index = tagJson[0].list.findIndex(e => e.name === selectItems[0])

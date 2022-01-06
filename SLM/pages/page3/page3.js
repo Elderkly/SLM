@@ -12,12 +12,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      school :JSON.parse(wx.getStorageSync("Record"))
-    })
- 
+    // this.setData({
+    //   school :JSON.parse(wx.getStorageSync("Record"))
+    // })
+    this.getData()
   },
 
+  getData() {
+    const UserInfo = wx.$storage.getStorage('UserInfo')
+    console.log('getUserID（）获取用户信息',UserInfo)
+    if (!!UserInfo && !!UserInfo.id) {
+        wx.$fetch({url:`/randomRecord/getUserRandomRecord/${UserInfo.id}`})
+        .then(res => {
+          console.log(res)
+          if (res.length > 0) {
+            this.setData({school:res})
+          }
+        })
+    } else {
+      console.log('用户未登录')
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -29,9 +44,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      school :JSON.parse(wx.getStorageSync("Record"))
-    }) 
+    // this.setData({
+    //   school :JSON.parse(wx.getStorageSync("Record"))
+    // }) 
   },   
   viewBtn :function(e){
     wx.setStorage({

@@ -27,7 +27,7 @@ Page({
   },
 
   bindgetuserinfo(res) {
-    console.log(res)
+    console.log('bindgetuserinfo',res)
   },
   async getInfo() {
     const id = await wx.$utils.getUserID()

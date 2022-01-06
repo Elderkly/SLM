@@ -13,9 +13,10 @@
     <text wx:if="{{!!MenuJson[selectIndex]}}">{{MenuJson[selectIndex].canteenName}}-{{MenuJson[selectIndex].menuName}}</text>
     <text wx:else>暂无数据</text>
   </view>
-  <view class="index-botton {{start ? 'pause-button' : ''}} {{status !== 1 ? 'hiddenButton' : ''}} {{!MenuJson[selectIndex] ? 'nullData' : ''}}" bindtap="startRandom">
+  <view class="index-botton {{start ? 'pause-button' : ''}} {{status !== 1 ? 'hiddenButton' : ''}} {{!MenuJson[selectIndex] ? 'nullData' : ''}}" bindtap="startRandom" wx:if="{{!!userID}}">
     {{!!MenuJson[selectIndex] ? start ? '停止' : '开始' : '暂无数据'}}
   </view>
+  <button wx:else class="index-botton loginBtn" open-type="getUserInfo" bindtap="login">开始</button>
   <view class="success-button-box {{status === 2 ? 'showButton' : ''}}">
     <view bindtap="save">就这个了</view>
     <view bindtap="startRandom">再摇一次</view>

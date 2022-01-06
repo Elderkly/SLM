@@ -53,7 +53,7 @@
             "list": [
                 {
                     "name": "pages/admin/settingMenu/settingMenu",
-                    "pathName": "pages/me/me",
+                    "pathName": "pages/page3/page3",
                     "query": "",
                     "scene": null
                 }

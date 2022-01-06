@@ -250,3 +250,8 @@
   left: -100%;
   pointer-events: none;
 }
+
+.loginBtn{
+  width: 580rpx!important;
+  line-height: 75rpx;
+}
