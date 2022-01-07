@@ -23,7 +23,7 @@
   >
     <view class="canteenHeader">
       <input placeholder="请输入饭堂名称" value="{{item.canteenName}}" data-index="{{index}}" bindinput="inputCanteen"/>
-      <image src="../../assets/img/guanbi-b.png" bindtap="deleteCanteen" data-index="{{index}}"/>
+      <image src="../../assets/img/guanbi.png" bindtap="deleteCanteen" data-index="{{index}}"/>
     </view>
     <view class="canteenContent">
       <view 

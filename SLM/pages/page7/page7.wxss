@@ -1,92 +1,70 @@
 /* pages/page7/page7.wxss */
-.one{
-  border: 1px solid #000;                                                 /*添加一个线宽是1px的黑色框*/
-  margin-top: 30rpx;                                                        /*上边距是30rpx*/
-  height: 35px                                                              /*高度是35px*/
-}
-.two{
-  margin-top:15rpx;                                                         /*上边距是15rpx*/
-  border: 1px solid #000;                                                 /*添加一个线宽1px的黑色框*/
-  height: 35px                                                              /*高度是35px*/
-}
-.tree{
-  margin-top: 15rpx;                                                        /*上边距是15rpx*/
-  border: 1px solid #000;                                                 /*添加一个线宽1px的黑色框*/
-  height: 35px                                                              /*高度是35px*/
-
-}
-.A{
-  margin-top: 25rpx;                                                         /*上边距是30rpx*/
-  height: 15px                                                               /*高度是35px*/
-}
-.B{
-  margin-top: 25rpx;                                                         /*上边距是25rpx*/
-  height: 15px                                                               /*高度是15px*/
-}
-.c{
-  margin-top: 25rpx;                                                         /*上边距是25rpx*/
-  height: 15px                                                               /*高度是15px*/
-}
 .box{
-  padding: 0 15rpx;                                                          /*上填充和下填充是 0 ，右填充和左填充是 15rpx*/
-}
-.D{
-  margin-top: 35px;                                                          /*上边距是35rpx*/
-  font-size: 30rpx;                                                          /*字体大小为30rpx*/
-  font-weight:bold;                                                          /*字体加粗*/
 
 }
-  .E{
-
-   
-      font-size:30rpx;                                                       /*字体大小为30rpx*/
-      color:gray;                                                          /*字体颜色为30灰色*/
-  }
-  
-  .F{
-    font-size: 60rpx;                                                        /*字体大小为60rpx*/
-    color:rgb(83, 81, 81);                                                 /*字体颜色*/
-    font-weight:bold;                                                        /*字体加粗*/
+.userInfoItems{
+  display: flex;
+  background: #fff;
+  padding: 45rpx 25rpx;
+  border-bottom: 1rpx solid #eee;
 }
-
-.box02{
-  margin-top: 20rpx;                                                         /*上边距是20rpx*/
-  display: flex;                                                             /*将对象作为弹性伸缩盒显示*/
-  justify-content: center;                                                   /*文字位于中心*/
+.lastUserInfoItems{
+  /* border:none */
 }
-
-.G{
-  margin-top: 20rpx;                                                         /*上边距是20rpx*/
-  font-size:26rpx;                                                           /*字体大小为26rpx*/
-  display: flex;                                                             /*将对象作为弹性伸缩盒显示*/
-  justify-content: center;                                                   /*文字位于中心*/
+.title{
+  /* flex: 1; */
+  font-size: 38rpx;
 }
-
-.bottom{
-  font-size: 50rpx;                                                          /*字体大小为50rpx*/
-  background-color: #4d8ff1;                                               /*按钮的背景颜色为蓝色*/
-  
-  box-shadow: 6rpx    6rpx    6rpx    6rpx   rgb(123, 117, 129);           /*按钮的阴影颜色为灰色*/
-  margin: 100rpx auto;                                                       /*自动调整所有外边距为100rpx*/
-  text-align: center;                                                        /*文本中心对齐*/
-  line-height: 160rpx;                                                       /*行高为160*/
-  height: 160rpx;                                                            /*高度为160rpx*/
-  width: 550rpx;                                                             /*宽度为550rpx*/
-  border-radius:60rpx                                                        /*按钮边框圆角为60rpx*/
-  
-  
+.inputBox{
+  flex: 1;
+  display: flex;
+  /* border-bottom: 1rpx solid #eee; */
+  /* padding: 0 25rpx 45rpx 0; */
 }
-.items{
-  position: relative;/*定位属性为相对定位*/
-  display: flex;/*将对象作为弹性伸缩盒显示*/
-  align-items: center;/*居中对齐弹性盒的各项*/
+.inputBox input {
+  flex: 1;
+  text-align: right;
+  margin-right: 10rpx;
+  font-size: 46rpx;
+  font-weight: bold;
 }
-.items text{
-  position: absolute;/*定位属性为相对定位*/
-  right: 15rpx;/*右边距为15rpx*/
+.inputBox text {
+  position: relative;
+  top: 4rpx;
+  color: #999;
 }
+.kcalBox{
+  background: #fff;
+  padding: 45rpx 25rpx;
+}
+.kcalContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.kcalContent view{
 
-
-.Z{
-  color: rgb(255, 255, 255);/*字体颜色为白色*/
+}
+.kcalContent view:first-child{
+  margin: 50rpx 0 0rpx;
+  font-weight: bold;
+  font-size: 80rpx;
+}
+.kcalContent view:last-child{
+  color: #999;
+  font-size: 24rpx;
+}
+.save{
+  width: 90%;
+  height: 100rpx;
+  border-radius: 50rpx;
+  background-color: #5186f1;
+  position: absolute;
+  bottom: 100rpx;
+  left: 5%;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 38rpx;
+  color: #FFF;
 }

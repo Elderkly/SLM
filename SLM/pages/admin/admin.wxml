@@ -5,11 +5,11 @@
     <text>菜品管理</text>
   </view>
   <view class="admin_btn" bindtap="jump" data-url="/pages/admin/settingSchool/settingSchool">
-    <image src="../../assets/img/lianluojilu-b.png" alt=""/>
+    <image src="../../assets/img/shaixuan-b.png" alt=""/>
     <text>学校管理</text>
   </view>
   <view class="admin_btn">
-    <image src="../../assets/img/lianluojilu-b.png" alt=""/>
+    <image src="../../assets/img/icon_shezhi-b.png" alt=""/>
     <text>配置管理</text>
   </view>
 </view>

@@ -1,29 +1,33 @@
 <!--pages/me/me.wxml-->
-<view class="name" wx:if="{{islogin}}">
+<view class="name" wx:if="{{islogin}}" bindtap="jump" data-url="/pages/page7/page7">
   <!-- //这是自动获取动态头像用户名   open-data方法微信自带 -->
   <view class="touxiang"><open-data type="userAvatarUrl"></open-data></view>
   <view><open-data type="userNickName" class="userName"></open-data></view>
+  <image src="../../assets/img/jiantou-b.png" class="jiantou"></image>
 </view>
 <view class="name" wx:else bindtap="login">
-  <view class="touxiang noLogin"><image src="../../assets/img/wode-b.png"></image></view>
-  <button class="login" open-type="getUserInfo">登录</button>
+  <button class="login" open-type="getUserInfo">你还未登录，点我进行登录</button>
 </view>
 <view class="middle">
   <view class="middle1" bindtap="jump" data-url="/pages/page3/page3">
     <image src="../../assets/img/lianluojilu-b.png"></image>
      <view class="btn"><text>我的记录</text></view>
+    <image src="../../assets/img/jiantou-b.png" class="jiantou"></image>
   </view>
   <view class="middle2" bindtap="jump" data-url="/pages/page6/page6">
     <image src="../../assets/img/qialuli-b.png"></image>
      <view class="btn"><text>我的热量</text></view>
+    <image src="../../assets/img/jiantou-b.png" class="jiantou"></image>
   </view>
   <view class="middle3" bindtap="jump" data-url="/pages/page7/page7">
     <image src="../../assets/img/jihua-b.png"></image>
      <view class="btn"><text>我的计划</text></view>
+    <image src="../../assets/img/jiantou-b.png" class="jiantou"></image>
   </view>
   <view class="middle4" bindtap="jump" data-url="/pages/admin/admin">
     <image src="../../assets/img/wode-b.png"></image>
      <view class="btn"><text>管理</text></view>
+    <image src="../../assets/img/jiantou-b.png" class="jiantou"></image>
   </view>
 </view>
 

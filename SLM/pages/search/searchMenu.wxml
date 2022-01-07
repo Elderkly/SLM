@@ -6,6 +6,27 @@
   </view>
 </view>
 <view class="body">
-  <view class="body_1" bindtap="tap" data-index="{{index}}" wx:for="{{selectJson}}" wx:for-item="item" wx:key="index">{{item.menuName}}——{{item.menuType}}</view>
+  <view 
+    class="menu-item" 
+    wx:for="{{selectJson}}"
+    wx:for-index="index" 
+    wx:for-item="item" 
+    wx:key="index"
+    data-index="{{index}}"
+    bindtap="tap"
+    >
+      <image src="{{item.img}}"></image>
+      <view class="menu-details">
+        <view class="menu-name">
+          菜品名称：{{item.menuName}}
+        </view>
+        <view class="menu-calorie">
+          卡路里：{{item.calorie}}
+        </view>
+        <view class="menu-menuType">
+          用餐时段：{{item.menuType}}
+        </view>  
+      </view>
+  </view>
 </view>
 

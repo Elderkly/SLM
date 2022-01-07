@@ -1,30 +1,32 @@
 <!--pages/page7/page7.wxml-->
-
- <view class="box">                                                                         <!--定义一个类叫“box”   -->
-<view class="A">我的身高</view>                                                              <!-- 定义一个类叫“A”用来设置字体 -->
-<view class="one items">                                                                    <!-- 定义一个类叫 one items 布置页面 -->
-     <input class="input" name="userName" value="{{CM}}" type="number"    
-    bindinput="changeInput" data-key="CM"/>                                                 <!--定义一个初始值是“CM”的输入框，文字是我的身高  -->
-    <text>CM</text>                                                                         <!--文字 CM   -->
+ <view class="box">       
+  <view class="userInfoItems">
+      <view class="title">我的身高</view>
+      <view class="inputBox">
+        <input value="{{CM}}" type="number" bindinput="changeInput" data-key="CM"/>
+        <text>cm</text>
+      </view>
+  </view>         
+  <view class="userInfoItems">
+      <view class="title">我的身高</view>
+      <view class="inputBox">
+        <input value="{{KG}}" type="number" bindinput="changeInput" data-key="KG"/>
+        <text>kg</text>
+      </view>
+  </view>  
+  <view class="userInfoItems lastUserInfoItems">
+      <view class="title">我的年龄</view>
+      <view class="inputBox">
+        <input value="{{YEAR}}" type="number" bindinput="changeInput" data-key="YEAR"/>
+        <text>岁</text>
+      </view>
+  </view>               
+  <view class="kcalBox">
+    <view class="title">推荐每日摄入卡路里</view>
+    <view class="kcalContent">
+      <view>{{Kcal}}千卡</view>
+      <view class="G">(665 + 3.6 * 体重 + 1.5 * 身高 + 4.7 * 年龄) * 1.2</view> 
+    </view>
   </view>
-  <view class="B">我的体重</view>                                                            <!--定义一个类叫B来设置字体 ，文字是 我的体重  -->
-  <view class="two items">                                                                  <!--定义一个类叫 two items 布置页面  -->
-    <input class="input" name="userName" value="{{KG}}"  type="number"
-    bindinput="changeInput" data-key="KG"/>                                                 <!--定义一个初始值是“KG”的输入框 ，文字是 我的体重  -->
-    <text>KG</text>                                                                         <!--文字 KG   -->
-  </view>
-  <view class="C">我的年龄</view>                                                            <!--定义一个类叫 C 来设置字体，文字是 我的年龄  -->
-  <view class="tree items">                                                                 <!--定义一个类叫 tree items 来布置页面  -->
-    <input class="input" name="userName" value="{{YEAR}}"  type="number"
-    bindinput="changeInput"  data-key="YEAR"/>
-    <text>YEAR</text>                                                                       <!--文字 YEAR -->
-  </view>
-<view class="D">推荐每日摄入卡路里</view>                                                     <!--定义一个类叫 D 来布置页面， 文字是推荐每日摄入卡路里  -->
-<view class="box02">                                                                        <!--定义一个类叫 box02-->
-<text class='E'><text class="F">{{Kcal}}</text>　Kcal</text>                                <!--定义一个类叫 E 里面嵌套一个类F F里面是Kcal的变量 后面文字 Kcal -->
-</view>
-<view class="G">[665+3.6 X 体重 + 1.5 X 身高 + 4.7 X 年龄]X 1.2</view>                       <!--定义一个类叫 G 用来设置字体， 文字是 665+3.6 X 体重 + 1.5 X 身高 + 4.7 X 年龄]X 1.2 -->
-<view class="bottom" bindtap="save">                                                        <!--定义一个类叫 bottom 用来布置按钮，绑定一个点击事件名为 save-->
-<text class="Z">保存</text>                                                                  <!--定义一个类叫 Z 用来设置字体 文字是 保存-->
-</view>
+  <view class="save" bindtap="save">保存</view>
 </view>

@@ -192,7 +192,7 @@ Page({
     this.initStorage()
     this.initType()
     // this.changeMenu()
-    this.initFixedView()
+    // this.initFixedView()
   },
 
   initFixedView() {

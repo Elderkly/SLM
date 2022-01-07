@@ -2,14 +2,15 @@
 .name{
   display: flex;
   align-items: center;
-  background-color: #3d88f9;
+  background-color: #fff;
+  padding: 35rpx 0 35rpx 40rpx;
 }
 .touxiang {
-  overflow:hidden;
-  width: 160rpx;
-  height: 160rpx;
+  overflow: hidden;
+  width: 150rpx;
+  height: 150rpx;
   margin: 20rpx;
-  border-radius: 50%;
+  border-radius: 15rpx;
   background-color: #eee;
 }
 .noLogin{
@@ -29,14 +30,17 @@
   
 }
 .userName{
-  color: #fff;
+  color: #000;
+  font-size: 42rpx;
+  margin-left: 20rpx;
+  font-weight: bold;
 }
-.middle view{
-  margin: 20rpx;
-  background-color:	#eee;
-  height: 100rpx;
+.middle>view{
+  background-color: #fff;
+  height: 130rpx;
   border-radius: 8rpx;
-
+  line-height: 100rpx;
+  flex: 1;
 }
 .middle>view{
   display: flex;      
@@ -45,29 +49,43 @@
    
 }
 
-.middle image{
+.middle{
+  margin-top: 30rpx;
+}
+.middle > view:last-child .btn{
+  border: none;
+}
+
+.btn{
+  border-bottom: 1rpx solid #eee;
+  flex:1;
+  margin-left: 15rpx;
+}
+.middle>view image:first-child{
   width: 80rpx;
   height: 80rpx;
- margin-left: 20rpx;
- margin-top: 10rpx;
+  margin-left: 35rpx;
 }
 .middle text{
-  font-size: 30rpx;
- margin-top: 20rpx;
-display:block ;
-  height: 50rpx;
-  width: 200rpx;
+  font-size: 35rpx;
 }
 .login{
-  width: 150rpx!important;
+  width: 660rpx!important;
   height: 70rpx!important;
-  background: #64a2ff!important;
+  background: none!important;
   border-radius: 8rpx!important;
-  text-align: center!important;
+  text-align: left!important;
   line-height: 78rpx!important;
-  font-size: 32rpx!important;
-  font-weight: 400!important;
-  margin: 0!important;
-  padding:0!important;
-  color: #fff;
+  font-size: 42rpx!important;
+  font-weight: 500!important;
+  margin: 0 0 0 10rpx!important;
+  padding: 0!important;
+  color: #000;
+}
+.jiantou{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 40rpx;
+  transform: rotate(-90deg);
 }

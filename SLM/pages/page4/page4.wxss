@@ -1,18 +1,18 @@
 /* pages/page4/page4.wxss */
 
 .top{
-  border: 1px solid #000000;
-  width:650rpx;
+  width: 650rpx;
   height: 350rpx;
-  position: absolute;
-  margin-left: 40rpx;
-  margin-top: 20rpx; 
   border-radius: 5px;
-
   position: relative;
+  background: #fff;
+  padding: 30rpx;
+  margin: auto;
+  margin-top: 25rpx;
+  box-shadow: 0rpx 8rpx #eee;
 }
 .top_t{
-  margin-top: 25rpx;
+  /* margin-top: 25rpx; */
   margin-left: 25rpx;
   position: absolute;
   font-size: 18px;
@@ -25,16 +25,17 @@
   display:block;
 }
 .text{
-  margin-top: 90rpx;
+  margin-top: 80rpx;
   font-size: 14px;
 }
 .top>image{
   height: 190rpx;
   flex: 1;
   width: 190rpx;
-  margin-top: 100rpx;  
+  margin-top: 80rpx;  
   margin-left: 20rpx;
   position:absolute;
+  border-radius: 8rpx;
 }
 .btn{
   width: 300rpx;
