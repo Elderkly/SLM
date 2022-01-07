@@ -8,7 +8,8 @@ Page({
     CM:null,                                                                         /*CM 的初始值为空*/
     KG:null,                                                                         /*KG 的初始值为空*/
     YEAR:null,                                                                       /*YEAR 的初始值为空*/
-    Kcal:0                                                                           /*Kcal 的初始值为空*/
+    Kcal:0,                                                                           /*Kcal 的初始值为空*/
+    user:{}
   },
 
   changeInput(event) {                                                               /*定义输入框事件*/
@@ -26,7 +27,7 @@ Page({
     const {CM,KG,YEAR} = this.data                                                   /*CM,KG,YEAR 对应 this.data里的CM,KG,YEAR*/
     const Kcal = (665 + 3.6 * KG + 1.5 * CM + 4.7 * YEAR) * 1.2                      /*计算 Kcal 的公式*/
     
-    console.log(this.setdata,Kcal.toFixed(2))                                        /*打印this.data,Kcal里的数据*/
+    // console.log(this.setdata,Kcal.toFixed(2))                                        /*打印this.data,Kcal里的数据*/
     this.setData({
       Kcal: Kcal.toFixed(2)                                                          /*结果保留两位小数*/
     })                                                                               /*改变Kcal的值*/
@@ -39,7 +40,7 @@ Page({
     
     console.log(kk)                                                                  /*打印 kk 里的数据*/
 
-    this.setData({CM:kk.height,KG:kk.weight,YEAR:kk.age},() => this.changeKcal())                /*CM的数据等于kk.height，KG的数据等于kk.weight，YEAR的数据等于kk.age，Kcal的数据等于kk.cal*/
+    this.setData({CM:kk.height,KG:kk.weight,YEAR:kk.age,user: kk},() => this.changeKcal())                /*CM的数据等于kk.height，KG的数据等于kk.weight，YEAR的数据等于kk.age，Kcal的数据等于kk.cal*/
   },
 
   save(){ /*定义保存事件*/
@@ -52,19 +53,45 @@ Page({
 
   
         
-        wx.$storage.setStorage('CalInfo', JSON.stringify({
-            "sex": "男",
-            "age": year,
-            "weight": kg,
-            "height": cm,
-            "cal": kcal
-        }))                                                                          /*覆盖掉缓存里的数据*/
-        console.log(wx.$storage.getStorage('CalInfo'))                               /*打印上一次输入的缓存数据*/
+        // wx.$storage.setStorage('CalInfo', JSON.stringify({
+        //     "sex": "男",
+        //     "age": year,
+        //     "weight": kg,
+        //     "height": cm,
+        //     "cal": kcal
+        // }))                                                                          /*覆盖掉缓存里的数据*/
+        // console.log(wx.$storage.getStorage('CalInfo'))                               /*打印上一次输入的缓存数据*/
 
-        wx.showToast({                                                               /*定义点击按钮事件*/
-          title: '保存成功',                                                          /*文字 保存成功*/
-          icon: 'success',                                                           /*成功保存*/
-          duration: 2000})                                                           /*存在两秒*/
+        const {user} = this.data
+        user.height = cm;
+        user.weight = kg;
+        user.age = year;
+        wx.$fetch({
+          url:`/user/changeUserInfo`,
+          method: 'POST',
+          data: JSON.stringify(user),
+          loading: true
+        }).then(res => {
+          if (res === 1) {
+            const kk = wx.$storage.getStorage('UserInfo') 
+            kk.height = cm;
+            kk.weight = kg;
+            kk.age = year;
+            wx.$storage.setStorage("UserInfo",JSON.stringify(kk))
+            wx.showToast({                                                               /*定义点击按钮事件*/
+              title: '保存成功',                                                          /*文字 保存成功*/
+              icon: 'success',                                                           /*成功保存*/
+              duration: 2000,
+              success: () => setTimeout(() => wx.navigateBack(),2000)
+            })                                                           /*存在两秒*/
+          } else {
+            wx.showToast({
+              title: '保存失败',
+              icon:'none'
+            })
+            console.log(res)
+          }
+        })
   
   },
 

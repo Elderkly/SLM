@@ -30,7 +30,8 @@ Page({
     changeTag: false,
     showFixedView: false,
     FixedViewText: null,
-    userID: null
+    userID: null,
+    record:[]
   },
   bindClick: function () {
     if (this.data.start || this.data.status === 2) {
@@ -49,7 +50,9 @@ Page({
       school: event.currentTarget.dataset.school,
       showLog: false,
       schoolID: event.currentTarget.dataset.schoolid,
-      status: 1
+      status: 1,
+      tagJson:[],
+      selectItems: []
     },this.changeData)
   },
 
@@ -60,10 +63,21 @@ Page({
       userID: id
     })
     if (!!id) {
-      this.startRandom()
+      // this.startRandom()
+      this.initRandomRecord()
     }
   },
   
+  initRandomRecord() {
+    wx.$fetch({url:`/randomRecord/getUserRandomRecord/${this.data.userID}`})
+    .then(res => {
+      if (res) {
+        console.log('菜品抽取记录',res)
+        this.setData({record: res})
+      }
+    })
+  },
+
   bindgetuserinfo(res) {
     console.log('bindgetuserinfo',res)
     console.log(123)
@@ -148,6 +162,8 @@ Page({
     .then(res => {
       console.log('插入',res)
       if (res === 1) {
+        const {record} = this.data
+        record.push(foodData)
         wx.vibrateShort({
           type: 'heavy'
         })
@@ -155,7 +171,8 @@ Page({
           title: '保存成功'
         })
         this.setData({
-          status: 3
+          status: 3,
+          record
         })
         this.initFixedView()
       } else {
@@ -179,21 +196,21 @@ Page({
   },
 
   initFixedView() {
-    const Record = wx.$storage.getStorage("Record")
-    const UserCal = wx.$storage.getStorage("CalInfo")
+    const Record = this.data.record
+    const UserCal = wx.$utils.getCalorie(wx.$storage.getStorage('UserInfo'))
     const Time = formatData(new Date().getTime())
     let sumCal = 0
     let text = null
     // console.log(Time,Record)
-    !!Record && Record.map(e => Time === formatData(e.time) ? sumCal += e.foodCal : null)
-    console.log(`卡路里临界值${UserCal.cal},当天摄入卡路里${sumCal}`)
-    if (UserCal.cal * 0.8 < sumCal && UserCal.cal > sumCal) {
+    !!Record && Record.map(e => Time === formatData(e.recordTime) ? sumCal += e.calorie : null)
+    console.log(`卡路里临界值${UserCal},当天摄入卡路里${sumCal}`)
+    if (UserCal * 0.8 < sumCal && UserCal > sumCal) {
       text = '当天摄入卡路里即将大于临界值 推荐选择低热量食物'
-    } else if (UserCal.cal * 0.98 < sumCal && UserCal.cal >= sumCal){
+    } else if (UserCal * 0.98 < sumCal && UserCal >= sumCal){
       text = '当天摄入卡路里已达到临界值'
-    } else if (UserCal.cal * 1.2 < sumCal && UserCal.cal * 1.5 > sumCal){
+    } else if (UserCal * 1.2 < sumCal && UserCal * 1.5 > sumCal){
       text = '当天摄入卡路里已达到临界值的1.2倍 求求你别吃了'
-    } else if (UserCal.cal * 1.5 <= sumCal){
+    } else if (UserCal * 1.5 <= sumCal){
       text = '不会吧不会吧 不会真的有人这么能吃吧'
     }
     

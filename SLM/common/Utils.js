@@ -70,8 +70,15 @@ async function getUserID() {
     }
 }
 
+function getCalorie(userInfo) {
+  const {height,weight,age} = userInfo 
+  const Kcal = (665 + 3.6 * weight + 1.5 * height + 4.7 * age) * 1.2                     
+  return Kcal.toFixed(2)    
+}
+
 export {
     formatData,
     login,
-    getUserID
+    getUserID,
+    getCalorie
 }
