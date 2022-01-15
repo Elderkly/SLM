@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/index/index",
     "pages/me/me",
     "pages/page3/page3",
@@ -15,7 +16,9 @@
     "pages/menuItem/menuItem",
     "pages/admin/settingSchool/settingSchool",
     "pages/schoolItem/schoolItem",
-    "pages/search/searchMenu"
+    "pages/search/searchMenu",
+    "pages/forum/forum",
+    "pages/forum/forumItem/forumItem"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -27,10 +30,22 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/home/home",
         "text": "首页",
         "iconPath": "./assets/img/faxian-copy-c.png",
         "selectedIconPath": "./assets/img/faxian-copy-l.png"
+      },
+      {
+        "pagePath": "pages/forum/forum",
+        "text": "论坛",
+        "iconPath": "./assets/img/icon_luntan.png",
+        "selectedIconPath": "./assets/img/icon_luntan_l.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "抽取",
+        "iconPath": "./assets/img/icon_choujiang.png",
+        "selectedIconPath": "./assets/img/icon_choujiang_l.png"
       },
       {
         "pagePath": "pages/me/me",
