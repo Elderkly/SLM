@@ -1,2 +1,83 @@
-<!--pages/forum/forumItem/forumItem.wxml-->
-<text>pages/forum/forumItem/forumItem.wxml</text>
+<!--pages/forum/forum.wxml-->
+<view>
+    <view class="forumContent">
+        <view class="forumItem">
+            <image src="{{forum.userImg}}"></image>
+            <view class="forumItemDetails">
+                <view class="forumItemTitle">
+                    <view>{{forum.forumType}}</view>
+                    <image src="../../../assets/img/guanbi-b.png"></image>
+                </view>
+                <view class="forumItemContent">{{forum.content}}</view>
+                <view class="menu">
+                    <image src="{{forum.img}}"></image>
+                    <view class="menuDetails">
+                        <view class="menuName">{{forum.menuName}}</view>
+                        <view class="menuKal">热量：{{forum.calorie}}</view>
+                        <view class="menulocation">位置：{{forum.canteenName}}--{{forum.schoolName}}</view>
+                    </view>
+                </view>
+                <view class="forumItemData" bindtap="jump" data-forumId="{{item.id}}">
+                    <text class="forumDate">{{forum.forumTime}}</text>
+                    <text class="username">--{{forum.userName}}</text>
+                    <!-- <image src="../../../assets/img/icon_pinglun.png"></image> -->
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="commitBox">
+        <view class="forumItem commitItem">
+            <image src="{{forum.userImg}}"></image>
+            <view class="forumItemDetails">
+                <view class="forumItemTitle">
+                    <view>{{forum.userName}}</view>
+                    <image src="../../../assets/img/guanbi-b.png"></image>
+                </view>
+                <view class="forumItemContent">{{forum.content}}</view>
+                <view class="secondCommitBox">
+                    <view class="secondCommitItem">
+                        <text class="secondCommitUserName">{{forum.userName}}</text>
+                        <text class="secondCommitUserContent">内容内容内容内容内容内容奥ID王洪安徽我ID阿温度毫无</text>
+                    </view>
+                    <view class="secondCommitItem">
+                        <text class="secondCommitUserName">{{1==1?"回复":""}}{{forum.userName}}</text>
+                        <text class="secondCommitUserContent">内容内容内容内容内容内容奥ID王洪安徽我ID阿温度毫无</text>
+                    </view>
+                </view>
+                <view class="forumItemData" bindtap="jump" data-forumId="{{item.id}}">
+                    <text class="forumDate">{{forum.forumTime}}</text>
+                    <image src="../../../assets/img/icon_pinglun.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="forumItem commitItem">
+            <image src="{{forum.userImg}}"></image>
+            <view class="forumItemDetails">
+                <view class="forumItemTitle">
+                    <view>{{forum.userName}}</view>
+                    <image src="../../../assets/img/guanbi-b.png"></image>
+                </view>
+                <view class="forumItemContent">{{forum.content}}</view>
+                <view class="secondCommitBox">
+                    <view class="secondCommitItem">
+                        <text class="secondCommitUserName">{{forum.userName}}</text>
+                        <text class="secondCommitUserContent">内容内容内容内容内容内容奥ID王洪安徽我ID阿温度毫无</text>
+                    </view>
+                    <view class="secondCommitItem">
+                        <text class="secondCommitUserName">{{1==1?"回复":""}}{{forum.userName}}</text>
+                        <text class="secondCommitUserContent">内容内容内容内容内容内容奥ID王洪安徽我ID阿温度毫无</text>
+                    </view>
+                </view>
+                <view class="forumItemData" bindtap="jump" data-forumId="{{item.id}}">
+                    <text class="forumDate">{{forum.forumTime}}</text>
+                    <image src="../../../assets/img/icon_pinglun.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="input">
+        <image src="{{forum.userImg}}"></image>
+        <input type="text" placeholder="请输入评论内容"/>
+        <view>发送</view>
+    </view>
+</view>

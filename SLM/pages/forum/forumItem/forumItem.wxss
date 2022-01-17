@@ -1,1 +1,154 @@
-/* pages/forum/forumItem/forumItem.wxss */
+/* pages/forum/forum.wxss */
+.forumContent>view:last-child{
+    border: none;
+}
+.forumItem{
+    background: #fff;
+    display: flex;
+    padding: 40rpx 35rpx;
+    border-bottom: 1rpx solid #eee;
+}
+.forumItem > image {
+    width: 85rpx;
+    height: 85rpx;
+    border-radius: 15rpx;
+    margin-right: 15rpx;
+}
+.forumItemDetails{
+    flex: 1;
+}
+.forumItemTitle{
+    position: relative;
+    display: flex;
+}
+.forumItemTitle view{
+    background: #6c9bf6;
+    color: #fff;
+    padding: 7rpx 30rpx;
+    border-radius: 8rpx;
+}
+.forumItemTitle image{
+    position: absolute;
+    width: 50rpx;
+    height: 50rpx;
+    right: 0;
+}
+.forumItemContent{
+    margin-top: 35rpx;
+    line-height: 40rpx;
+    text-overflow: ellipsis;
+    width: 580rpx;
+}
+.forumItemData{
+    margin-top: 15rpx;
+    font-size: 26rpx;
+    color: #a9a9a9;
+    position: relative;
+    font-weight: 300;
+}
+.forumItemData image{
+    position: absolute;
+    width: 40rpx;
+    height: 40rpx;
+    right: 0;
+}
+.forumDate{
+
+}
+.username{
+    margin-left: 30rpx;
+}
+.menu{
+    display: flex;
+    background: #eee;
+    border-radius: 8rpx;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20rpx;
+    margin-top: 15rpx;
+}
+.menu>image{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 8rpx;
+    margin-right: 15rpx;
+}
+.menuDetails{
+    flex: 1;
+    font-size: 24rpx;
+    color: #525252;
+}
+.input{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding: 30rpx;
+    box-sizing: border-box;
+    box-shadow: 0 10rpx 15rpx;
+}
+.input image{
+    width: 70rpx;
+    height: 70rpx;
+    margin-right: 15rpx;
+    border-radius: 10rpx;
+}
+.input input {
+    flex: 1;
+}
+.input view{
+    background: #0095ff;
+    padding: 15rpx 20rpx;
+    color: #fff;
+    border-radius: 8rpx;
+    font-size: 28rpx;
+}
+.commitBox{
+    margin-top: 15rpx;
+    padding-bottom: 220rpx;
+}
+.commitBox>view:last-child{
+    border: none;
+}
+.commitItem .forumItemTitle>view{
+    background-color: #fff;
+    color:#000;
+    font-weight: bold;
+    padding: 0;
+    border-radius: 0rpx;
+    font-size: 32rpx;
+}
+.commitItem .forumItemContent{
+    margin-top: 15rpx;
+}
+.commitItem .forumItemTitle image {
+    width: 40rpx;
+    height: 40rpx;
+}
+.secondCommitBox{
+    background: #eee;
+    margin-top: 15rpx;
+    border-radius: 8rpx;
+    padding: 20rpx 10rpx 20rpx 20rpx;
+}
+.secondCommitItem{
+
+}
+.secondCommitItem image{
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 10rpx;
+    margin-right: 10rpx;
+}
+.secondCommitUserName{
+    margin-right: 10rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+.secondCommitUserContent{
+    font-size: 26rpx;
+    color: #6f6f6f;
+}

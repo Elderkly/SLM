@@ -1,1 +1,97 @@
 /* pages/forum/forum.wxss */
+.forumContent{
+
+}
+.forumContent>view:last-child{
+    border: none;
+}
+.forumItem{
+    background: #fff;
+    display: flex;
+    padding: 40rpx 35rpx;
+    border-bottom: 1rpx solid #eee;
+}
+.forumItem > image {
+    width: 85rpx;
+    height: 85rpx;
+    border-radius: 15rpx;
+    margin-right: 15rpx;
+}
+.forumItemDetails{
+    flex: 1;
+}
+.forumItemTitle{
+    position: relative;
+    display: flex;
+}
+.forumItemTitle view{
+    background: #6c9bf6;
+    color: #fff;
+    padding: 7rpx 30rpx;
+    border-radius: 8rpx;
+}
+.forumItemTitle image{
+    position: absolute;
+    width: 50rpx;
+    height: 50rpx;
+    right: 0;
+}
+.forumItemContent{
+    margin-top: 35rpx;
+    line-height: 40rpx;
+    text-overflow: ellipsis;
+    width: 580rpx;
+}
+.forumItemData{
+    margin-top: 15rpx;
+    font-size: 26rpx;
+    color: #a9a9a9;
+    position: relative;
+    font-weight: 300;
+}
+.forumItemData image{
+    position: absolute;
+    width: 40rpx;
+    height: 40rpx;
+    right: 0;
+}
+.forumDate{
+
+}
+.username{
+    margin-left: 30rpx;
+}
+.menu{
+    display: flex;
+    background: #eee;
+    border-radius: 8rpx;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20rpx;
+    margin-top: 15rpx;
+}
+.menu>image{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 8rpx;
+    margin-right: 15rpx;
+}
+.menuDetails{
+    flex: 1;
+    font-size: 24rpx;
+    color: #525252;
+}
+.addforum{
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    position: fixed;
+    right: 50rpx;
+    bottom: 50rpx;
+    background-color: #6c9bf6;
+    color: #fff;
+    font-size: 90rpx;
+    text-align: center;
+    line-height: 110rpx;
+    font-weight: 300;
+}

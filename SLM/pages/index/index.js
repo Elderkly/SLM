@@ -63,7 +63,6 @@ Page({
       userID: id
     })
     if (!!id) {
-      // this.startRandom()
       this.initRandomRecord()
     }
   },

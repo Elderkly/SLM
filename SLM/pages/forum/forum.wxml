@@ -1,2 +1,34 @@
 <!--pages/forum/forum.wxml-->
-<text>pages/forum/forum.wxml</text>
+<view>
+    <view class="forumContent">
+        <view class="forumItem" 
+        wx:for="{{list}}"
+        wx:for-index="index" 
+        wx:for-item="item" 
+        wx:key="index"
+        >
+            <image src="{{item.userImg}}"></image>
+            <view class="forumItemDetails">
+                <view class="forumItemTitle">
+                    <view>{{item.forumType}}</view>
+                    <image src="../../assets/img/guanbi-b.png"></image>
+                </view>
+                <view class="forumItemContent">{{item.content}}</view>
+                <view class="menu">
+                    <image src="{{item.img}}"></image>
+                    <view class="menuDetails">
+                        <view class="menuName">{{item.menuName}}</view>
+                        <view class="menuKal">热量：{{item.calorie}}</view>
+                        <view class="menulocation">位置：{{item.canteenName}}--{{item.schoolName}}</view>
+                    </view>
+                </view>
+                <view class="forumItemData" bindtap="jump" data-forumId="{{item.id}}">
+                    <text class="forumDate">{{item.forumTime}}</text>
+                    <text class="username">--{{item.userName}}</text>
+                    <image src="../../assets/img/icon_pinglun.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="addforum">+</view>
+</view>

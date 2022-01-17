@@ -62,36 +62,36 @@ Page({
         // }))                                                                          /*覆盖掉缓存里的数据*/
         // console.log(wx.$storage.getStorage('CalInfo'))                               /*打印上一次输入的缓存数据*/
 
-        const {user} = this.data
-        user.height = cm;
-        user.weight = kg;
-        user.age = year;
-        wx.$fetch({
-          url:`/user/changeUserInfo`,
-          method: 'POST',
-          data: JSON.stringify(user),
-          loading: true
-        }).then(res => {
-          if (res === 1) {
-            const kk = wx.$storage.getStorage('UserInfo') 
-            kk.height = cm;
-            kk.weight = kg;
-            kk.age = year;
-            wx.$storage.setStorage("UserInfo",JSON.stringify(kk))
-            wx.showToast({                                                               /*定义点击按钮事件*/
-              title: '保存成功',                                                          /*文字 保存成功*/
-              icon: 'success',                                                           /*成功保存*/
-              duration: 2000,
-              success: () => setTimeout(() => wx.navigateBack(),2000)
-            })                                                           /*存在两秒*/
-          } else {
-            wx.showToast({
-              title: '保存失败',
-              icon:'none'
-            })
-            console.log(res)
-          }
+    const {user} = this.data
+    user.height = cm;
+    user.weight = kg;
+    user.age = year;
+    wx.$fetch({
+      url:`/user/changeUserInfo`,
+      method: 'POST',
+      data: JSON.stringify(user),
+      loading: true
+    }).then(res => {
+      if (res === 1) {
+        const kk = wx.$storage.getStorage('UserInfo') 
+        kk.height = cm;
+        kk.weight = kg;
+        kk.age = year;
+        wx.$storage.setStorage("UserInfo",JSON.stringify(kk))
+        wx.showToast({                                                               /*定义点击按钮事件*/
+          title: '保存成功',                                                          /*文字 保存成功*/
+          icon: 'success',                                                           /*成功保存*/
+          duration: 2000,
+          success: () => setTimeout(() => wx.navigateBack(),2000)
+        })                                                           /*存在两秒*/
+      } else {
+        wx.showToast({
+          title: '保存失败',
+          icon:'none'
         })
+        console.log(res)
+      }
+    })
   
   },
 
