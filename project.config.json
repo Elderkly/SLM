@@ -36,7 +36,7 @@
     },
     "appid": "wx54f56cefaeec3a35",
     "projectname": "%E9%A3%9F%E4%BA%86%E4%B9%88",
-    "libVersion": "2.8.1",
+    "libVersion": "2.14.4",
     "simulatorType": "wechat",
     "simulatorPluginLibVersion": {},
     "condition": {
@@ -53,7 +53,7 @@
             "list": [
                 {
                     "name": "pages/admin/settingMenu/settingMenu",
-                    "pathName": "pages/forum/forumItem/forumItem",
+                    "pathName": "pages/forum/forum",
                     "query": "",
                     "scene": null
                 }

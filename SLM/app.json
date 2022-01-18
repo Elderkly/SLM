@@ -1,62 +1,63 @@
 {
-  "pages": [
-    "pages/home/home",
-    "pages/index/index",
-    "pages/me/me",
-    "pages/page3/page3",
-    "pages/page4/page4",
-    "pages/page5/page5",
-    "pages/page6/page6",
-    "pages/page7/page7",
-    "pages/page8/page8",
-    "pages/page9/page9",
-    "pages/page10/page10",
-    "pages/admin/admin",
-    "pages/admin/settingMenu/settingMenu",
-    "pages/menuItem/menuItem",
-    "pages/admin/settingSchool/settingSchool",
-    "pages/schoolItem/schoolItem",
-    "pages/search/searchMenu",
-    "pages/forum/forum",
-    "pages/forum/forumItem/forumItem"
-  ],
-  "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/home/home",
-        "text": "首页",
-        "iconPath": "./assets/img/faxian-copy-c.png",
-        "selectedIconPath": "./assets/img/faxian-copy-l.png"
-      },
-      {
-        "pagePath": "pages/forum/forum",
-        "text": "论坛",
-        "iconPath": "./assets/img/icon_luntan.png",
-        "selectedIconPath": "./assets/img/icon_luntan_l.png"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "抽取",
-        "iconPath": "./assets/img/icon_choujiang.png",
-        "selectedIconPath": "./assets/img/icon_choujiang_l.png"
-      },
-      {
-        "pagePath": "pages/me/me",
-        "text": "我的",
-        "iconPath": "./assets/img/wode-c.png",
-        "selectedIconPath": "./assets/img/wode-b-l.png"
-      }
+    "pages": [
+        "pages/home/home",
+        "pages/index/index",
+        "pages/me/me",
+        "pages/page3/page3",
+        "pages/page4/page4",
+        "pages/page5/page5",
+        "pages/page6/page6",
+        "pages/page7/page7",
+        "pages/page8/page8",
+        "pages/page9/page9",
+        "pages/page10/page10",
+        "pages/admin/admin",
+        "pages/admin/settingMenu/settingMenu",
+        "pages/menuItem/menuItem",
+        "pages/admin/settingSchool/settingSchool",
+        "pages/schoolItem/schoolItem",
+        "pages/search/searchMenu",
+        "pages/forum/forum",
+        "pages/forum/forumItem/forumItem",
+        "pages/forum/addForum/addForum"
     ],
-    "color": "#ccc",
-    "selectedColor": "#3d88f9"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap55.json"
+    "window": {
+        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#F6F6F6",
+        "navigationBarTitleText": "云开发 QuickStart",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "首页",
+                "iconPath": "./assets/img/faxian-copy-c.png",
+                "selectedIconPath": "./assets/img/faxian-copy-l.png"
+            },
+            {
+                "pagePath": "pages/forum/forum",
+                "text": "论坛",
+                "iconPath": "./assets/img/icon_luntan.png",
+                "selectedIconPath": "./assets/img/icon_luntan_l.png"
+            },
+            {
+                "pagePath": "pages/index/index",
+                "text": "抽取",
+                "iconPath": "./assets/img/icon_choujiang.png",
+                "selectedIconPath": "./assets/img/icon_choujiang_l.png"
+            },
+            {
+                "pagePath": "pages/me/me",
+                "text": "我的",
+                "iconPath": "./assets/img/wode-c.png",
+                "selectedIconPath": "./assets/img/wode-b-l.png"
+            }
+        ],
+        "color": "#ccc",
+        "selectedColor": "#3d88f9"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap55.json"
 }

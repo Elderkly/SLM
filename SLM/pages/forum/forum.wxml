@@ -1,6 +1,16 @@
 <!--pages/forum/forum.wxml-->
 <view>
-    <view class="forumContent">
+    <view class="header">
+        <view wx:for="{{['全部','日常','分享','询问']}}" wx:for-index="index" 
+        wx:for-item="item" 
+        wx:key="index"
+        class="headerItems {{selectIndex === index ? 'action' : ''}}"
+        data-index="{{index}}"
+        bindtap="changeSelectItem"
+        >{{item}}</view>
+        <view class="fix" style="left:{{selectIndex * 23.5 + 13}}%"></view>
+    </view>
+    <view class="forumContent" wx:if="{{list.length > 0}}">
         <view class="forumItem" 
         wx:for="{{list}}"
         wx:for-index="index" 
@@ -10,11 +20,11 @@
             <image src="{{item.userImg}}"></image>
             <view class="forumItemDetails">
                 <view class="forumItemTitle">
-                    <view>{{item.forumType}}</view>
-                    <image src="../../assets/img/guanbi-b.png"></image>
+                    <view class="{{item.forumType === '日常' ? 'daily' : item.forumType === '分享' ? 'share' : 'question'}}">{{item.forumType}}</view>
+                    <image src="../../assets/img/guanbi-b.png" wx:if="{{userInfo.id === item.userID || userInfo.isAdmin === 1}}" bindtap="delete" data-forumId="{{item.id}}"></image>
                 </view>
                 <view class="forumItemContent">{{item.content}}</view>
-                <view class="menu">
+                <view class="menu" wx:if="{{!!item.menuID}}">
                     <image src="{{item.img}}"></image>
                     <view class="menuDetails">
                         <view class="menuName">{{item.menuName}}</view>
@@ -30,5 +40,6 @@
             </view>
         </view>
     </view>
-    <view class="addforum">+</view>
+    <view class="nonList" wx:else>暂无数据</view>
+    <view class="addforum" bindtap="addForum" wx:if="{{!!userInfo.id}}">+</view>
 </view>

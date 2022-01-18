@@ -16,6 +16,7 @@
     height: 85rpx;
     border-radius: 15rpx;
     margin-right: 15rpx;
+    background: #eee;
 }
 .forumItemDetails{
     flex: 1;
@@ -25,7 +26,7 @@
     display: flex;
 }
 .forumItemTitle view{
-    background: #6c9bf6;
+    /* background: #6c9bf6; */
     color: #fff;
     padding: 7rpx 30rpx;
     border-radius: 8rpx;
@@ -88,10 +89,51 @@
     position: fixed;
     right: 50rpx;
     bottom: 50rpx;
-    background-color: #6c9bf6;
+    background-color: #4ba6f0;
     color: #fff;
     font-size: 90rpx;
     text-align: center;
     line-height: 110rpx;
     font-weight: 300;
+}
+.daily{
+    background: #4ba6f0;
+}
+.share{
+    background: #58d267;
+}
+.question{
+    background: #f5a25a;
+}
+.header{
+    background: #fff;
+    display: flex;
+    padding: 25rpx;
+    position: relative;
+}
+.headerItems{
+    font-size: 32rpx;
+    flex: 1;
+    text-align: center;
+    color: #c1c1c1;
+    transition: all .3s;
+}
+.fix{
+    position: absolute;
+    width: 30rpx;
+    height: 6rpx;
+    background: #000;
+    border-radius: 3rpx;
+    bottom: 0;
+    left: 13%;
+    transition: all .3s;
+}
+.action{
+    color: #000;
+}
+.nonList{
+    text-align: center;
+    margin-top: 85rpx;
+    color: #999;
+    font-size: 28rpx;
 }

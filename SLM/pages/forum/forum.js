@@ -5,45 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[
-      {
-        id:1,
-        userImg:'https://thirdwx.qlogo.cn/mmopen/vi_32/BiblaKjthHdwByiawFndE4x9CX2IebwH05r3xAXhwcQVXN0844W5ucutXVrJkarMwKN1Kmw8cQQ9URLaeNlWzEXQ/132',
-        userName:'P',
-        content:'阿握手我安慰活动我安居网我我店铺紧挨顽皮的简欧下午好的',
-        menuID:20,
-        menuName:'一饭',
-        calorie:500,
-        schoolName:'广东科技学院松山湖校区',
-        schoolID:10,
-        canteenID:30,
-        canteenName:20,
-        recordTime: '时间',
-        menuType:'早餐',
-        img:'https://thirdwx.qlogo.cn/mmopen/vi_32/BiblaKjthHdwByiawFndE4x9CX2IebwH05r3xAXhwcQVXN0844W5ucutXVrJkarMwKN1Kmw8cQQ9URLaeNlWzEXQ/132',
-        forumTime:'一个小时前',
-        forumType:'日常'
-      },
-      {
-        id:1,
-        userImg:'https://thirdwx.qlogo.cn/mmopen/vi_32/BiblaKjthHdwByiawFndE4x9CX2IebwH05r3xAXhwcQVXN0844W5ucutXVrJkarMwKN1Kmw8cQQ9URLaeNlWzEXQ/132',
-        userName:'P',
-        content:'aswodjaoiwjdoiawjodi内容内容awdohaowdjoiawji31208309128390812doajkhswdjchasoidhoiawdoiahwoduhoiajso我去玩活动啊无敌哦我奥委会毒霸无偶ID阿瓦活动我外婆的',
-        menuID:20,
-        menuName:'一饭',
-        calorie:500,
-        schoolName:'广东科技学院松山湖校区',
-        schoolID:10,
-        canteenID:30,
-        canteenName:20,
-        recordTime: '时间',
-        menuType:'早餐',
-        img:'https://thirdwx.qlogo.cn/mmopen/vi_32/BiblaKjthHdwByiawFndE4x9CX2IebwH05r3xAXhwcQVXN0844W5ucutXVrJkarMwKN1Kmw8cQQ9URLaeNlWzEXQ/132',
-        forumTime:'一个小时前',
-        forumType:'日常'
-      }
-    ]
+    list:[{}],
+    userInfo:{},
+    selectIndex:0
   },
+
+  baseData:[],
 
   /**
    * 生命周期函数--监听页面加载
@@ -52,10 +19,44 @@ Page({
 
   },
 
+  changeSelectItem(e) {
+    this.setData({
+      selectIndex:e.currentTarget.dataset.index
+    },() => this.selectList())
+  },
   jump(e) {
     console.log(e.currentTarget.dataset.forumid)
     wx.navigateTo({
       url: "/pages/forum/forumItem/forumItem",
+    })
+  },
+  delete(e) {
+    console.log(e.currentTarget.dataset.forumid)
+    wx.$fetch({url:`/forum/deleteForum/${e.currentTarget.dataset.forumid}`,loading:true})
+    .then(res => {
+      if (res === 1) {
+        setTimeout(() => {
+          wx.showToast({
+            title: '删除成功',
+            icon:'success',
+            duration:1500
+          })
+        },300)
+        setTimeout(() => {
+          this.getList()
+        },1500)
+      } else {
+        wx.showToast({
+          title: '删除失败',
+          icon:'none',
+          duration:1500
+        })
+      }
+    })
+  },
+  addForum() {
+    wx.navigateTo({
+      url: '/pages/forum/addForum/addForum',
     })
   },
   /**
@@ -69,9 +70,37 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const UserInfo = wx.$storage.getStorage('UserInfo')
+    console.log('getUserID（）获取用户信息',UserInfo)
+    this.setData({userInfo:UserInfo})
+    this.getList()
   },
 
+  selectList() {
+    const baseData = this.baseData
+    const {selectIndex} = this.data
+    const selectTag = ['全部','日常','分享','询问']
+    const seletType = selectTag[selectIndex]
+    let newList = []
+    if (seletType === '全部') {
+      newList = baseData
+    } else {
+      baseData.map(e => e.forumType === seletType ? newList.push(e) : null)
+    }
+    this.setData({list:newList})
+  },
+  getList() {
+    wx.$fetch({url:'/forum/getAllForum'})
+    .then(res => {
+      this.changeListData(res)
+      this.selectList()
+      setTimeout(() => wx.stopPullDownRefresh(),300)
+    })
+  },
+  changeListData(res) {
+    res.map(e => e.forumTime = wx.$utils.transTimePassed(e.forumTime))
+    this.baseData = res
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -90,7 +119,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getList()
   },
 
   /**

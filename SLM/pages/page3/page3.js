@@ -7,7 +7,7 @@ Page({
   data: {
     school:[]
   },
-
+  fromForum:false,
   /**
    * 生命周期函数--监听页面加载
    */
@@ -15,7 +15,9 @@ Page({
     // this.setData({
     //   school :JSON.parse(wx.getStorageSync("Record"))
     // })
-    
+    if (!!options && options.from === "forum") {
+      this.fromForum = true
+    }
   },
 
   getData() {
@@ -47,14 +49,22 @@ Page({
     this.getData()
   },   
   viewBtn :function(e){
-    wx.setStorage({
-      data: JSON.stringify(e.currentTarget.dataset.item),
-      key: 'page4Items',
-    })
-    wx.navigateTo({
-    url:'../page4/page4'
-    })
-    },  
+    if (this.fromForum) {
+      const pages = getCurrentPages();
+      const beforePage = pages[pages.length - 2]; // 前一个页面
+      beforePage.changeMenu(e.currentTarget.dataset.item); //调用上个页面的方法
+      //  2.写入成功后 关闭当前页面
+      wx.navigateBack()
+    } else {
+      wx.setStorage({
+        data: JSON.stringify(e.currentTarget.dataset.item),
+        key: 'page4Items',
+      })
+      wx.navigateTo({
+      url:'../page4/page4'
+      })
+    }
+  },  
   delete(id){
     console.log('page3',id)
     if(!!id) {
