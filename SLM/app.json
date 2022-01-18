@@ -37,16 +37,16 @@
                 "selectedIconPath": "./assets/img/faxian-copy-l.png"
             },
             {
-                "pagePath": "pages/forum/forum",
-                "text": "论坛",
-                "iconPath": "./assets/img/icon_luntan.png",
-                "selectedIconPath": "./assets/img/icon_luntan_l.png"
-            },
-            {
                 "pagePath": "pages/index/index",
                 "text": "抽取",
                 "iconPath": "./assets/img/icon_choujiang.png",
                 "selectedIconPath": "./assets/img/icon_choujiang_l.png"
+            },
+            {
+                "pagePath": "pages/forum/forum",
+                "text": "论坛",
+                "iconPath": "./assets/img/icon_luntan.png",
+                "selectedIconPath": "./assets/img/icon_luntan_l.png"
             },
             {
                 "pagePath": "pages/me/me",

@@ -53,7 +53,7 @@
 }
 .btn-box view:first-child,.btn-box view:nth-child(2){
   color: #fff;
-  background-color: #5186f1;
+  background-color: #4ba6f0;
   margin-right: 30rpx;
 }
 .btn-box view:last-child{
@@ -63,7 +63,7 @@
 
 
 .new view{
-  background: #5186f1!important;
+  background: #4ba6f0!important;
   width: 500rpx!important;
   margin: 0!important;
 }
@@ -75,7 +75,7 @@
 }
 .canteenHeader{
   display: flex;
-  background: #5197f3;
+  background: #4ba6f0;
   padding: 10rpx;
   border-radius: 8rpx;
   margin-bottom: 10rpx;

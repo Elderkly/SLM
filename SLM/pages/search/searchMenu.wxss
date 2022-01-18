@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3d88f9;
+  background-color: #4ba6f0;
   height: 120rpx;
 
 }

@@ -101,7 +101,7 @@
     flex: 1;
 }
 .input view{
-    background: #0095ff;
+    background: #4ba6f0;
     padding: 15rpx 20rpx;
     color: #fff;
     border-radius: 8rpx;

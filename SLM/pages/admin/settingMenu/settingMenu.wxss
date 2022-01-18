@@ -37,7 +37,7 @@
   position: fixed;
   bottom: 50rpx;
   left: 5%;
-  background: #5186f1;
+  background: #4ba6f0;
   height: 100rpx;
   border-radius: 50rpx;
   text-align: center;

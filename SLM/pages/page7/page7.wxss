@@ -59,7 +59,7 @@
   width: 90%;
   height: 100rpx;
   border-radius: 50rpx;
-  background-color: #5186f1;
+  background-color: #4ba6f0;
   position: absolute;
   bottom: 100rpx;
   left: 5%;
