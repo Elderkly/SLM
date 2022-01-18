@@ -21,7 +21,7 @@
             <view class="forumItemDetails">
                 <view class="forumItemTitle">
                     <view class="{{item.forumType === '日常' ? 'daily' : item.forumType === '分享' ? 'share' : 'question'}}">{{item.forumType}}</view>
-                    <image src="../../assets/img/guanbi-b.png" wx:if="{{userInfo.id === item.userID || userInfo.isAdmin === 1}}" bindtap="delete" data-forumId="{{item.id}}"></image>
+                    <image src="../../assets/img/guanbi-b.png" wx:if="{{userInfo.id === item.userID || userInfo.isAdmin === '1'}}" bindtap="delete" data-forumId="{{item.id}}"></image>
                 </view>
                 <view class="forumItemContent">{{item.content}}</view>
                 <view class="menu" wx:if="{{!!item.menuID}}">
@@ -32,7 +32,7 @@
                         <view class="menulocation">位置：{{item.canteenName}}--{{item.schoolName}}</view>
                     </view>
                 </view>
-                <view class="forumItemData" bindtap="jump" data-forumId="{{item.id}}">
+                <view class="forumItemData" bindtap="jump" data-item="{{item}}">
                     <text class="forumDate">{{item.forumTime}}</text>
                     <text class="username">--{{item.userName}}</text>
                     <image src="../../assets/img/icon_pinglun.png"></image>

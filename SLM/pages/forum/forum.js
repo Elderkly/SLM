@@ -25,7 +25,8 @@ Page({
     },() => this.selectList())
   },
   jump(e) {
-    console.log(e.currentTarget.dataset.forumid)
+    console.log(e.currentTarget.dataset.item)
+    wx.$storage.setStorage('forumItem', JSON.stringify(e.currentTarget.dataset.item))
     wx.navigateTo({
       url: "/pages/forum/forumItem/forumItem",
     })

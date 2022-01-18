@@ -23,8 +23,7 @@ function transTimePassed(postTime) {
   }
   const now = (new Date().getTime()) / 1000;
   const seconds = now - (Number(postTime)/1000);
-  console.log(seconds,postTime)
-  if (seconds <= 0) {
+  if (seconds <= 30) {
     return '刚刚发布';
   }
   if (seconds < 60) {

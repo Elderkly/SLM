@@ -1,15 +1,16 @@
 <!--pages/forum/forum.wxml-->
 <view>
-    <view class="forumContent">
+    <view bindtap="bindblur">
+        <view class="forumContent">
         <view class="forumItem">
             <image src="{{forum.userImg}}"></image>
             <view class="forumItemDetails">
                 <view class="forumItemTitle">
-                    <view>{{forum.forumType}}</view>
-                    <image src="../../../assets/img/guanbi-b.png"></image>
+                    <view class="{{forum.forumType === '日常' ? 'daily' : forum.forumType === '分享' ? 'share' : 'question'}}">{{forum.forumType}}</view>
+                    <image src="../../../assets/img/guanbi-b.png" wx:if="{{userInfo.id === forum.userID || userInfo.isAdmin === '1'}}" catchtap="delete" data-forumId="{{forum.id}}"></image>
                 </view>
                 <view class="forumItemContent">{{forum.content}}</view>
-                <view class="menu">
+                <view class="menu" wx:if="{{!!forum.canteenID}}">
                     <image src="{{forum.img}}"></image>
                     <view class="menuDetails">
                         <view class="menuName">{{forum.menuName}}</view>
@@ -17,7 +18,7 @@
                         <view class="menulocation">位置：{{forum.canteenName}}--{{forum.schoolName}}</view>
                     </view>
                 </view>
-                <view class="forumItemData" bindtap="jump" data-forumId="{{item.id}}">
+                <view class="forumItemData" data-forumId="{{item.id}}">
                     <text class="forumDate">{{forum.forumTime}}</text>
                     <text class="username">--{{forum.userName}}</text>
                     <!-- <image src="../../../assets/img/icon_pinglun.png"></image> -->
@@ -25,59 +26,45 @@
             </view>
         </view>
     </view>
-    <view class="commitBox">
-        <view class="forumItem commitItem">
-            <image src="{{forum.userImg}}"></image>
+    <view class="commitBox" wx:if="{{commit.length > 0}}">
+        <view class="forumItem commitItem"
+            wx:for="{{commit}}"
+            wx:for-index="index" 
+            wx:for-item="item" 
+            wx:key="index"
+            data-items="{{item}}"
+        >
+            <image src="{{item.userImg}}"></image>
             <view class="forumItemDetails">
                 <view class="forumItemTitle">
-                    <view>{{forum.userName}}</view>
-                    <image src="../../../assets/img/guanbi-b.png"></image>
+                    <view>{{item.userName}}</view>
+                    <image src="../../../assets/img/guanbi-b.png" wx:if="{{userInfo.id === item.userID || userInfo.isAdmin === 1}}" catchtap="deleteCommit" data-commitID="{{item.id}}"></image>
                 </view>
-                <view class="forumItemContent">{{forum.content}}</view>
-                <view class="secondCommitBox">
-                    <view class="secondCommitItem">
-                        <text class="secondCommitUserName">{{forum.userName}}</text>
-                        <text class="secondCommitUserContent">内容内容内容内容内容内容奥ID王洪安徽我ID阿温度毫无</text>
-                    </view>
-                    <view class="secondCommitItem">
-                        <text class="secondCommitUserName">{{1==1?"回复":""}}{{forum.userName}}</text>
-                        <text class="secondCommitUserContent">内容内容内容内容内容内容奥ID王洪安徽我ID阿温度毫无</text>
-                    </view>
-                </view>
-                <view class="forumItemData" bindtap="jump" data-forumId="{{item.id}}">
-                    <text class="forumDate">{{forum.forumTime}}</text>
-                    <image src="../../../assets/img/icon_pinglun.png"></image>
-                </view>
-            </view>
-        </view>
-        <view class="forumItem commitItem">
-            <image src="{{forum.userImg}}"></image>
-            <view class="forumItemDetails">
-                <view class="forumItemTitle">
-                    <view>{{forum.userName}}</view>
-                    <image src="../../../assets/img/guanbi-b.png"></image>
-                </view>
-                <view class="forumItemContent">{{forum.content}}</view>
-                <view class="secondCommitBox">
-                    <view class="secondCommitItem">
-                        <text class="secondCommitUserName">{{forum.userName}}</text>
-                        <text class="secondCommitUserContent">内容内容内容内容内容内容奥ID王洪安徽我ID阿温度毫无</text>
-                    </view>
-                    <view class="secondCommitItem">
-                        <text class="secondCommitUserName">{{1==1?"回复":""}}{{forum.userName}}</text>
-                        <text class="secondCommitUserContent">内容内容内容内容内容内容奥ID王洪安徽我ID阿温度毫无</text>
+                <view class="forumItemContent">{{item.content}}</view>
+                <view class="secondCommitBox" wx:if="{{item.commit.length > 0}}">
+                    <view class="secondCommitItem"
+                        wx:for="{{item.commit}}"
+                        wx:for-index="sIndex" 
+                        wx:for-item="sItem" 
+                        wx:key="sIndex"
+                    >
+                        <text class="secondCommitUserName">{{sItem.userName}}：</text>
+                        <text class="secondCommitUserContent">{{sItem.content}}</text>
                     </view>
                 </view>
-                <view class="forumItemData" bindtap="jump" data-forumId="{{item.id}}">
-                    <text class="forumDate">{{forum.forumTime}}</text>
+                <view class="forumItemData" catchtap="secondCommit" data-item="{{item}}">
+                    <text class="forumDate">{{item.commitTime}}</text>
                     <image src="../../../assets/img/icon_pinglun.png"></image>
                 </view>
             </view>
         </view>
     </view>
-    <view class="input">
-        <image src="{{forum.userImg}}"></image>
-        <input type="text" placeholder="请输入评论内容"/>
-        <view>发送</view>
+    <view class="noneCommit" wx:else>暂无评论，快来抢沙发吧~</view>
+    </view>
+    <view class="input" wx:if="{{!!userInfo.id}}">
+        <image src="{{userInfo.userImg}}"></image>
+        <text wx:if="{{submitCommit.fatherID !== submitCommit.baseID}}">{{submitCommit.userName}}回复{{submitCommit.fatherUserName}}:</text>
+        <input type="text" placeholder="请输入评论内容" bindinput="changeContent" focus="{{focus}}" value="{{submitCommit.content}}"/>
+        <view bindtap="submit">发送</view>
     </view>
 </view>

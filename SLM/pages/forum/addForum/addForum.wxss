@@ -1,12 +1,13 @@
 /* SLM/pages/forum/addForum/addForum.wxss */
 .forumBox{
     background: #fff;
-    padding: 30rpx 20rpx 50rpx;
+    padding: 0 20rpx 50rpx;
+    overflow: hidden;
 }
 .title{
     font-size: 34rpx;
     font-weight: bold;
-    margin-top: 15rpx;
+    margin-top: 55rpx;
 }
 .forumType{
     margin-top: 15rpx;
