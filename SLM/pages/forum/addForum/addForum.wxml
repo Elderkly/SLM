@@ -1,0 +1,26 @@
+<!--SLM/pages/forum/addForum/addForum.wxml-->
+<view>
+    <view class="forumBox">
+        <view class="title">帖子类型</view>
+        <view class="forumType">
+            <view wx:for="{{['日常','分享','询问']}}" wx:key="index" wx:for-item="type" class="{{item.forumType === type ? '' : 'disable'}}" data-type="{{type}}" bindtap="changeType">{{type}}</view>
+        </view>
+        <view class="title">帖子内容</view>
+        <textarea type="text" placeholder="请输入帖子内容" class="forumContent" bindinput="changeContent"/>
+        <view class="title">帖子记录</view>
+        <view class="selectMenu" wx:if="{{!item.menuID}}" bindtap="selectMenu">
+            <view>+</view>
+            <text>添加记录</text>
+        </view>
+        <view class="menu" wx:else>
+            <image src="{{item.img}}"></image>
+            <view class="menuDetails" bindtap="deleteMenu">
+                <view class="menuName">{{item.menuName}}</view>
+                <view class="menuKal">热量：{{item.calorie}}</view>
+                <view class="menulocation">位置：{{item.canteenName}}--{{item.schoolName}}</view>
+                <image src="../../../assets/img/guanbi-b.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="submit" bindtap="submit">发布</view>
+</view>
