@@ -1,0 +1,25 @@
+<!--pages/admin/settingMenu/settingMenu.wxml-->
+<view class="menu-box">
+  <view 
+    class="menu-item" 
+    wx:for="{{list}}"
+    wx:for-index="index" 
+    wx:for-item="item" 
+    wx:key="index"
+    data-items="{{item}}"
+    bindtap="jump"
+    >
+      <image src="{{item.img}}"></image>
+      <view class="menu-details">
+        <view class="menu-name">
+          菜品名称：{{item.menuName}}
+        </view>
+        <view class="menu-calorie">
+          卡路里：{{item.calorie}}
+        </view>
+        <view class="menu-menuType">
+          用餐时段：{{item.menuType}}
+        </view>  
+      </view>
+  </view>
+</view>

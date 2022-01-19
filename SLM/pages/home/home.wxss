@@ -1,1 +1,107 @@
 /* pages/home/home.wxss */
+@import "../forum/forum.wxss";
+.home_header{
+    height: 100rpx;
+    background: linear-gradient(#4ba6f0, #59bdff,#82cdff);
+    position: relative;
+    overflow: hidden;
+}
+.home_header image{
+    width: 35rpx;
+    height: 35rpx;
+    position: absolute;
+    top: 25rpx;
+    left: 100rpx;
+}
+.home_header input{
+    width: 80%;
+    height: 70rpx;
+    border-radius: 35rpx;
+    background: #fff;
+    margin: auto;
+    font-size: 28rpx;
+    font-weight: 300;
+    text-indent: 80rpx;
+    margin-top: 10rpx;
+}
+
+.home_menu{
+
+}
+.commitHeader,.menuHeader{
+    height: 100rpx;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0px 27rpx;
+}
+.commitHeader .title,.menuHeader .title{
+    flex: 1;
+    color: #4a4a4a;
+}
+.commitHeader .button,.menuHeader .button{
+   font-size: 24rpx;
+   background: #4ba6f0;
+   padding: 10rpx 25rpx;
+   border-radius: 30rpx;
+   color: #fff;
+}
+.menuBox{
+    margin-top: 30rpx;
+    padding: 0 27rpx;
+    display: flex;
+    flex-wrap: wrap;
+}
+.menuItem{
+    width: 340rpx;
+    background: #fff;
+    border-radius: 30rpx;
+    box-shadow: 0rpx 5rpx 12rpx #eee;
+    margin-right: 16rpx;
+    margin-bottom: 20rpx;
+    position: relative;
+}
+.menuBox>view:nth-child(even){
+    margin-right: 0rpx;
+}
+.menuItem image{
+    width: 340rpx;
+    height: 300rpx;
+    border-top-left-radius: 30rpx;
+    border-top-right-radius: 30rpx;
+}
+.menuName {
+    display: flex;
+    box-sizing: border-box;
+    padding: 10rpx;
+}
+.menuName text{
+    flex: 1;
+    font-size: 28rpx;
+}
+.menuName view{
+    font-size: 22rpx;
+    border: 1rpx solid #4ba6f0;
+    border-radius: 20rpx;
+    padding: 0 12rpx;
+    color: #4ba6f0;
+}
+.menuSchool{
+    color: #999;
+    font-size: 23rpx;
+    padding: 10rpx;
+    padding-top: 0;
+}
+.fixedView{
+    position: absolute;
+    top: 0;
+    right: -1rpx;
+    background: #f9e03d;
+    font-size: 22rpx;
+    padding: 5rpx 20rpx;
+    border-top-right-radius: 30rpx;
+    border-bottom-left-radius: 30rpx;
+}
+.commit{
+    margin-top: 30rpx;
+}

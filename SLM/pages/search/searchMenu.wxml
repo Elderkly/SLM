@@ -1,9 +1,13 @@
 <!--pages/page5/page5.wxml-->
-<view class="search">
+<!-- <view class="search">
   <view class="search_1">
     <image src="../../assets/img/sousuo-b.png"></image>
     <input type="text" placeholder="请输入菜品名称"  bindinput="bindKeyInput"/>
   </view>
+</view> -->
+<view class="home_header" bindtap="toSearch">
+      <image src="../../assets/img/sousuo-b.png"></image>
+      <input type="text" placeholder="搜索菜品关键字" bindinput="bindKeyInput"/>
 </view>
 <view class="body">
   <view 

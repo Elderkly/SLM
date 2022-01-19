@@ -9,6 +9,7 @@ Page({
   },
   switch:true,
   index:null,
+  from:null,
 
   bindKeyInput:function(e){
     if (!!e.detail.value && this.switch) {
@@ -29,8 +30,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.index)
+    console.log(options)
     this.index = options.index
+    this.from = options.from
   },
 
   /**
@@ -41,11 +43,18 @@ Page({
   },
 
   tap: function(e) {
-    var pages = getCurrentPages();
-    var beforePage = pages[pages.length - 2]; // 前一个页面
-    beforePage.changeData(this.index,this.data.selectJson[e.currentTarget.dataset.index]); //调用上个页面的方法
-    //  2.写入成功后 关闭当前页面
-    wx.navigateBack()
+    if (this.from === 'home') {
+      wx.$storage.setStorage('HomeMenuItem', JSON.stringify(this.data.selectJson[e.currentTarget.dataset.index]))
+      wx.navigateTo({
+        url: '/pages/mark/mark',
+      })
+    } else {
+      var pages = getCurrentPages();
+      var beforePage = pages[pages.length - 2]; // 前一个页面
+      beforePage.changeData(this.index,this.data.selectJson[e.currentTarget.dataset.index]); //调用上个页面的方法
+      //  2.写入成功后 关闭当前页面
+      wx.navigateBack()
+    }
   },
   /**
    * 生命周期函数--监听页面显示

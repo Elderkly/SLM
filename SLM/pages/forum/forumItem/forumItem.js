@@ -102,7 +102,7 @@ Page({
   getCommit() {
     const {forum} = this.data
     wx.$fetch({
-      url:`/commit/selectCommitByBaseID/${forum.id}`,
+      url:`/commit/selectCommitByBaseID/${forum.id}/forum`,
       loading:true
     }).then(res => {
       this.reStorage(res)
@@ -146,7 +146,6 @@ Page({
       submitCommit.content = e.detail.value
       this.setData({submitCommit})
     }
-   
   },
 
   submit() {

@@ -76,3 +76,29 @@
 .body>view:last-child{
   border:none
 }
+
+.home_header{
+  height: 100rpx;
+  background: linear-gradient(#4ba6f0, #59bdff,#82cdff);
+  position: relative;
+  overflow: hidden;
+}
+.home_header image{
+  width: 35rpx;
+  height: 35rpx;
+  position: absolute;
+  top: 25rpx;
+  left: 100rpx;
+}
+.home_header input{
+  width: 80%;
+  height: 70rpx;
+  border-radius: 35rpx;
+  background: #fff;
+  margin: auto;
+  font-size: 28rpx;
+  font-weight: 300;
+  margin-top: 10rpx;
+  padding-left: 80rpx;
+  box-sizing: border-box;
+}

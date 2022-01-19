@@ -1,2 +1,65 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view>
+    <view class="home_header" bindtap="toSearch">
+        <image src="../../assets/img/sousuo-b.png"></image>
+        <input type="text" placeholder="搜索菜品关键字" disabled="true"/>
+    </view>
+    <view class="home_menu">
+        <view class="menuHeader">
+            <view class="title">最新菜品</view>
+            <view class="button" bindtap="toAllMenu">更多</view>
+        </view>
+        <view class="menuBox">
+            <view class="menuItem" 
+                bindtap="jump"
+                wx:for="{{menuList}}"
+                wx:for-index="index" 
+                wx:for-item="item" 
+                wx:key="index"
+                data-menu="{{item}}"
+            >
+                <image src="{{item.img}}"/>
+                <view class="menuName">
+                    <text>{{item.menuName}}</text>
+                    <view>{{item.menuType}}</view>
+                </view>
+                <view class="menuSchool">广东科技学院松山湖校区</view>
+                <view class="fixedView">菜品</view>
+            </view>
+        </view>
+    </view>
+    <view class="commit">
+        <view class="commitHeader">
+            <view class="title">最新帖子</view>
+        </view>
+        <view class="forumContent">
+            <view class="forumItem" 
+                wx:for="{{forumList}}"
+                wx:for-index="index" 
+                wx:for-item="item" 
+                wx:key="index"
+                >
+                    <image src="{{item.userImg}}"></image>
+                    <view class="forumItemDetails">
+                        <view class="forumItemTitle">
+                            <view class="{{item.forumType === '日常' ? 'daily' : item.forumType === '分享' ? 'share' : 'question'}}">{{item.forumType}}</view>
+                        </view>
+                        <view class="forumItemContent">{{item.content}}</view>
+                        <view class="menu" wx:if="{{!!item.menuID}}">
+                            <image src="{{item.img}}"></image>
+                            <view class="menuDetails">
+                                <view class="menuName">{{item.menuName}}</view>
+                                <view class="menuKal">热量：{{item.calorie}}</view>
+                                <view class="menulocation">位置：{{item.canteenName}}--{{item.schoolName}}</view>
+                            </view>
+                        </view>
+                        <view class="forumItemData" bindtap="jumpToForum" data-item="{{item}}">
+                            <text class="forumDate">{{item.forumTime}}</text>
+                            <text class="username">--{{item.userName}}</text>
+                            <image src="../../assets/img/icon_pinglun.png"></image>
+                        </view>
+                    </view>
+            </view>
+        </view>
+    </view>
+</view>

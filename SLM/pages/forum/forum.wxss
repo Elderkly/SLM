@@ -95,6 +95,7 @@
     text-align: center;
     line-height: 110rpx;
     font-weight: 300;
+    box-shadow: 0rpx 8rpx 21rpx #999;
 }
 .daily{
     background: #4ba6f0;
