@@ -31,6 +31,14 @@ Page({
       url: "/pages/forum/forumItem/forumItem",
     })
   },
+
+  toMenuDetails(e) {
+    wx.$storage.setStorage('HomeMenuItem', JSON.stringify(e.currentTarget.dataset.item))
+    wx.navigateTo({
+      url: '/pages/mark/mark',
+    })
+  },
+
   delete(e) {
     console.log(e.currentTarget.dataset.forumid)
     wx.$fetch({url:`/forum/deleteForum/${e.currentTarget.dataset.forumid}`,loading:true})
@@ -74,7 +82,22 @@ Page({
     const UserInfo = wx.$storage.getStorage('UserInfo')
     console.log('getUserID（）获取用户信息',UserInfo)
     this.setData({userInfo:UserInfo})
-    this.getList()
+    this.getConfig()
+  },
+
+  getConfig() {
+    wx.$fetch({url:"/config/getConfig",loading:false})
+        .then(res => {
+            if (res !== null) {
+              if (!!res.showForumModel) {
+                this.getList()
+              } else {
+                this.setData({list: []})
+                this.baseData = []
+              }
+              this.setData({config: res})
+            }
+        })
   },
 
   selectList() {

@@ -1,0 +1,12 @@
+<!--pages/admin/settingConfig/settingConfig.wxml-->
+<view class="box">
+    <view class="configItem" 
+        wx:for="{{['首页显示菜品','首页显示评论','评论模块开关']}}"
+        wx:for-index="index"
+        wx:for-item="item"
+        wx:key="index"
+    >
+        <view>{{item}}</view>
+        <switch checked="{{!!_checked[index] ? 'true' : ''}}" bindchange="change" color="#4ba6f0" data-index="{{index}}"></switch>
+    </view>
+</view>

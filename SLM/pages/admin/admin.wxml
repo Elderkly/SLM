@@ -8,8 +8,8 @@
     <image src="../../assets/img/shaixuan-b.png" alt=""/>
     <text>学校管理</text>
   </view>
-  <view class="admin_btn">
-    <image src="../../assets/img/icon_shezhi-b.png" alt=""/>
+  <view class="admin_btn" bindtap="jump" data-url="/pages/admin/settingConfig/settingConfig">
+    <image src="../../assets/img/icon_shezhi-b.png" />
     <text>配置管理</text>
   </view>
 </view>

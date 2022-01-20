@@ -4,7 +4,7 @@
         <image src="../../assets/img/sousuo-b.png"></image>
         <input type="text" placeholder="搜索菜品关键字" disabled="true"/>
     </view>
-    <view class="home_menu">
+    <view class="home_menu" wx:if="{{!!config.showHomeMenu}}">
         <view class="menuHeader">
             <view class="title">最新菜品</view>
             <view class="button" bindtap="toAllMenu">更多</view>
@@ -28,7 +28,7 @@
             </view>
         </view>
     </view>
-    <view class="commit">
+    <view class="commit" wx:if="{{!!config.showHomeForum}}">
         <view class="commitHeader">
             <view class="title">最新帖子</view>
         </view>
@@ -61,5 +61,8 @@
                     </view>
             </view>
         </view>
+    </view>
+    <view class="noneData" wx:if="{{!config.showHomeForum && !config.showHomeMenu}}">
+        暂无数据
     </view>
 </view>

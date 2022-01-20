@@ -14,7 +14,7 @@
             "list": [
                 {
                     "name": "",
-                    "pathName": "pages/mark/mark",
+                    "pathName": "pages/admin/settingConfig/settingConfig",
                     "query": "",
                     "scene": null,
                     "launchMode": "default"

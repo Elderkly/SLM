@@ -21,7 +21,8 @@
         "pages/forum/forumItem/forumItem",
         "pages/forum/addForum/addForum",
         "pages/mark/mark",
-        "pages/allMenu/allMenu"
+        "pages/allMenu/allMenu",
+        "pages/admin/settingConfig/settingConfig"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",

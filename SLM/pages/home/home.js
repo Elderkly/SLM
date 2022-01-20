@@ -6,15 +6,19 @@ Page({
    */
   data: {
     menuList:[],
-    forumList:[]
+    forumList:[],
+    config:{
+      "showForumModel": 0,
+      "showHomeForum": 0,
+      "showHomeMenu": 0
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getMenu()
-    this.getForum()
+
   },
 
   toSearch() {
@@ -65,9 +69,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getConfig()
   },
 
+  getConfig() {
+    wx.$fetch({url:"/config/getConfig",loading:false})
+        .then(res => {
+            if (res !== null) {
+              if (!!res.showHomeForum) {
+                this.getForum()
+              } 
+              if (!!res.showHomeMenu) {
+                this.getMenu()
+              }
+              this.setData({config: res})
+            }
+        })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

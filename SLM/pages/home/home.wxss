@@ -105,3 +105,9 @@
 .commit{
     margin-top: 30rpx;
 }
+.noneData{
+    margin-top: 100rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #999;
+}

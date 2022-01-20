@@ -50,7 +50,13 @@ Page({
     this.setData({forum,userInfo:UserInfo,submitCommit})
     this.getCommit()
   },
-
+  toMenuDetails(e) {
+    wx.$storage.setStorage('HomeMenuItem', JSON.stringify(e.currentTarget.dataset.item))
+    wx.navigateTo({
+      url: '/pages/mark/mark',
+    })
+  },
+  
   deleteCommit(e) {
     wx.$fetch({url:`/commit/deleteCommit/${e.currentTarget.dataset.commitid}`,loading: true})
     .then(res => {

@@ -24,7 +24,7 @@
                     <image src="../../assets/img/guanbi-b.png" wx:if="{{userInfo.id === item.userID || userInfo.isAdmin === '1'}}" bindtap="delete" data-forumId="{{item.id}}"></image>
                 </view>
                 <view class="forumItemContent">{{item.content}}</view>
-                <view class="menu" wx:if="{{!!item.menuID}}">
+                <view class="menu" wx:if="{{!!item.menuID}}" catchtap="toMenuDetails" data-item="{{item}}">
                     <image src="{{item.img}}"></image>
                     <view class="menuDetails">
                         <view class="menuName">{{item.menuName}}</view>

@@ -10,7 +10,7 @@
                     <image src="../../../assets/img/guanbi-b.png" wx:if="{{userInfo.id === forum.userID || userInfo.isAdmin === '1'}}" catchtap="delete" data-forumId="{{forum.id}}"></image>
                 </view>
                 <view class="forumItemContent">{{forum.content}}</view>
-                <view class="menu" wx:if="{{!!forum.canteenID}}">
+                <view class="menu" wx:if="{{!!forum.canteenID}}" catchtap="toMenuDetails" data-item="{{forum}}">
                     <image src="{{forum.img}}"></image>
                     <view class="menuDetails">
                         <view class="menuName">{{forum.menuName}}</view>
