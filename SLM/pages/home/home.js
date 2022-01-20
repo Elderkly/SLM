@@ -11,8 +11,10 @@ Page({
       "showForumModel": 0,
       "showHomeForum": 0,
       "showHomeMenu": 0
-    }
+    },
   },
+
+  loading: true,
 
   /**
    * 生命周期函数--监听页面加载
@@ -27,8 +29,9 @@ Page({
     })
   },
   getMenu() {
-    wx.$fetch({url:'/menu/homeMenu',loading:true}).then(res => {
+    wx.$fetch({url:'/menu/homeMenu',loading:this.loading}).then(res => {
       console.log(res)
+      this.loading = false
       this.setData({menuList:res})
     })
   },

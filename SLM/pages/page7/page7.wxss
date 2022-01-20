@@ -13,7 +13,7 @@
 }
 .title{
   /* flex: 1; */
-  font-size: 38rpx;
+  font-size: 32rpx;
 }
 .inputBox{
   flex: 1;

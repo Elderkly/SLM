@@ -18,13 +18,13 @@
   height: 150rpx;
 }
 .admin_btn image{
-  width: 70rpx;
-  height: 70rpx;
+  width: 50rpx;
+  height: 50rpx;
   margin-left: 10rpx;
 }
 .admin_btn text{
   flex: 1;
   display: block;
-  margin-left: 30rpx;
-  font-size: 38rpx;
+  margin-left: 20rpx;
+  font-size: 32rpx;
 }

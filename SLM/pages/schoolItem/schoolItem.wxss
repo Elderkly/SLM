@@ -31,6 +31,9 @@
   font-size: 30rpx;
   display: flex
 }
+.menu-details view input {
+  flex: 1;
+}
 .menu-details view:first-child input{
   flex:1;
   border-bottom: 1rpx solid #eee;

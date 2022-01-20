@@ -29,7 +29,7 @@
 }
 .menu-details view{
   margin-bottom: 15rpx;
-  font-size: 30rpx;
+  font-size: 28rpx;
 }
 .menu-details view:first-child{
   font-weight: bold;
@@ -44,6 +44,6 @@
   border-radius: 50rpx;
   text-align: center;
   line-height: 100rpx;
-  font-size: 40rpx;
+  font-size: 32rpx;
   color: #fff;
 }

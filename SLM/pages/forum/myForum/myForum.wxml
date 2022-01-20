@@ -1,0 +1,35 @@
+<!--pages/forum/myForum/myForum.wxml-->
+<view>
+    <view class="commit">
+        <view class="forumContent">
+            <view class="forumItem" 
+                wx:for="{{forumList}}"
+                wx:for-index="index" 
+                wx:for-item="item" 
+                wx:key="index"
+                >
+                    <image src="{{item.userImg}}" mode="aspectFill"></image>
+                    <view class="forumItemDetails">
+                        <view class="forumItemTitle">
+                            <view class="{{item.forumType === '日常' ? 'daily' : item.forumType === '分享' ? 'share' : 'question'}}">{{item.forumType}}</view>
+                            <image src="../../../assets/img/guanbi-b.png" wx:if="{{userInfo.id === item.userID || userInfo.isAdmin === '1'}}" bindtap="delete" data-forumId="{{item.id}}"></image>
+                        </view>
+                        <view class="forumItemContent">{{item.content}}</view>
+                        <view class="menu" wx:if="{{!!item.menuID}}">
+                            <image src="{{item.img}}" mode="aspectFill"></image>
+                            <view class="menuDetails">
+                                <view class="menuName">{{item.menuName}}</view>
+                                <view class="menuKal">热量：{{item.calorie}}</view>
+                                <view class="menulocation">位置：{{item.canteenName}}--{{item.schoolName}}</view>
+                            </view>
+                        </view>
+                        <view class="forumItemData" bindtap="jumpToForum" data-item="{{item}}">
+                            <text class="forumDate">{{item.forumTime}}</text>
+                            <text class="username">--{{item.userName}}</text>
+                            <image src="../../../assets/img/icon_pinglun.png"></image>
+                        </view>
+                    </view>
+            </view>
+        </view>
+    </view>
+</view>

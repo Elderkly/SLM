@@ -19,9 +19,9 @@
      <view class="btn"><text>我的热量</text></view>
     <image src="../../assets/img/jiantou-b.png" class="jiantou"></image>
   </view>
-  <view class="middle3" bindtap="jump" data-url="/pages/page7/page7">
+  <view class="middle3" bindtap="jump" data-url="/pages/forum/myForum/myForum">
     <image src="../../assets/img/jihua-b.png"></image>
-     <view class="btn"><text>我的计划</text></view>
+     <view class="btn"><text>我的帖子</text></view>
     <image src="../../assets/img/jiantou-b.png" class="jiantou"></image>
   </view>
   <view class="middle4" bindtap="jump" data-url="/pages/admin/admin">

@@ -23,17 +23,17 @@
   flex-direction: column;
 }
 .text_1 {
-  font-size: 36rpx;
-  font-weight: bold;
+  font-size: 32rpx;
   margin-bottom: 10rpx;
 }
 .view_1>view>view{
   display: flex;
+  color: #7d7d7d;
+  font-size: 25rpx;
 }
 .text_2 {
   flex: 1;
-  font-size: 28rpx;
 }
 .text_3 {
-  font-size: 28rpx;
+
 }

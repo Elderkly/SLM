@@ -22,7 +22,8 @@
         "pages/forum/addForum/addForum",
         "pages/mark/mark",
         "pages/allMenu/allMenu",
-        "pages/admin/settingConfig/settingConfig"
+        "pages/admin/settingConfig/settingConfig",
+        "pages/forum/myForum/myForum"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",
@@ -59,7 +60,8 @@
             }
         ],
         "color": "#ccc",
-        "selectedColor": "#3d88f9"
+        "selectedColor": "#3d88f9",
+        "borderStyle":"white"
     },
     "style": "v2",
     "sitemapLocation": "sitemap55.json"

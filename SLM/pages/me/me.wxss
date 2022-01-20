@@ -62,12 +62,12 @@
   margin-left: 15rpx;
 }
 .middle>view image:first-child{
-  width: 80rpx;
-  height: 80rpx;
+  width: 50rpx;
+  height: 50rpx;
   margin-left: 35rpx;
 }
 .middle text{
-  font-size: 35rpx;
+  font-size: 32rpx;
 }
 .login{
   width: 660rpx!important;
@@ -83,8 +83,8 @@
   color: #000;
 }
 .jiantou{
-  width: 40rpx;
-  height: 40rpx;
+  width: 35rpx;
+  height: 35rpx;
   position: absolute;
   right: 40rpx;
   transform: rotate(-90deg);

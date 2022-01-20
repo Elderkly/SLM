@@ -57,6 +57,7 @@ Page({
   },
 
   async login() {
+    if (!!this.data.userID) return
     const id = await wx.$utils.getUserID()
     console.log('getUserID',id)
     this.setData({
@@ -187,9 +188,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.login()
-    this.initStorage()
-    this.initType()
+   
     // this.changeMenu()
     // this.initFixedView()
   },
@@ -454,11 +453,11 @@ Page({
    */
   onShow: function () {
     if (this.hidden) {
-      // this.initStorage()
-      // this.initType()
-      // this.changeMenu()
       this.hidden = false
     }
+    this.login()
+    this.initStorage()
+    this.initType()
   },
 
   /**

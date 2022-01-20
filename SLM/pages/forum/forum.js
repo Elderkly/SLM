@@ -7,7 +7,8 @@ Page({
   data: {
     list:[{}],
     userInfo:{},
-    selectIndex:0
+    selectIndex:0,
+    hiddenForum:false
   },
 
   baseData:[],
@@ -92,7 +93,7 @@ Page({
               if (!!res.showForumModel) {
                 this.getList()
               } else {
-                this.setData({list: []})
+                this.setData({list: [],hiddenForum:true})
                 this.baseData = []
               }
               this.setData({config: res})

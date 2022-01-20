@@ -9,7 +9,7 @@
     data-items="{{item}}"
     bindtap="jump"
     >
-      <image src="{{item.img}}"></image>
+      <image src="{{item.img}}" mode="aspectFill"></image>
       <view class="menu-details">
         <view class="menu-name">
           菜品名称：{{item.menuName}}

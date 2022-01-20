@@ -21,7 +21,8 @@
     margin: auto;
     font-size: 28rpx;
     font-weight: 300;
-    text-indent: 80rpx;
+    box-sizing: border-box;
+    padding-left: 80rpx;
     margin-top: 10rpx;
 }
 

@@ -15,7 +15,7 @@
 .menuDetails image{
     margin-right: 40rpx;
     height: 280rpx;
-    width: 260rpx;
+    width: 280rpx;
     border-radius: 12rpx;
 }
 .menuDetails > view{

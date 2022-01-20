@@ -25,7 +25,7 @@
                 </view>
                 <view class="forumItemContent">{{item.content}}</view>
                 <view class="menu" wx:if="{{!!item.menuID}}" catchtap="toMenuDetails" data-item="{{item}}">
-                    <image src="{{item.img}}"></image>
+                    <image src="{{item.img}}" mode="aspectFill"></image>
                     <view class="menuDetails">
                         <view class="menuName">{{item.menuName}}</view>
                         <view class="menuKal">热量：{{item.calorie}}</view>
@@ -41,5 +41,5 @@
         </view>
     </view>
     <view class="nonList" wx:else>暂无数据</view>
-    <view class="addforum" bindtap="addForum" wx:if="{{!!userInfo.id}}">+</view>
+    <view class="addforum" bindtap="addForum" wx:if="{{!!userInfo.id && !hiddenForum}}">+</view>
 </view>

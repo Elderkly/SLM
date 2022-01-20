@@ -11,7 +11,7 @@
                 </view>
                 <view class="forumItemContent">{{forum.content}}</view>
                 <view class="menu" wx:if="{{!!forum.canteenID}}" catchtap="toMenuDetails" data-item="{{forum}}">
-                    <image src="{{forum.img}}"></image>
+                    <image src="{{forum.img}}" mode="aspectFill"></image>
                     <view class="menuDetails">
                         <view class="menuName">{{forum.menuName}}</view>
                         <view class="menuKal">热量：{{forum.calorie}}</view>
@@ -63,8 +63,8 @@
     </view>
     <view class="input" wx:if="{{!!userInfo.id}}">
         <image src="{{userInfo.userImg}}"></image>
-        <text wx:if="{{submitCommit.fatherID !== submitCommit.baseID}}">{{submitCommit.userName}}回复{{submitCommit.fatherUserName}}:</text>
-        <input type="text" placeholder="请输入评论内容" bindinput="changeContent" focus="{{focus}}" value="{{submitCommit.content}}"/>
+        <text wx:if="{{submitCommit.fatherID !== submitCommit.baseID}}">回复{{submitCommit.fatherUserName}}:</text>
+        <input type="text" placeholder="请输入评论内容" bindinput="changeContent" focus="{{focus}}" value="{{submitCommit.content}}" cursor-spacing="30"/>
         <view bindtap="submit">发送</view>
     </view>
 </view>

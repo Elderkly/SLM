@@ -3,7 +3,7 @@
   <view class='top'>
     <text class='top_t'>食物信息</text>
     <image
-    src="{{school.img}}">
+    src="{{school.img}}" mode="aspectFill">
   </image>  
       <view class='text'>
         <view class='a'><text class='aText'>食物名称:  {{school.menuName}}</text>  </view>

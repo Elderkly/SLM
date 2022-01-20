@@ -2,7 +2,7 @@
 <wxs module="filter" src="../page3/page3.wxs"></wxs>
 <view bindtap="viewBtn" data-item="{{school}}" class='view_1' wx:for="{{school}}" wx:for-index="index" wx:for-item="school" wx:key="index">
   <image
-    src="{{school.img}}">
+    src="{{school.img}}" mode="aspectFill">
   </image>
   <view>
     <text class='text_1'>{{school.menuName}}</text>

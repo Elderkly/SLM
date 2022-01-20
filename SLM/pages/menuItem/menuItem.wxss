@@ -20,6 +20,7 @@
   height: 250rpx;
   margin-right: 15rpx;
   background-color: #eee;
+  border-radius: 12rpx;
 }
 .menu-details{
   flex: 1;
@@ -28,7 +29,7 @@
 }
 .menu-details view{
   margin-bottom: 15rpx;
-  font-size: 34rpx;
+  font-size: 28rpx;
   display: flex
 }
 .menu-details view input{

@@ -14,7 +14,7 @@
             "list": [
                 {
                     "name": "",
-                    "pathName": "pages/admin/settingConfig/settingConfig",
+                    "pathName": "pages/search/searchMenu",
                     "query": "",
                     "scene": null,
                     "launchMode": "default"

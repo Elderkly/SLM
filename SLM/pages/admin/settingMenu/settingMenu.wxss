@@ -29,8 +29,8 @@
   flex-direction: column;
 }
 .menu-details view{
-  margin-bottom: 5rpx;
-  font-size: 32rpx;
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
 }
 .addBtn{
   width: 90%;
@@ -42,6 +42,6 @@
   border-radius: 50rpx;
   text-align: center;
   line-height: 100rpx;
-  font-size: 40rpx;
+  font-size: 32rpx;
   color: #fff;
 }

@@ -25,13 +25,14 @@
 .forumItemTitle view{
     /* background: #6c9bf6; */
     color: #fff;
-    padding: 7rpx 30rpx;
+    padding: 5rpx 20rpx;
     border-radius: 8rpx;
+    font-size: 26rpx;
 }
 .forumItemTitle image{
     position: absolute;
-    width: 50rpx;
-    height: 50rpx;
+    width: 35rpx;
+    height: 35rpx;
     right: 0;
 }
 .forumItemContent{
@@ -49,8 +50,8 @@
 }
 .forumItemData image{
     position: absolute;
-    width: 40rpx;
-    height: 40rpx;
+    width: 35rpx;
+    height: 35rpx;
     right: 0;
 }
 .forumDate{
@@ -87,9 +88,10 @@
     background: #fff;
     display: flex;
     align-items: center;
-    padding: 30rpx;
+    padding: 0 30rpx;
     box-sizing: border-box;
     box-shadow: 0 10rpx 15rpx;
+    height: 150rpx;
 }
 .input image{
     width: 70rpx;

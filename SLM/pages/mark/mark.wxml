@@ -4,7 +4,7 @@
         <view class="menuBox">
             <view class="menuHeader">菜品信息</view>
             <view class="menuDetails">
-                <image src="{{item.img}}"></image>
+                <image src="{{item.img}}" mode="aspectFill"></image>
                 <view class="menuData">
                     <view>菜品名称：<text>{{item.menuName}}</text></view>
                     <view>菜品热量：<text>{{item.calorie}}</text></view>
@@ -74,8 +74,8 @@
     </view>
     <view class="input" wx:if="{{!!userInfo.id}}">
         <image src="{{userInfo.userImg}}"></image>
-        <text wx:if="{{submitCommit.fatherID !== submitCommit.baseID}}">{{submitCommit.userName}}回复{{submitCommit.fatherUserName}}:</text>
-        <input type="text" placeholder="请输入评论内容" bindinput="changeContent" focus="{{focus}}" value="{{submitCommit.content}}"/>
+        <text wx:if="{{submitCommit.fatherID !== submitCommit.baseID}}">回复{{submitCommit.fatherUserName}}:</text>
+        <input type="text" placeholder="请输入评论内容" bindinput="changeContent" focus="{{focus}}" value="{{submitCommit.content}}" cursor-spacing="50"/>
         <view bindtap="submit">发送</view>
     </view>
 </view>

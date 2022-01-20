@@ -18,7 +18,7 @@
                 wx:key="index"
                 data-menu="{{item}}"
             >
-                <image src="{{item.img}}"/>
+                <image src="{{item.img}}" mode="aspectFill"/>
                 <view class="menuName">
                     <text>{{item.menuName}}</text>
                     <view>{{item.menuType}}</view>

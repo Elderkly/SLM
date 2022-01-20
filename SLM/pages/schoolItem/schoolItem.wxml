@@ -34,7 +34,7 @@
         wx:key="mindex"
         data-items="{{mitem}}"
         >
-          <image src="{{mitem.img}}"></image>
+          <image src="{{mitem.img}}" mode="aspectFill"></image>
           <view class="menu-details2">
             <view class="menu-name">
               菜品名称：<input type="text" value="{{mitem.menuName}}" disabled="true"/>
