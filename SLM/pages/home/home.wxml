@@ -23,7 +23,7 @@
                     <text>{{item.menuName}}</text>
                     <view>{{item.menuType}}</view>
                 </view>
-                <view class="menuSchool">广东科技学院松山湖校区</view>
+                <view class="menuSchool">{{item.menuTime}}</view>
                 <view class="fixedView">菜品</view>
             </view>
         </view>
@@ -63,6 +63,6 @@
         </view>
     </view>
     <view class="noneData" wx:if="{{!config.showHomeForum && !config.showHomeMenu}}">
-        暂无数据
+        {{text}}
     </view>
 </view>

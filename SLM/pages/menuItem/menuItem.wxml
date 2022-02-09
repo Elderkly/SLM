@@ -3,7 +3,7 @@
   <view 
     class="menu-item" 
     >
-      <image src="{{item.img}}" mode="aspectFill"></image>
+      <image src="{{!!item.img ? item.img : 'https://sslm.cloud/defaultMenu.jpg'}}" mode="aspectFill"></image>
       <view class="menu-details">
         <view class="menu-name">
           菜品名称：<input type="text" value="{{item.menuName}}" bindinput="bindKeyInput"/>

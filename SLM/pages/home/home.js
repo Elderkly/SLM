@@ -12,6 +12,7 @@ Page({
       "showHomeForum": 0,
       "showHomeMenu": 0
     },
+    text:'正在加载'
   },
 
   loading: true,
@@ -32,6 +33,7 @@ Page({
     wx.$fetch({url:'/menu/homeMenu',loading:this.loading}).then(res => {
       console.log(res)
       this.loading = false
+      res.map(e => e.menuTime = wx.$utils.transTimePassed(e.menuTime))
       this.setData({menuList:res})
     })
   },
@@ -39,6 +41,7 @@ Page({
   getForum() {
     wx.$fetch({url:'/forum/homeForum'})
     .then(res => {
+      res.map(e => e.forumTime = wx.$utils.transTimePassed(e.forumTime))
       this.setData({forumList:res})
     })
   },
@@ -85,7 +88,7 @@ Page({
               if (!!res.showHomeMenu) {
                 this.getMenu()
               }
-              this.setData({config: res})
+              this.setData({config: res,text:!res.showHomeForum && !res.showHomeMenu ? '暂无数据' : '正在加载'})
             }
         })
   },

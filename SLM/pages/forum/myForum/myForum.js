@@ -43,6 +43,7 @@ Page({
     getForum() {
         wx.$fetch({url:`/forum/selectForumByUserID/${this.data.userInfo.id}`})
         .then(res => {
+          res.map(e => e.forumTime = wx.$utils.transTimePassed(e.forumTime))
           this.setData({forumList:res})
         })
       },

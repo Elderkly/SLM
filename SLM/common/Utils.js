@@ -50,17 +50,20 @@ function transTimePassed(postTime) {
     const seconds = jsTimestamp.getSeconds();
     const currentYear = new Date().getFullYear();
     if (currentYear === year) {
-      return `${jsTimestamp.getMonth() + 1}月${jsTimestamp.getDate()}日${hour}时${minute}分${seconds}秒`;
+      // return `${jsTimestamp.getMonth() + 1}月${jsTimestamp.getDate()}日${hour}时${minute}分${seconds}秒`;
+      return `${jsTimestamp.getMonth() + 1}月${jsTimestamp.getDate()}日${hour}时${minute}分`;
     }
 
-    return `${year}年${jsTimestamp.getMonth() + 1}月${jsTimestamp.getDate()}日${hour}时${minute}分${seconds}秒`;
+    // return `${year}年${jsTimestamp.getMonth() + 1}月${jsTimestamp.getDate()}日${hour}时${minute}分${seconds}秒`;
+    return `${year}年${jsTimestamp.getMonth() + 1}月${jsTimestamp.getDate()}日${hour}时${minute}分`;
   }
   return '';
 }
 
 function login() {
     return new Promise((resolve,reject) => {
-        wx.getUserInfo({
+        wx.getUserProfile({
+          desc: '用于完善会员资料',
           success: function(user) {
             console.log(user.userInfo)
             wx.login({

@@ -39,8 +39,11 @@ Page({
         const UserInfo = wx.$storage.getStorage('UserInfo')
         const HomeData = wx.$storage.getStorage('HomeMenuItem')
         let {submitCommit} = this.data
-        submitCommit = {...submitCommit,userID:UserInfo.id,userName:UserInfo.userName,userImg:UserInfo.userImg,baseID:HomeData.menuID,fatherID:HomeData.menuID}
-        this.setData({userInfo:UserInfo,submitCommit,item:HomeData})
+        if (!!UserInfo) {
+            submitCommit = {...submitCommit,userID:UserInfo.id,userName:UserInfo.userName,userImg:UserInfo.userImg,baseID:HomeData.menuID,fatherID:HomeData.menuID}
+            this.setData({userInfo:UserInfo,submitCommit})
+        }
+        this.setData({item:HomeData})
         this.getCommit()
         this.initStart()
     },

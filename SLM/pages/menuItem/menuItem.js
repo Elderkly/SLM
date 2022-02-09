@@ -69,6 +69,8 @@ Page({
   },
 
   add() {
+    this.data.item.menuTime = String(new Date().getTime())
+    this.data.item.img = "https://sslm.cloud/defaultMenu.jpg"
     wx.$fetch({
       url:'/menu/addMenu',
       method:"POST",
@@ -98,6 +100,8 @@ Page({
   },
 
   change() {
+    this.data.item.menuTime = String(new Date().getTime())
+    this.data.item.img = !this.data.item.img ? "https://sslm.cloud/defaultMenu.jpg" : this.data.item.img
     wx.$fetch({
       url:'/menu/updateMenu',
       method:"POST",
